@@ -1,0 +1,231 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TopPIC",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "topdiff::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topdiff-Debug-a11cbaf02699fb1b0d1e.json",
+					"name" : "topdiff",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topdiff_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topdiff_autogen-Debug-84f60a732f79b697e538.json",
+					"name" : "topdiff_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topdiff_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topdiff_gui-Debug-76d1319f504788ed2d79.json",
+					"name" : "topdiff_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topdiff_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topdiff_gui_autogen-Debug-afaa634690da299345bb.json",
+					"name" : "topdiff_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topfd::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topfd-Debug-87f686887d69df7ff37a.json",
+					"name" : "topfd",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topfd_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topfd_autogen-Debug-647cd8437571659b7fc3.json",
+					"name" : "topfd_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topfd_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topfd_gui-Debug-e727a370920b7d947e2d.json",
+					"name" : "topfd_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topfd_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topfd_gui_autogen-Debug-5a3c5f94d6214b0c3baf.json",
+					"name" : "topfd_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topindex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topindex-Debug-30666aedf2567e6c937d.json",
+					"name" : "topindex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topindex_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topindex_autogen-Debug-2308fe7c152964ab39e0.json",
+					"name" : "topindex_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topindex_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topindex_gui-Debug-c0989ef695aeaffc4a32.json",
+					"name" : "topindex_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topindex_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topindex_gui_autogen-Debug-dde91baf2009852b0ede.json",
+					"name" : "topindex_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topmg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topmg-Debug-ba9c7302e1351100d4a9.json",
+					"name" : "topmg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topmg_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topmg_autogen-Debug-49ac039f428170328fae.json",
+					"name" : "topmg_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topmg_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topmg_gui-Debug-a18fe60be2c5661e7407.json",
+					"name" : "topmg_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "topmg_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-topmg_gui_autogen-Debug-88234ea4a3c60a81a594.json",
+					"name" : "topmg_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "toppic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-toppic-Debug-13ad9cbfebc2615ea022.json",
+					"name" : "toppic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "toppic_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-toppic_autogen-Debug-01b6b269be1d58b19a3b.json",
+					"name" : "toppic_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "toppic_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-toppic_gui-Debug-113ebc87467458ca2ebf.json",
+					"name" : "toppic_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "toppic_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-toppic_gui_autogen-Debug-736e91240ed8a27ab23e.json",
+					"name" : "toppic_gui_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug",
+		"source" : "D:/Phd_project/LCS_filter/toppic-suite-main"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

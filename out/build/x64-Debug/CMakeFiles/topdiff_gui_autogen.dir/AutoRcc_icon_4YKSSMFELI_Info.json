@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug/topdiff_gui_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main",
+	"CMAKE_SOURCE_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main",
+	"INCLUDE_DIR" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug/topdiff_gui_autogen/include",
+	"INPUTS" : [ "D:/Phd_project/LCS_filter/toppic-suite-main/src/gui/toppic.ico" ],
+	"LOCK_FILE" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug/CMakeFiles/topdiff_gui_autogen.dir/AutoRcc_icon_4YKSSMFELI_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "icon" ],
+	"OUTPUT_CHECKSUM" : "4YKSSMFELI",
+	"OUTPUT_NAME" : "qrc_icon.cpp",
+	"RCC_EXECUTABLE" : "D:/Anaconda3/Library/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/Phd_project/LCS_filter/toppic-suite-main/out/build/x64-Debug/CMakeFiles/topdiff_gui_autogen.dir/AutoRcc_icon_4YKSSMFELI_Used.txt",
+	"SOURCE" : "D:/Phd_project/LCS_filter/toppic-suite-main/src/gui/topdiff/icon.qrc",
+	"VERBOSITY" : 0
+}
