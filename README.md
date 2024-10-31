@@ -86,6 +86,11 @@ according to the building, the command line could also be:
 bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 
 ### Change Settings for sTopMG
+The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.
+There are various searching schemes which can be decided by users.
+
+
+
 
 
 
