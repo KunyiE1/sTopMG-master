@@ -89,6 +89,17 @@ bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC
 The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.
 There are various searching schemes which can be decided by users.
 
+In src/filter/mng/LCS_filter_mng.hpp, line 117 to line 122:\
+bool use_fixed_tol = true: means use the fixed error tolerance = 0.1 Dalton for each peak, change it to false if peak-dependent error tolerance(ppm) is what you need.\
+bool mass_filter_use_fixed_tole = true: means the mass-filter use the fixed error tolerance = 0.1 Dalton for the precursor mass, change it to false if precursor mass multipliess Xppm is the tolerance you need.\
+bool use_adjusted_precmass = false: means we don't generated adjusted spectra by adding 1 Dalton and -1 Dalton to the precursor mass when searching.\
+bool whole_protein_only = false: means we consider the truncation of the protein sequence when searching the query spectrum.\
+
+
+In src/console/topmg_process.cpp, line 470:\
+bool disulfide_bond = false: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.
+
+
 
 
 
