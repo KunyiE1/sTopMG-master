@@ -1,6 +1,6 @@
-# TopPIC: TOP-Down Mass Spectrometry Based Proteoform Identification and Characterization
-
-For manual and reference, please visit https://www.toppic.org/software/toppic/
+# sTopMG
+sTopMG is implemented by changing original topmg which is included in TopPIC. 
+For further information and detailed manual, please visit https://www.toppic.org/software/toppic/
 
 ## System requirements
 
@@ -70,17 +70,19 @@ make -j$(nproc)
 make install
 ```
 
-### Language setting
+## Simple Manual for Getting Started with sTopMG
+### Run sTopMG
+After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
+You can simply run sTopMG with command line:
+topmg -i MODFICATION_FILE SEQUENCE_DATABASE_FILE SPECTRUM_FILE >RESULTS_FILE
 
-On some Linux distributions, you might meet the problem "Could not loading a transcoding service".
-To fix this, please add following lines into your `.bashrc`.
+take searching 100 simulated spectra data as an example, run the command line:
+topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 
-```sh
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-```
+according to the building, the command line could also be:
+bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 
-### Windows:
+### Change Settings for sTopMG
 
-[MSYS2](http://www.msys2.org/) is used for Windows building. Please follow the instructions from [here](doc/windows_build.md).
+
+
