@@ -464,7 +464,8 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 
 
       //get mods info
-      int t = 5;
+      int t = std::stoi(arguments["varPtmNumber"]);
+      // int t = 5;
       double convert_ratio = 274.335215;
       bool disulfide_bond = false;
 
@@ -596,7 +597,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                           K_value,
                                           "topmg_multi_filter",
                                           var_mod_file_name, 1);
-
+	lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
         lcs_filter_mng_ptr->resultpath = sp_directory;
         lcs_filter_mng_ptr->MODS_VEC = mod_ori_res_identical;
         std::cout<<"mods: "<<mod_ori_res_identical[0] << mod_ori_res_identical[1] << std::endl;
@@ -633,6 +634,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                                    K_value,
                                                    diag_filter_thread_num,
                                                    var_mod_file_name, 1);
+	  lcs_alignment_mng_ptr->forAntibody_ = disulfide_bond;
           lcs_alignment_mng_ptr->MODS_VEC = mod_ori_res_identical;
           lcs_alignment_mng_ptr->MODS_MASS_VEC = mods_mm_list;
           lcs_alignment_mng_ptr->resultpath = sp_directory;
