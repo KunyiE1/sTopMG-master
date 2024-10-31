@@ -74,12 +74,15 @@ make install
 ### Run sTopMG
 After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
 You can simply run sTopMG with command line:
+
 topmg -i MODFICATION_FILE SEQUENCE_DATABASE_FILE SPECTRUM_FILE >RESULTS_FILE
 
 take searching 100 simulated spectra data as an example, run the command line:
+
 topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 
 according to the building, the command line could also be:
+
 bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 
 ### Change Settings for sTopMG
