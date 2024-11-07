@@ -71,8 +71,19 @@ make install
 ```
 
 ## Simple Manual for Getting Started with sTopMG
-### Run sTopMG
+### Run sTopMG on a toy dataset
 After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
+You can simply run sTopMG on a toy dataset with command line:
+```sh
+topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/Test.fasta MSDataset/Test/test_ms2.msalign > MSDataset/Test/results
+```
+according to the building, the command line could also be:
+```sh
+bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/Test.fasta MSDataset/Test/test_ms2.msalign > MSDataset/Test/results
+```
+The toy dataset contains 2 spectra and the toy database contains 60 protein sequences. The expected running time is about 3 seconds.
+
+### Run sTopMG on Simulated Dataset
 You can simply run sTopMG with command line:
 ```sh
 topmg -i MODFICATION_FILE SEQUENCE_DATABASE_FILE SPECTRUM_FILE >RESULTS_FILE
@@ -98,6 +109,8 @@ In **src/filter/mng/LCS_filter_mng.hpp**, line 118 to line 122:\
 
 In **src/console/topmg_process.cpp**, line 470:\
 **bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.
+
+In **
 
 
 
