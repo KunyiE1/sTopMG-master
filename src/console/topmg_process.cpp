@@ -465,7 +465,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 
       //get mods info
       int t = std::stoi(arguments["varPtmNumber"]);
-      // int t = 5;
+//      int t = 5;
       double convert_ratio = 274.335215;
       bool disulfide_bond = false;
 
@@ -597,7 +597,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                           K_value,
                                           "topmg_multi_filter",
                                           var_mod_file_name, 1);
-	lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
+        lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
         lcs_filter_mng_ptr->resultpath = sp_directory;
         lcs_filter_mng_ptr->MODS_VEC = mod_ori_res_identical;
         std::cout<<"mods: "<<mod_ori_res_identical[0] << mod_ori_res_identical[1] << std::endl;
@@ -634,7 +634,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                                    K_value,
                                                    diag_filter_thread_num,
                                                    var_mod_file_name, 1);
-	  lcs_alignment_mng_ptr->forAntibody_ = disulfide_bond;
+          lcs_alignment_mng_ptr->forAntibody_ = disulfide_bond;
           lcs_alignment_mng_ptr->MODS_VEC = mod_ori_res_identical;
           lcs_alignment_mng_ptr->MODS_MASS_VEC = mods_mm_list;
           lcs_alignment_mng_ptr->resultpath = sp_directory;
@@ -831,7 +831,8 @@ int TopMGProcess(std::map<std::string, std::string> & arguments) {
   if (TopMG_identify(arguments) != 0) {
     return 1;
   }
-  return TopMG_post(arguments);
+  return 0;
+//  return TopMG_post(arguments);
 }
 
 int TopMGProgress_multi_file(std::map<std::string, std::string> & arguments,
@@ -874,60 +875,60 @@ int TopMGProgress_multi_file(std::map<std::string, std::string> & arguments,
     }
   }
 
-  if (arguments["combinedOutputName"] != "") {
-    std::string para_str = "";
-    std::cout << "Merging files started." << std::endl;
-    std::cout << "Merging msalign files started." << std::endl;
-    MsAlignFracMerge::mergeFiles(spec_file_lst, full_combined_name + "_ms2.msalign", para_str);
-    std::cout << "Merging msalign files finished." << std::endl;
-    if (arguments["geneHTMLFolder"] == "true"){
-      std::cout << "Merging json files started." << std::endl;
-      DeconvJsonMergePtr json_merger 
-          = std::make_shared<DeconvJsonMerge>(spec_file_lst, full_combined_name);
-      json_merger->process();
-      json_merger = nullptr;
-      std::cout << "Merging json files finished." << std::endl;
-    }
-	if (arguments["useFeatureFile"] == "true") {//only when feature files are being used
-      std::cout << "Merging feature files started." << std::endl;
-      feature_merge::process(spec_file_lst, full_combined_name, para_str);
-      std::cout << "Merging feature files finished." << std::endl;
-    }
-    // merge TOP files
-    std::cout << "Merging identification files started." << std::endl;
-    std::vector<std::string> prsm_file_lst(spec_file_lst.size());
-    for (size_t i = 0; i < spec_file_lst.size(); i++) {
-      prsm_file_lst[i] = file_util::basename(spec_file_lst[i]) + ".topmg_prsm"; 
-    }
-    int N = 1000000;
-    prsm_util::mergePrsmFiles(prsm_file_lst, N , full_combined_name + "_ms2.topmg_prsm");
-    std::cout << "Merging identification files finished." << std::endl;
-    std::cout << "Merging files - finished." << std::endl;
-
-    std::string sp_file_name = full_combined_name + "_ms2.msalign";
-    arguments["spectrumFileName"] = sp_file_name;
-    arguments["startTime"] = combined_start_time;
-    TopMG_post(arguments);
-  }
-
-  bool keep_temp_files = (arguments["keepTempFiles"] == "true");
-  std::cout << "Deleting temporary files - started." << std::endl;
-  std::string ori_db_file_name = arguments["oriDatabaseFileName"];
-
-  for (size_t k = 0; k < spec_file_lst.size(); k++) {
-    std::string sp_file_name = spec_file_lst[k];
-    cleanTopmgDir(ori_db_file_name, sp_file_name, keep_temp_files);
-  }
-
-  if (arguments["combinedOutputName"] != "") {
-    std::string sp_file_name = full_combined_name + "_ms2.msalign";
-    cleanTopmgDir(ori_db_file_name, sp_file_name, keep_temp_files);
-  }
-  std::cout << "Deleting temporary files - finished." << std::endl; 
-
-  base_data::release();
-
-  std::cout << "TopMG finished." << std::endl << std::flush;
+//  if (arguments["combinedOutputName"] != "") {
+//    std::string para_str = "";
+//    std::cout << "Merging files started." << std::endl;
+//    std::cout << "Merging msalign files started." << std::endl;
+//    MsAlignFracMerge::mergeFiles(spec_file_lst, full_combined_name + "_ms2.msalign", para_str);
+//    std::cout << "Merging msalign files finished." << std::endl;
+//    if (arguments["geneHTMLFolder"] == "true"){
+//      std::cout << "Merging json files started." << std::endl;
+//      DeconvJsonMergePtr json_merger
+//          = std::make_shared<DeconvJsonMerge>(spec_file_lst, full_combined_name);
+//      json_merger->process();
+//      json_merger = nullptr;
+//      std::cout << "Merging json files finished." << std::endl;
+//    }
+//	if (arguments["useFeatureFile"] == "true") {//only when feature files are being used
+//      std::cout << "Merging feature files started." << std::endl;
+//      feature_merge::process(spec_file_lst, full_combined_name, para_str);
+//      std::cout << "Merging feature files finished." << std::endl;
+//    }
+//    // merge TOP files
+//    std::cout << "Merging identification files started." << std::endl;
+//    std::vector<std::string> prsm_file_lst(spec_file_lst.size());
+//    for (size_t i = 0; i < spec_file_lst.size(); i++) {
+//      prsm_file_lst[i] = file_util::basename(spec_file_lst[i]) + ".topmg_prsm";
+//    }
+//    int N = 1000000;
+//    prsm_util::mergePrsmFiles(prsm_file_lst, N , full_combined_name + "_ms2.topmg_prsm");
+//    std::cout << "Merging identification files finished." << std::endl;
+//    std::cout << "Merging files - finished." << std::endl;
+//
+//    std::string sp_file_name = full_combined_name + "_ms2.msalign";
+//    arguments["spectrumFileName"] = sp_file_name;
+//    arguments["startTime"] = combined_start_time;
+//    TopMG_post(arguments);
+//  }
+//
+//  bool keep_temp_files = (arguments["keepTempFiles"] == "true");
+//  std::cout << "Deleting temporary files - started." << std::endl;
+//  std::string ori_db_file_name = arguments["oriDatabaseFileName"];
+//
+//  for (size_t k = 0; k < spec_file_lst.size(); k++) {
+//    std::string sp_file_name = spec_file_lst[k];
+//    cleanTopmgDir(ori_db_file_name, sp_file_name, keep_temp_files);
+//  }
+//
+//  if (arguments["combinedOutputName"] != "") {
+//    std::string sp_file_name = full_combined_name + "_ms2.msalign";
+//    cleanTopmgDir(ori_db_file_name, sp_file_name, keep_temp_files);
+//  }
+//  std::cout << "Deleting temporary files - finished." << std::endl;
+//
+//  base_data::release();
+//
+//  std::cout << "TopMG finished." << std::endl << std::flush;
   return 0; 
 }
 

@@ -1096,7 +1096,8 @@ static float getLossProb(float x, float max, float min){
                                   std::to_string(0) << std::endl;
                    }else{
                        outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + best_proteo->getSeqName() + "\t" +
-                                  std::to_string(best_start_pos) + "\t" + std::to_string(prm_spec_vec[i]->offset_) + "\t" +
+//                                  std::to_string(best_start_pos) + "\t" +
+                                  std::to_string(prm_spec_vec[i]->offset_) + "\t" +
                                   std::to_string(max_score) << std::endl;
                    }
                    outFile.close();

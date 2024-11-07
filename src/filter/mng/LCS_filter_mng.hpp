@@ -117,7 +117,7 @@ class LCSFilterMng {
     bool forAntibody_ = false;
     bool use_fixed_tol = true;
     bool whole_protein_only = false;
-    
+
     bool use_adjusted_precmass = false;
     bool mass_filter_use_fixed_tole = true;
 
@@ -135,7 +135,6 @@ class LCSFilterMng {
   int start_pos;
 
   bool use_MS6 = false;
-
   std::vector<int> prec_error_vec = {0, -1, 1};
 
 
