@@ -110,7 +110,8 @@ In **src/filter/mng/LCS_filter_mng.hpp**, line 118 to line 122:\
 In **src/console/topmg_process.cpp**, line 470:\
 **bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.
 
-In **
+In **src/concole/topmg_argument.cpp**, line 80:\
+**arguments["useLCSFiltering"] = "false"**: means we use mass-filter + sTopMG. Change it to "true" if you need to use Filtering 2 described in paper.
 
 
 
