@@ -85,8 +85,8 @@ bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/Te
 ```
 The toy dataset contains 2 spectra and the toy database contains 60 protein sequences. The expected running time is about 3 seconds. 
 
-There will be two ouput files:\ 
-LCSA_scoreboard: contains spectrum id, identified protein name, number of matches in the result alignment,\
+There will be two ouput files:\\ 
+LCSA_scoreboard: contains spectrum id, identified protein name, number of matches in the result alignment,\\
 LCSA_results: contains specific alignments construct by sTopMG
 
 ### Run sTopMG on Simulated Dataset
