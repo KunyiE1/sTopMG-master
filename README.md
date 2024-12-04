@@ -70,10 +70,12 @@ make -j$(nproc)
 make install
 ```
 
+The installation time is about 1 minutes. 
+
 ## Simple Manual for Getting Started with sTopMG
 ### Run sTopMG on a toy dataset
 After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
-You can simply run sTopMG on a toy dataset with command line:
+You can simply run sTopMG on a toy(demo) dataset with command line:
 ```sh
 topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/Test.fasta MSDataset/Test/test_ms2.msalign > MSDataset/Test/results
 ```
@@ -81,7 +83,11 @@ according to the building, the command line could also be:
 ```sh
 bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/Test.fasta MSDataset/Test/test_ms2.msalign > MSDataset/Test/results
 ```
-The toy dataset contains 2 spectra and the toy database contains 60 protein sequences. The expected running time is about 3 seconds.
+The toy dataset contains 2 spectra and the toy database contains 60 protein sequences. The expected running time is about 3 seconds. 
+
+There will be two ouput files:\ 
+LCSA_scoreboard: contains spectrum id, identified protein name, number of matches in the result alignment,\
+LCSA_results: contains specific alignments construct by sTopMG
 
 ### Run sTopMG on Simulated Dataset
 You can simply run sTopMG with command line:
