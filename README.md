@@ -87,7 +87,7 @@ The toy dataset contains 2 spectra and the toy database contains 60 protein sequ
 
 There will be two ouput files: \
 LCSA_scoreboard: contains spectrum id, identified protein name, number of matches in the result alignment, \
-LCSA_results: contains specific alignments construct by sTopMG
+LCSA_results: contains specific alignments constructed by sTopMG
 
 ### Run sTopMG on Simulated Dataset
 You can simply run sTopMG with command line:
