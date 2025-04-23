@@ -709,24 +709,10 @@ CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunyili/Desktop/sTopMG-master/src/gui/util/gui_message.cpp -o CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.s
 
-CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o: CMakeFiles/topindex_gui.dir/flags.make
-CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp
-CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o: CMakeFiles/topindex_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o -MF CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o.d -o CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp
-
-CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp > CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.i
-
-CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp -o CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.s
-
 CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o: CMakeFiles/topindex_gui.dir/flags.make
 CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o: topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp
 CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o: CMakeFiles/topindex_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o -MF CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o.d -o CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o -c /home/kunyili/Desktop/sTopMG-master/cmake-build-debug/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp
 
 CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.i: cmake_force
@@ -784,7 +770,6 @@ topindex_gui_OBJECTS = \
 "CMakeFiles/topindex_gui.dir/src/common/xml/xml_writer.cpp.o" \
 "CMakeFiles/topindex_gui.dir/src/gui/util/command.cpp.o" \
 "CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.o" \
-"CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o" \
 "CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o"
 
 # External object files for target topindex_gui
@@ -835,11 +820,10 @@ topindex_gui_EXTERNAL_OBJECTS =
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/src/common/xml/xml_writer.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/src/gui/util/command.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.o
-/home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/build.make
 /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui: CMakeFiles/topindex_gui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Linking CXX executable /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking CXX executable /home/kunyili/Desktop/sTopMG-master/bin/topindex_gui"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/topindex_gui.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

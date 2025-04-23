@@ -13,7 +13,7 @@
 //limitations under the License.
 
 #include <cmath>
-#include <iomanip>
+
 #include "common/util/logger.hpp"
 #include "common/base/mass_constant.hpp"
 #include "ms/spec/deconv_ms_util.hpp"
@@ -146,127 +146,5 @@ void CompPValueArray::process(SpectrumSetPtr spec_set_ptr, PrsmPtrVec &prsm_ptrs
     compMultiExpectedValues(spec_set_ptr->getMsSixPtrVec(), prsm_ptrs, ppo, false);
   }
 }
-
-
-
-
-// for stopmg
-    void CompPValueArray::process_stopmg(SpectrumSetPtr spec_set_ptr, std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
-                                  double ppo, bool is_separate) {
-        if (is_separate) {
-            for (unsigned i = 0; i < e_prsm_ptrs.size(); i++) {
-
-                compSTopMGExpectedValues(spec_set_ptr->getMsTwoPtrVec(), e_prsm_ptrs, ppo, false);
-            }
-        }
-        else {
-            compSTopMGExpectedValues(spec_set_ptr->getMsTwoPtrVec(), e_prsm_ptrs, ppo, false);
-        }
-    }
-
-    // set alignment
-    void CompPValueArray::compSTopMGExpectedValues(const PrmMsPtrVec &ms_two_ptr_vec,
-                                                  std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
-                                                  double ppo, bool strict) {
-        PrmPeakPtrVec2D prm_ptr_2d;
-        for (size_t i = 0; i < ms_two_ptr_vec.size(); i++) {
-            PrmPeakPtrVec prm_peak_ptrs = ms_two_ptr_vec[i]->getPeakPtrVec();
-            if (prm_peak_ptrs.size() > 0) {
-                prm_ptr_2d.push_back(prm_peak_ptrs);
-            }
-        }
-        double prob_prec_mass;
-        // use proteoform mass when the strict mode is used, otherwise, the precursor
-        // mass
-//        if (strict) {
-//            prob_prec_mass = prsm_ptrs[0]->getProteoformPtr()->getMass();
-//        }
-//        else {
-            prob_prec_mass = ms_two_ptr_vec[0]->getMsHeaderPtr()->getPrecMonoMass();
-//        }
-
-        PeakTolerancePtr tole_ptr = mng_ptr_->prsm_para_ptr_->getSpParaPtr()->getPeakTolerancePtr();
-        std::vector<double> prot_probs;
-        comp_prob_value_array::compProbArray_1(comp_prob_ptr_, prot_n_term_residue_ptrs_,
-                                             prm_ptr_2d, e_prsm_ptrs, strict,
-                                             prob_prec_mass, tole_ptr, prot_probs);
-
-
-        std::vector<double> pep_probs;
-        comp_prob_value_array::compProbArray_1(comp_prob_ptr_, pep_n_term_residue_ptrs_,
-                                             prm_ptr_2d, e_prsm_ptrs, strict, prob_prec_mass,
-                                             tole_ptr, pep_probs);
-
-        double search_mass = e_prsm_ptrs[0]->prot_res_mass_sum_;
-        int var_ptm_num = e_prsm_ptrs[0]->var_mods_num_;
-//        std::cout<<"varptmnum "<<var_ptm_num<<std::endl;
-        int unexpect_shift_num = 0;
-        double tolerance = ms_two_ptr_vec[0]->getMsHeaderPtr()->getPrecErrorTolerance(ppo);
-//        std::cout<<"tolerance "<<std::setprecision(5)<<tolerance<<std::endl;
-        for (size_t i = 0; i < e_prsm_ptrs.size(); i++) {
-            double prec_mass = ms_two_ptr_vec[0]->getMsHeaderPtr()->getPrecMonoMassMinusWater();
-            ProteoformTypePtr type_ptr = e_prsm_ptrs[i]->type_ptr;
-//            std::cout<<"pv "<<std::scientific << std::setprecision(5)<<pep_probs[i]<<std::endl;
-
-//            ProteoformPtr proteo_ptr = prsm_ptrs[i]->getProteoformPtr();
-//            int unexpect_shift_num = proteo_ptr->getAlterNum(AlterType::UNEXPECTED);
-//            ProteoformTypePtr type_ptr = proteo_ptr->getProteoformType();
-
-//            int var_ptm_num = proteo_ptr->getVarPtmNum();
-//            double search_mass = prec_mass;
-//            if (unexpect_shift_num == 0 && var_ptm_num == 0) {
-//                // in ZERO PTM searching, +/-1 Da was allowed.
-//                // We need to adjust the prec mass for candidate number computation
-//                // if there was 1 Da difference between original prec mass and adjusted
-//                // prec mass.
-//                if (std::abs(prsm_ptrs[i]->getOriPrecMass() - prsm_ptrs[i]->getAdjustedPrecMass()) > tolerance) {
-//                    if (prsm_ptrs[i]->getOriPrecMass() < prsm_ptrs[i]->getAdjustedPrecMass()) {
-//                        search_mass = prec_mass + mass_constant::getIsotopeMass();
-//                    }
-//                    else {
-//                        search_mass = prec_mass - mass_constant::getIsotopeMass();
-//                    }
-//                }
-//            }
-//            // when variable PTMs are allowed, use residue seq mass as precursor mass
-//            if (unexpect_shift_num == 0 && var_ptm_num > 0) {
-//                search_mass = proteo_ptr->getResSeqPtr()->getResMassSum();
-//            }
-//            std::cout<<"prec_ mass " << prec_mass << " search mass " << search_mass<<std::endl;
-//            LOG_DEBUG("prec_ mass " << prec_mass << " search mass " << search_mass);
-
-            double cand_num = test_num_ptr_->compCandNum(type_ptr, unexpect_shift_num, search_mass, tolerance);
-
-            if (cand_num == 0.0) {
-                LOG_ERROR("Zero candidate number!");
-                //cand_num = ExpectedValue::getMaxDouble();
-                cand_num = 1.0;
-            }
-//            std::cout<<"search mass: "<<search_mass<<std::endl;
-
-            // multiple a factor for variable PTMs
-            double var_ptm_factor = pow(mng_ptr_->var_ptm_type_num_ + 1, var_ptm_num);
-            LOG_DEBUG("candidate number " << cand_num << " var_ptm_type_num " << mng_ptr_->var_ptm_type_num_
-                                          << " var ptm num " << var_ptm_num << " factor " << var_ptm_factor);
-
-//            std::cout<<"candidate number " << cand_num << " var_ptm_type_num " << mng_ptr_->var_ptm_type_num_
-//                     << " var ptm num " << var_ptm_num << " factor " << var_ptm_factor<<std::endl;
-
-//            std::cout<<"type"<<type_ptr->getName()<<std::endl;
-            cand_num = cand_num * var_ptm_factor;
-
-            double adjust_factor = 1.0;
-            if (type_ptr == ProteoformType::COMPLETE || type_ptr == ProteoformType::PREFIX) {
-                ExpectedValuePtr ev_ptr = std::make_shared<ExpectedValue>(prot_probs[i], cand_num, adjust_factor);
-                e_prsm_ptrs[i]->setExpectedValuePtr(ev_ptr);
-            }
-            else {
-                ExpectedValuePtr ev_ptr = std::make_shared<ExpectedValue>(pep_probs[i], cand_num, adjust_factor);
-                e_prsm_ptrs[i]->setExpectedValuePtr(ev_ptr);
-//            std::cout<<"E-value"<< std::scientific << std::setprecision(3) << e_prsm_ptrs[i]->getEValue()<<std::endl;
-            }
-        }
-    }
-
 
 }  // namespace toppic

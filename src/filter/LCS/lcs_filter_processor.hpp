@@ -16,8 +16,6 @@
 #define TOPPIC_FILTER_LCS_LCS_FILTER_PROCESSOR_HPP_
 
 #include "filter/mng/LCS_filter_mng.hpp"
-#include "stat/tdgf/tdgf_mng.hpp"
-#include "stat/tdgf/evalue_processor.hpp"
 
 namespace toppic {
 

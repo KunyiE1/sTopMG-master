@@ -92,8 +92,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/topindex_gui.dir/src/gui/util/command.cpp.o.d"
   "CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.o"
   "CMakeFiles/topindex_gui.dir/src/gui/util/gui_message.cpp.o.d"
-  "CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o"
-  "CMakeFiles/topindex_gui.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o"
   "CMakeFiles/topindex_gui.dir/topindex_gui_autogen/PJRF6ORA5X/qrc_icon.cpp.o.d"
   "CMakeFiles/topindex_gui.dir/topindex_gui_autogen/mocs_compilation.cpp.o"

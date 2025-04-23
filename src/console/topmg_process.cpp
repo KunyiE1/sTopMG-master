@@ -83,11 +83,6 @@
 #include "console/topmg_argument.hpp"
 #include "console/topmg_process.hpp"
 
-//#include "stat/tdgf/tdgf_mng.hpp"
-#include "stat/tdgf/evalue_processor.hpp"
-
-
-
 namespace toppic {
 
 void copyTopMSV(std::map<std::string, std::string> &arguments) {
@@ -180,16 +175,6 @@ std::vector<ModPtr> getCombinations(std::vector<ModPtr> & mods_list, std::vector
     return temp;
 }
 
-    std::vector<std::string> getCombinations(std::vector<std::string> & mods_list, std::vector<int> indices){
-        std::vector<std::string> temp;
-        for(int i = 0; i < indices.size(); i++){
-            temp.push_back(mods_list[indices[i]]);
-        }
-        return temp;
-    }
-
-
-
 std::vector<std::vector<ModPtr>> combinations_with_replacement(std::vector<ModPtr> & mods_list, int r){
     std::vector<std::vector<ModPtr>> T;
     int n = mods_list.size();
@@ -215,36 +200,6 @@ std::vector<std::vector<ModPtr>> combinations_with_replacement(std::vector<ModPt
         T.push_back(getCombinations(mods_list, indices));
     }
 }
-
-    std::vector<std::vector<std::string>> combinations_with_replacement(std::vector<std::string> & mods_list, int r){
-        std::vector<std::vector<std::string>> T;
-        int n = mods_list.size();
-        if (! n&&r){
-            return T;
-        }
-        std::vector<int> indices(r);
-        T.push_back(getCombinations(mods_list, indices));
-        while(true){
-            int j;
-            for(j = r - 1; j >= 0; j--){
-                if(indices[j] != n - 1){
-                    break;
-                }
-            }
-            if(j < 0){
-                return T;
-            }
-            int ind = indices[j] + 1;
-            for(int k = j; k < indices.size(); k++){
-                indices[k] = ind;
-            }
-            T.push_back(getCombinations(mods_list, indices));
-        }
-    }
-
-
-
-
 
 std::unordered_map<int, std::vector<std::string>> GenerateMassTable(std::string file_name){
     std::ifstream in(file_name);
@@ -356,8 +311,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
     int shift_num = std::stoi(arguments["shiftNumber"]);
     LOG_DEBUG("num of unknown shfit " << shift_num);
     int filter_result_num = std::stoi(arguments["filteringResultNumber"]);
-      double max_shift_mass = std::stod(arguments["maxShiftMass"]);
-      double min_shift_mass =  - std::stod(arguments["maxShiftMass"]);
+    double max_shift_mass = std::stod(arguments["maxShiftMass"]);
 
     int thread_num = std::stoi(arguments["threadNumber"]);
     // Filter steps requires a large amount of memory. 
@@ -381,10 +335,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
     int db_block_size = std::stoi(arguments["databaseBlockSize"]);
     int max_frag_len = std::stoi(arguments["maxFragmentLength"]);
     int min_block_num = std::stoi(arguments["minBlockNum"]);
-    int masstolerance = std::stoi(arguments["massErrorTolerance"]);
-    float obj_fdr = std::stof(arguments["objFDR"]);
-//      float obj_fdr = 0.01;
-    std::cout<<"obj_fdr"<<obj_fdr<<std::endl;
     fasta_util::dbPreprocess(ori_db_file_name, db_file_name, decoy, 
                              db_block_size, max_frag_len, min_block_num);
     msalign_util::geneSpIndex(sp_file_name);
@@ -476,8 +426,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
               = std::make_shared<SimplePrsmStrMerge>(sp_file_name,
                                                      input_exts,
                                                      "topmg_graph_filter", 200 * input_exts.size());
-
-
       asf_filter_merger->process();
       asf_filter_merger = nullptr;
       std::cout << "Combining filtering results - finished." << std::endl;
@@ -520,144 +468,67 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 //      int t = 5;
       double convert_ratio = 274.335215;
       bool disulfide_bond = false;
-      bool isotope_shift = true;
 
       ModPtrVec N_mods_list = mod_util::readModTxt(var_mod_file_name)[3];
-//      int N_mods_num = N_mods_list.size();
-//      std::vector<int> N_mods_mm_list;
-//      std::vector<std::string> N_mods_name_list;
-//      std::vector<std::string> N_mod_ori_res_list;
-//      for(int i = 0; i < N_mods_list.size(); i++){
-//          N_mod_ori_res_list.push_back(N_mods_list[i]->getOriResiduePtr()->toString());
-//          N_mods_mm_list.push_back(round(N_mods_list[i]->getShift()*convert_ratio));
-//          N_mods_name_list.push_back(N_mods_list[i]->getModResiduePtr()->getPtmPtr()->getName());
-//      }
+      int N_mods_num = N_mods_list.size();
+      std::vector<int> N_mods_mm_list;
+      std::vector<std::string> N_mod_ori_res_list;
+      for(int i = 0; i < N_mods_list.size(); i++){
+          N_mod_ori_res_list.push_back(N_mods_list[i]->getOriResiduePtr()->toString());
+          N_mods_mm_list.push_back(round(N_mods_list[i]->getShift()*convert_ratio));
+      }
 
 
       ModPtrVec mods_list = mod_util::readModTxt(var_mod_file_name)[2];
-//      std::vector<std::string> mod_ori_res_list;
-//      std::vector<int> Vmods_mm_list;
-//      std::vector<std::string> Vmods_name_list;
-//      for(int i = 0; i < mods_list.size(); i++){
-//          mod_ori_res_list.push_back(mods_list[i]->getOriResiduePtr()->toString());
-//          Vmods_mm_list.push_back(round(mods_list[i]->getShift()*convert_ratio));
-//          Vmods_name_list.push_back(mods_list[i]->getModResiduePtr()->getPtmPtr()->getName());
-//      }
-
-
-      std::unordered_map<std::string, std::vector<std::string>> res_mod_dict;
-      for(int i = 0; i < N_mods_list.size(); i++){
-          std::string letter = N_mods_list[i]->getOriResiduePtr()->toString();
-          std::string mod_name = N_mods_list[i]->getModResiduePtr()->getPtmPtr()->getName();
-          res_mod_dict[letter].push_back(mod_name);
-      }
+      std::vector<std::string> mod_ori_res_list;
+      std::vector<int> Vmods_mm_list;
       for(int i = 0; i < mods_list.size(); i++){
-          std::string letter = mods_list[i]->getOriResiduePtr()->toString();
-          std::string mod_name = mods_list[i]->getModResiduePtr()->getPtmPtr()->getName();
-          res_mod_dict[letter].push_back(mod_name);
+          mod_ori_res_list.push_back(mods_list[i]->getOriResiduePtr()->toString());
+          Vmods_mm_list.push_back(round(mods_list[i]->getShift()*convert_ratio));
       }
 
-//      std::vector<int> mods_mm_list = N_mods_mm_list;
-//      std::vector<std::string> unique_mods_name_list;
-//      for(int i = 0; i < N_mods_name_list.size(); i++){
-//          unique_mods_name_list.push_back(N_mods_name_list[i]);
-//      }
-//      for(int i = 0; i < Vmods_name_list.size(); i ++){
-//          bool insert = true;
-//          for(int j = 0; j < unique_mods_name_list.size(); j++){
-//              if(Vmods_name_list[i] == unique_mods_name_list[j]){
-//                  insert = false;
-//                  break;
-//              }
-//          }
-//          if(insert) {
-//              unique_mods_name_list.push_back(Vmods_name_list[i]);
-//          }
-//      }
+      std::vector<int> mods_mm_list = N_mods_mm_list;
 
-      ModPtrVec unique_name_mods;
-      for(int i = 0; i < mods_list.size(); i ++){
+      std::vector<std::string> mod_ori_res_identical;
+      for(int i = 0; i < N_mod_ori_res_list.size(); i++){
+          mod_ori_res_identical.push_back(N_mod_ori_res_list[i]);
+      }
+
+      for(int i = 0; i < mod_ori_res_list.size(); i ++){
           bool insert = true;
-          for(int j = 0; j < unique_name_mods.size(); j++){
-              if(mods_list[i]->getModResiduePtr()->getPtmPtr()->getName() == unique_name_mods[j]->getModResiduePtr()->getPtmPtr()->getName()){
+          for(int j = 0; j < mod_ori_res_identical.size(); j++){
+              if(mod_ori_res_list[i] == mod_ori_res_identical[j]){
                   insert = false;
                   break;
               }
           }
           if(insert) {
-              unique_name_mods.push_back(mods_list[i]);
+              mod_ori_res_identical.push_back(mod_ori_res_list[i]);
+              mods_mm_list.push_back(Vmods_mm_list[i]);
           }
       }
-
-      ModPtrVec unique_name_Nmods;
-      for(int i = 0; i < N_mods_list.size(); i ++){
-          bool insert = true;
-          for(int j = 0; j < unique_name_Nmods.size(); j++){
-              if(N_mods_list[i]->getModResiduePtr()->getPtmPtr()->getName() == unique_name_Nmods[j]->getModResiduePtr()->getPtmPtr()->getName()){
-                  insert = false;
-                  break;
-              }
-          }
-          if(insert) {
-              unique_name_Nmods.push_back(N_mods_list[i]);
-          }
-      }
-      int N_mods_num = unique_name_Nmods.size();
-
-      std::vector<std::string> unique_mods_name_list;
-      for(int i = 0 ; i < unique_name_Nmods.size(); i++){
-          unique_mods_name_list.push_back(unique_name_Nmods[i]->getModResiduePtr()->getPtmPtr()->getName());
-      }
-      for(int i = 0 ; i < unique_name_mods.size(); i++){
-          unique_mods_name_list.push_back(unique_name_mods[i]->getModResiduePtr()->getPtmPtr()->getName());
-      }
-
-
-
-//      std::vector<std::string> mod_ori_res_identical;
-//      for(int i = 0; i < N_mod_ori_res_list.size(); i++){
-//          mod_ori_res_identical.push_back(N_mod_ori_res_list[i]);
-//      }
-//
-//      for(int i = 0; i < mod_ori_res_list.size(); i ++){
-//          bool insert = true;
-//          for(int j = 0; j < mod_ori_res_identical.size(); j++){
-//              if(mod_ori_res_list[i] == mod_ori_res_identical[j]){
-//                  insert = false;
-//                  break;
-//              }
-//          }
-//          if(insert) {
-//              mod_ori_res_identical.push_back(mod_ori_res_list[i]);
-//              mods_mm_list.push_back(Vmods_mm_list[i]);
-//          }
-//      }
-
       std::vector<std::vector<ModPtr>> T;
       for(int i = 1; i <= t; i++){
-          std::vector<std::vector<ModPtr>> combinations = combinations_with_replacement(unique_name_mods, i);
+          std::vector<std::vector<ModPtr>> combinations = combinations_with_replacement(mods_list, i);
           T.insert(T.end(),combinations.begin(),combinations.end());
       }
 
       std::vector<std::vector<ModPtr>> T_addN = T;
-      for(int i = 0; i < unique_name_Nmods.size(); i ++){
-          T_addN.push_back({unique_name_Nmods[i]});
+      for(int i = 0; i < N_mods_list.size(); i ++){
+          T_addN.push_back({N_mods_list[i]});
           for(int j = 0; j < T.size(); j++){
-              std::vector<ModPtr> plus_N_mod = T[j];
-              plus_N_mod.push_back(unique_name_Nmods[i]);
+              std::vector<ModPtr> plus_N_mod = T[i];
+              plus_N_mod.push_back(N_mods_list[i]);
               T_addN.push_back(plus_N_mod);
           }
       }
       T = T_addN;
 
-      int disulfide_bond_idx;
       if(disulfide_bond){
           std::vector<std::vector<ModPtr>> new_T = T;
           ModPtr m = mod_util::getDisulfideBondCMod();
-          unique_mods_name_list.push_back(m->getModResiduePtr()->getPtmPtr()->getName());
-          disulfide_bond_idx = unique_mods_name_list.size() - 1;
-//          mod_ori_res_identical.push_back(m->getOriResiduePtr()->toString());
-//          mods_mm_list.push_back(round(m->getShift()*convert_ratio));
+          mod_ori_res_identical.push_back(m->getOriResiduePtr()->toString());
+          mods_mm_list.push_back(round(m->getShift()*convert_ratio));
           new_T.push_back({m,m});
           new_T.push_back({m,m,m,m});
           for(int i = 0; i < T.size(); i++){
@@ -672,76 +543,20 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
               new_T.push_back(plus_one_disbond);
               new_T.push_back(plus_two_disbond);
           }
-          res_mod_dict[m->getOriResiduePtr()->getAminoAcidPtr()->getOneLetter()].push_back(m->getModResiduePtr()->getPtmPtr()->getName());
           T = new_T;
-      }else{
-          disulfide_bond_idx = -1;
       }
-
-      int pos_iso_shift_idx;
-      int neg_iso_shift_idx;
-      if(isotope_shift){
-          std::vector<std::vector<ModPtr>> new_T = T;
-          ModPtr m1 = mod_util::getPosIsotopeShift();
-          ModPtr m2 = mod_util::getNegIsotopeShift();
-          unique_mods_name_list.push_back(m1->getModResiduePtr()->getPtmPtr()->getName());
-          pos_iso_shift_idx = unique_mods_name_list.size() - 1;
-          unique_mods_name_list.push_back(m2->getModResiduePtr()->getPtmPtr()->getName());
-          neg_iso_shift_idx = unique_mods_name_list.size() - 1;
-
-          new_T.push_back({m1});
-          new_T.push_back({m2});
-          for(int i = 0; i < T.size(); i++){
-              std::vector<ModPtr> plus_pos_iso = T[i];
-              plus_pos_iso.push_back(m1);
-              std::vector<ModPtr> plus_neg_iso = T[i];
-              plus_neg_iso.push_back(m2);
-              new_T.push_back(plus_pos_iso);
-              new_T.push_back(plus_neg_iso);
-          }
-
-//          std::string res_String = "ARNDCEQGHILKMFPSTWYV";
-//          for(int i = 0; i < res_String.length(); i++){
-//              std::string oneletter = res_String.substr(i,1);
-//              res_mod_dict[oneletter].push_back(m1->getModResiduePtr()->getPtmPtr()->getName());
-//              res_mod_dict[oneletter].push_back(m2->getModResiduePtr()->getPtmPtr()->getName());
-//          }
-
-          T = new_T;
-      }else{
-          pos_iso_shift_idx = -1;
-          neg_iso_shift_idx = -1;
-      }
-
-
 
       std::vector<std::tuple<int, std::vector<int>, int>> T_mass_comb;
       for(int i = 0; i < T.size(); i++){
-          int mods_num_without_isoshift = T[i].size();
-          for(int m = 0; m < T[i].size(); m++){
-              std::string mod_name = T[i][m]->getModResiduePtr()->getPtmPtr()->getName();
-              if(mod_name == mod_util::pos_iso_name || mod_name == mod_util::neg_iso_name){
-                  mods_num_without_isoshift = T[i].size() - 1;
-                  break;
-              }
-          }
-          if(mods_num_without_isoshift <= t) {
-//              std::vector<int> mods_vec(mod_ori_res_identical.size());
-              std::vector<int> mods_vec(unique_mods_name_list.size());
+          if(T[i].size() <= t) {
+              std::vector<int> mods_vec(mod_ori_res_identical.size());
               double comb_mm = 0;
               for (int j = 0; j < T[i].size(); j++) {
                   double mass = T[i][j]->getShift();
                   comb_mm = comb_mm + mass;
-
-                  std::string mod_name = T[i][j]->getModResiduePtr()->getPtmPtr()->getName();
-//                  std::string ori_res = T[i][j]->getOriResiduePtr()->toString();
-//                  for (int k = 0; k < mod_ori_res_identical.size(); k++) {
-//                      if (mod_ori_res_identical[k] == ori_res) {
-//                          mods_vec[k] = mods_vec[k] + 1;
-//                      }
-//                  }
-                  for (int k = 0; k < unique_mods_name_list.size(); k++) {
-                      if (unique_mods_name_list[k] == mod_name) {
+                  std::string ori_res = T[i][j]->getOriResiduePtr()->toString();
+                  for (int k = 0; k < mod_ori_res_identical.size(); k++) {
+                      if (mod_ori_res_identical[k] == ori_res) {
                           mods_vec[k] = mods_vec[k] + 1;
                       }
                   }
@@ -756,7 +571,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 
 
 
-
 //      std::unordered_map<int, std::vector<int>> mod_table = GenerateModsVec("/home/kunyili/toppic-suite-main/mod_table_5_vec.txt");
 //      std::vector<int> mods_mass_list;
 
@@ -766,11 +580,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
       if (pos != std::string::npos) {
           sp_directory.erase(pos + 1);
       }
-
-
-
-      std::vector<double> single_shift_list_ = mod_util::readModTxtToShiftList(var_mod_file_name);
-      int var_ptm_type_num = single_shift_list_.size(); // for E-value
 
 
       //LCS-Filter + alignment
@@ -788,27 +597,11 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                           K_value,
                                           "topmg_multi_filter",
                                           var_mod_file_name, 1);
-        if(masstolerance == 0){
-            lcs_filter_mng_ptr->use_fixed_tol = true;
-            lcs_filter_mng_ptr->mass_filter_use_fixed_tole = true;
-        }else{
-            lcs_filter_mng_ptr->use_fixed_tol = false;
-            lcs_filter_mng_ptr->mass_filter_use_fixed_tole = false;
-        }
-        lcs_filter_mng_ptr->obj_fdr_ = obj_fdr;
-        lcs_filter_mng_ptr->var_ptm_type_num = var_ptm_type_num;
-        lcs_filter_mng_ptr->max_shift_mass = max_shift_mass;
-        lcs_filter_mng_ptr->min_shift_mass = min_shift_mass;
-//        lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
+        lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
         lcs_filter_mng_ptr->resultpath = sp_directory;
-        lcs_filter_mng_ptr->RES_MOD_TABLE = res_mod_dict;
-        lcs_filter_mng_ptr->MODS_VEC = unique_mods_name_list;
-//        lcs_filter_mng_ptr->MODS_RES_VEC = mod_ori_res_identical;
-        lcs_filter_mng_ptr->POS_ISO_SHIFT_IDX = pos_iso_shift_idx;
-        lcs_filter_mng_ptr->NEG_ISO_SHIFT_IDX = neg_iso_shift_idx;
-        lcs_filter_mng_ptr->DISULFIDE_BOND_IDX = disulfide_bond_idx;
-//        std::cout<<"mods: "<<mod_ori_res_identical[0] << mod_ori_res_identical[1] << std::endl;
-//        lcs_filter_mng_ptr->MODS_MASS_VEC = mods_mm_list;
+        lcs_filter_mng_ptr->MODS_VEC = mod_ori_res_identical;
+        std::cout<<"mods: "<<mod_ori_res_identical[0] << mod_ori_res_identical[1] << std::endl;
+        lcs_filter_mng_ptr->MODS_MASS_VEC = mods_mm_list;
         lcs_filter_mng_ptr->N_mod_num_ = N_mods_num;
         lcs_filter_mng_ptr->max_total_mods_num = t;
         LCSFilterProcessorPtr lcs_filter_processor
@@ -818,32 +611,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
         std::cout << "sTopMG filtering + alignment  finished." << std::endl;
 
         input_exts.push_back("topmg_multi_filter");
-
-//        TdgfMngPtr tdgf_mng_ptr
-//                = std::make_shared<TdgfMng>(prsm_para_ptr, 0,
-//                                            std::max(std::abs(lcs_filter_mng_ptr->max_shift_mass), std::abs(lcs_filter_mng_ptr->min_shift_mass)),
-//                                            true, lcs_filter_mng_ptr->var_ptm_type_num, 1,
-//                                            "toppic_combined", "toppic_evalue");
-//        tdgf_mng_ptr->result_path = lcs_filter_mng_ptr->resultpath;
-//
-//        EValueProcessorPtr processor = std::make_shared<EValueProcessor>(tdgf_mng_ptr);
-//        std::cout<<processor<<std::endl;
-//        processor->init();
-////        processor->process_1(true, Eprsm_vec);
-//        processor = nullptr;
-
-//       TdgfMng_1Ptr tdgf_mng_ptr
-//               = std::make_shared<TdgfMng_1>(prsm_para_ptr, 0,
-//                                           std::max(std::abs(lcs_filter_mng_ptr->max_shift_mass), std::abs(lcs_filter_mng_ptr->min_shift_mass)),
-//                                           true, lcs_filter_mng_ptr->var_ptm_type_num, 1,
-//                                           "toppic_combined", "toppic_evalue");
-//
-//        MCMCMngPtr mcmc_mng_ptr
-//                = std::make_shared<MCMCMng>(prsm_para_ptr, "topmg_graph_post", "topmg_evalue",
-//                                            var_mod_file_name, 5, thread_num);
-
-
-
     }
 
 //    std::cout << "Combining filtering results - started." << std::endl;
@@ -857,7 +624,6 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 //    std::cout << "Combining filtering results - finished." << std::endl;
 
 
-
     //LCS alignment / search   sTopMG
       if (arguments["useLCSFiltering"] == "false") {
           std::cout << "sTopMG alignment - started." << std::endl;
@@ -868,24 +634,10 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
                                                    K_value,
                                                    diag_filter_thread_num,
                                                    var_mod_file_name, 1);
-//          lcs_alignment_mng_ptr->forAntibody_ = disulfide_bond;
-          if(masstolerance == 0){
-              lcs_alignment_mng_ptr->use_fixed_tol = true;
-              lcs_alignment_mng_ptr->mass_filter_use_fixed_tole = true;
-          }else{
-              lcs_alignment_mng_ptr->use_fixed_tol = false;
-              lcs_alignment_mng_ptr->mass_filter_use_fixed_tole = false;
-          }
-          lcs_alignment_mng_ptr->obj_fdr_ = obj_fdr;
+          lcs_alignment_mng_ptr->forAntibody_ = disulfide_bond;
+          lcs_alignment_mng_ptr->MODS_VEC = mod_ori_res_identical;
+          lcs_alignment_mng_ptr->MODS_MASS_VEC = mods_mm_list;
           lcs_alignment_mng_ptr->resultpath = sp_directory;
-          lcs_alignment_mng_ptr->RES_MOD_TABLE = res_mod_dict;
-          lcs_alignment_mng_ptr->MODS_VEC = unique_mods_name_list;
-//        lcs_filter_mng_ptr->MODS_RES_VEC = mod_ori_res_identical;
-          lcs_alignment_mng_ptr->POS_ISO_SHIFT_IDX = pos_iso_shift_idx;
-          lcs_alignment_mng_ptr->NEG_ISO_SHIFT_IDX = neg_iso_shift_idx;
-          lcs_alignment_mng_ptr->DISULFIDE_BOND_IDX = disulfide_bond_idx;
-//        std::cout<<"mods: "<<mod_ori_res_identical[0] << mod_ori_res_identical[1] << std::endl;
-//        lcs_filter_mng_ptr->MODS_MASS_VEC = mods_mm_list;
           lcs_alignment_mng_ptr->N_mod_num_ = N_mods_num;
           lcs_alignment_mng_ptr->max_total_mods_num = t;
           LCSAlignmentProcessorPtr lcs_alignment_processor
@@ -928,7 +680,7 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 //    std::cout << "E-value computation using MCMC - started." << std::endl;
 //    MCMCMngPtr mcmc_mng_ptr
 //        = std::make_shared<MCMCMng>(prsm_para_ptr, "topmg_graph_post", "topmg_evalue",
-//                                    var_mod_file_name, 5, thread_num);
+//                                    var_mod_file_name, max_mod_num, thread_num);
 //    DprProcessorPtr processor = std::make_shared<DprProcessor>(mcmc_mng_ptr);
 //    processor->process();
 //    processor = nullptr;

@@ -2341,15 +2341,4 @@ CMakeFiles/topmg.dir/src/search/LCS/lcs_alignment_processor.cpp.o: \
  /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_align.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/search/diag/diagonal.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_pair.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/search/diag/pair.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_test_num.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/mcmc/mcmc_mng.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.hpp
+ /home/kunyili/Desktop/sTopMG-master/src/search/diag/pair.hpp

@@ -110,34 +110,6 @@ ModPtr getDisulfideBondCMod(){
     return m;
 }
 
-    ModPtr getPosIsotopeShift(){
-        PtmPtr p = std::make_shared<Ptm>("Positive Isotope Shift", "IM", 1.00235, -12);
-        AminoAcidPtr a = AminoAcidBase::getAminoAcidPtrByOneLetter("A");
-        ResiduePtr ori_residue_ptr
-                = ResidueBase::getBaseResiduePtr(
-                        std::make_shared<Residue>(a, PtmBase::getEmptyPtmPtr()));
-        ResiduePtr mod_residue_ptr
-                = ResidueBase::getBaseResiduePtr(std::make_shared<Residue>(a, p));
-        ModPtr m
-                = ModBase::getBaseModPtr(std::make_shared<Mod>(ori_residue_ptr, mod_residue_ptr));
-        return m;
-    }
-    ModPtr getNegIsotopeShift(){
-        PtmPtr p = std::make_shared<Ptm>("Negative Isotope Shift", "-IM", -1.00235, -13);
-        AminoAcidPtr a = AminoAcidBase::getAminoAcidPtrByOneLetter("A");
-        ResiduePtr ori_residue_ptr
-                = ResidueBase::getBaseResiduePtr(
-                        std::make_shared<Residue>(a, PtmBase::getEmptyPtmPtr()));
-        ResiduePtr mod_residue_ptr
-                = ResidueBase::getBaseResiduePtr(std::make_shared<Residue>(a, p));
-        ModPtr m
-                = ModBase::getBaseModPtr(std::make_shared<Mod>(ori_residue_ptr, mod_residue_ptr));
-        return m;
-    }
-
-
-
-
 
 ModPtrVec2D readModTxt(const std::string &file_name) {
   LOG_DEBUG("mod txt file " << file_name);

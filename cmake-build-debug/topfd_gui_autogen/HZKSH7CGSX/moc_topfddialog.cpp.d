@@ -1,6 +1,6 @@
-/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/topfd_gui_autogen/HZKSH7CGSX/moc_topfddialog.cpp: /home/kunyili/Desktop/sTopMG-master/src/gui/topfd/topfddialog.hpp \
-  /home/kunyili/Desktop/sTopMG-master/cmake-build-debug/topfd_gui_autogen/moc_predefs.h \
-  /home/kunyili/Desktop/sTopMG-master/src/topfd/common/topfd_para.hpp \
+/home/kunyili/toppic-suite-main/cmake-build-debug/topfd_gui_autogen/HZKSH7CGSX/moc_topfddialog.cpp: /home/kunyili/toppic-suite-main/src/gui/topfd/topfddialog.hpp \
+  /home/kunyili/toppic-suite-main/cmake-build-debug/topfd_gui_autogen/moc_predefs.h \
+  /home/kunyili/toppic-suite-main/src/topfd/common/topfd_para.hpp \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

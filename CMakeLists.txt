@@ -126,8 +126,6 @@ file(GLOB GRAPH_ALIGN_SRCS  ${CMAKE_CURRENT_SOURCE_DIR}/src/search/diag/*.cpp
 file(GLOB MCMC_SRCS  ${CMAKE_CURRENT_SOURCE_DIR}/src/stat/count/*.cpp
                      ${CMAKE_CURRENT_SOURCE_DIR}/src/stat/mcmc/*.cpp)
 
-#file(GLOB TDGF_SRCS  ${CMAKE_CURRENT_SOURCE_DIR}/src/stat/tdgf/*.cpp)
-
 # topmg console main
 file(GLOB TOPMG_PROC_SRCS   ${CMAKE_CURRENT_SOURCE_DIR}/src/console/topmg_process.cpp
 	                  		    ${CMAKE_CURRENT_SOURCE_DIR}/src/console/topmg_argument.cpp
@@ -205,56 +203,36 @@ file(GLOB GUI_UTIL_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/util/*.cpp
 
 add_executable(topfd 
   ${TOPFD_CONSOLE_SRCS} ${TOPFD_SRCS} ${COMMON_SRCS} ${PARA_SRCS} 
-  ${SPEC_SRCS} ${ENV_SRCS} ${FEATURE_SRCS} ${PWIZ_SRCS} ${NOWIDE_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+  ${SPEC_SRCS} ${ENV_SRCS} ${FEATURE_SRCS} ${PWIZ_SRCS} ${NOWIDE_SRCS})
 
 add_executable(topindex 
   ${TOPINDEX_CONSOLE_SRCS} ${TOPINDEX_PROC_SRCS} ${HTS_SRCS} ${COMMON_SRCS}
-  ${SEQ_SRCS} ${PARA_SRCS} ${FILTER_INDEX_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+  ${SEQ_SRCS} ${PARA_SRCS} ${FILTER_INDEX_SRCS}) 
 
 add_executable(toppic 
 	${TOPPIC_CONSOLE_SRCS} ${TOPPIC_PROC_SRCS} ${HTS_SRCS} ${COMMON_SRCS} 
   ${SEQ_SRCS} ${PARA_SRCS} ${SPEC_SRCS}  
   ${PRSM_SRCS} ${FILTER_SRCS} ${SEARCH_SRCS}  
-  ${TDGF_SRCS} ${LOCAL_SRCS} ${VISUAL_SRCS} src/filter/LCS/lcs_filter.hpp src/scaffold/scaffold.cpp src/scaffold/scaffold.hpp src/scaffold/scaffold_processor.cpp src/scaffold/scaffold_processor.hpp src/scaffold/scaffold_mng.cpp src/scaffold/scaffold_mng.hpp src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+  ${TDGF_SRCS} ${LOCAL_SRCS} ${VISUAL_SRCS} src/filter/LCS/lcs_filter.hpp src/scaffold/scaffold.cpp src/scaffold/scaffold.hpp src/scaffold/scaffold_processor.cpp src/scaffold/scaffold_processor.hpp src/scaffold/scaffold_mng.cpp src/scaffold/scaffold_mng.hpp)
 
 add_executable(topmg 
 	${TOPMG_CONSOLE_SRCS} ${TOPMG_PROC_SRCS} ${HTS_SRCS} ${COMMON_SRCS}
-  ${SEQ_SRCS} ${PARA_SRCS} ${SPEC_SRCS} ${PRSM_SRCS} ${FILTER_SRCS}
-	${GRAPH_ALIGN_SRCS} ${MCMC_SRCS} ${VISUAL_SRCS} src/filter/LCS/lcs_filter.hpp src/search/LCS/lcs_alignment_processor.cpp src/scaffold/scaffold.cpp src/scaffold/scaffold.hpp src/scaffold/scaffold_processor.cpp src/scaffold/scaffold_processor.hpp src/scaffold/scaffold_mng.cpp src/scaffold/scaffold_mng.hpp src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp
-        src/stat/tdgf/tdgf_mng.cpp
-        src/stat/tdgf/tdgf_mng.hpp
-
-        src/stat/tdgf/evalue_processor.cpp
-        src/stat/tdgf/evalue_processor.hpp
-
-        src/stat/tdgf/comp_pvalue_array.cpp
-        src/stat/tdgf/comp_pvalue_array.hpp
-
-        src/stat/tdgf/comp_pvalue_lookup_table.cpp
-        src/stat/tdgf/comp_pvalue_lookup_table.hpp
-
-        src/stat/tdgf/comp_prob_value_array.cpp
-        src/stat/tdgf/comp_prob_value_array.hpp
-
-        src/stat/tdgf/comp_prob_value.hpp
-        src/stat/tdgf/comp_prob_value.cpp
-
-        src/stat/tdgf/prob_peak.cpp
-        src/stat/tdgf/prob_peak.hpp)
+  ${SEQ_SRCS} ${PARA_SRCS} ${SPEC_SRCS} ${PRSM_SRCS} ${FILTER_SRCS} 
+	${GRAPH_ALIGN_SRCS} ${MCMC_SRCS} ${VISUAL_SRCS} src/filter/LCS/lcs_filter.hpp src/search/LCS/lcs_alignment_processor.cpp src/scaffold/scaffold.cpp src/scaffold/scaffold.hpp src/scaffold/scaffold_processor.cpp src/scaffold/scaffold_processor.hpp src/scaffold/scaffold_mng.cpp src/scaffold/scaffold_mng.hpp)
 
 add_executable(topdiff 
   ${TOPDIFF_CONSOLE_SRCS} ${TOPDIFF_PROC_SRCS} ${HTS_SRCS} ${COMMON_SRCS} ${DIFF_SEARCH_SRCS}
-  ${SEQ_SRCS} ${PARA_SRCS} ${SPEC_SRCS} ${PRSM_SRCS} ${DIFF_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+  ${SEQ_SRCS} ${PARA_SRCS} ${SPEC_SRCS} ${PRSM_SRCS} ${DIFF_SRCS})
 
-add_executable(topfd_gui ${TOPFD_GUI_SRCS} ${GUI_UTIL_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+add_executable(topfd_gui ${TOPFD_GUI_SRCS} ${GUI_UTIL_SRCS})
 
-add_executable(topindex_gui ${TOPINDEX_GUI_SRCS} ${GUI_UTIL_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+add_executable(topindex_gui ${TOPINDEX_GUI_SRCS} ${GUI_UTIL_SRCS})
 
-add_executable(toppic_gui ${TOPPIC_GUI_SRCS} ${GUI_UTIL_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+add_executable(toppic_gui ${TOPPIC_GUI_SRCS} ${GUI_UTIL_SRCS})
 
-add_executable(topmg_gui ${TOPMG_GUI_SRCS} ${GUI_UTIL_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+add_executable(topmg_gui ${TOPMG_GUI_SRCS} ${GUI_UTIL_SRCS})
 
-add_executable(topdiff_gui ${TOPDIFF_GUI_SRCS} ${GUI_UTIL_SRCS} src/prsm/evalue_prsm.cpp src/prsm/evalue_prsm.hpp)
+add_executable(topdiff_gui ${TOPDIFF_GUI_SRCS} ${GUI_UTIL_SRCS})
 
 #add_executable(topfd_single 
 #  ${TOPFD_SINGLE_CONSOLE_SRCS} ${TOPFD_SINGLE_PROC_SRCS} ${TOPFD_SRCS}

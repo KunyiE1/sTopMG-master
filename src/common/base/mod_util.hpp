@@ -39,11 +39,6 @@ ResiduePtrVec geneResidueListWithMod(const ResiduePtrVec & residue_list,
 std::vector<double> getModMassVec(const ModPtrVec & var_mod_list);
 
 ModPtr getDisulfideBondCMod();
-ModPtr getPosIsotopeShift();
-ModPtr getNegIsotopeShift();
-
-static std::string pos_iso_name = "Positive Isotope Shift";
-static std::string neg_iso_name = "Negative Isotope Shift";
 
 }  // namespace mod_util
 

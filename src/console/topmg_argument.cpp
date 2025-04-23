@@ -41,17 +41,18 @@ TopmgArgument::TopmgArgument() {
 
 std::map<std::string, std::string> TopmgArgument::initArguments() {
   std::map<std::string, std::string> arguments;
-  arguments["oriDatabaseFileName"]="/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/MOUSE_DECOY_HB100.fasta";
+  arguments["oriDatabaseFileName"]="/home/kunyili/Desktop/toppic-suite-main-copy/EC_canonical.fasta";
   arguments["databaseFileName"] = "";
   arguments["databaseBlockSize"] = "600000000";
   arguments["maxFragmentLength"] = "500";
   arguments["minBlockNum"] = "1";
-  arguments["spectrumFileName"] = "/home/kunyili/Desktop/sTopMG-master/MSDataset/Antibody/HB100_FDR/27/HB100_FLASH(copy)/HB100_FLASH_ms2.msalign";
+  arguments["spectrumFileName"] = "";
+  arguments["combinedOutputName"] = "";
   arguments["activation"] = "FILE";
-  arguments["searchType"] = "TARGET+DECOY";
+  arguments["searchType"] = "TARGET";
   arguments["fixedMod"] = "";
   arguments["shiftNumber"] = "0";
-  arguments["massErrorTolerance"] = "0";
+  arguments["massErrorTolerance"] = "40";
   arguments["proteoformErrorTolerance"] = "1.2";
   arguments["cutoffSpectralType"] = "EVALUE";
   arguments["cutoffSpectralValue"] = "0.01";
@@ -65,10 +66,10 @@ std::map<std::string, std::string> TopmgArgument::initArguments() {
   arguments["keepTempFiles"] = "false";
   arguments["groupSpectrumNumber"] = "1";
   arguments["filteringResultNumber"] = "200";
-  arguments["varModFileName"] = "/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/variable_mods_Antibody.txt";
+  arguments["varModFileName"] = "/home/kunyili/Desktop/toppic-suite-main-copy/variable_mods_backup.txt";
   arguments["threadNumber"] = "1";
   arguments["useFeatureFile"] = "true";
-  arguments["proteoGraphGap"] = "0";
+  arguments["proteoGraphGap"] = "40";
   arguments["varPtmNumber"] = "5";
   arguments["varPtmNumInGap"] = "5";
   arguments["geneHTMLFolder"] = "true";
@@ -76,9 +77,8 @@ std::map<std::string, std::string> TopmgArgument::initArguments() {
   arguments["keepDecoyResults"] = "false";
   arguments["version"] = "";
   arguments["useAsfDiag"] = "false";
-  arguments["useLCSFiltering"] = "true";
+  arguments["useLCSFiltering"] = "false";
   arguments["useVarPtm"] = "true";
-    arguments["objFDR"] = "0.01";
   return arguments;
 }
 
@@ -198,7 +198,6 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
   std::string thread_number = "";
   std::string var_ptm_num = "";
   std::string var_ptm_in_gap = "";
-  std::string obj_fdr = "";
   std::string combined_output_name = "";
 
   // Define and parse the program options
@@ -223,7 +222,6 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
         ("proteoform-cutoff-type,T", po::value<std::string> (&cutoff_proteoform_type), "<EVALUE|FDR>. Proteoform-level cutoff type for filtering identified proteoform spectrum-matches. Default value: EVALUE.")
         ("proteoform-cutoff-value,V", po::value<std::string> (&cutoff_proteoform_value), "<a positive number>. Proteoform-level cutoff value for filtering identified proteoform spectrum-matches. Default value: 0.01.")
         ("mod-file-name,i", po::value<std::string>(&var_mod_file_name), "<a modification file>. Specify a text file containing the information of common PTMs for constructing proteoform graphs.")
-            ("obj-FDR,F", po::value<std::string>(&obj_fdr), "objective FDR value")
         ("thread-number,u", po::value<std::string> (&thread_number), "<a positive integer>. Number of threads used in the computation. Default value: 1.")
         ("no-topfd-feature,x", "No TopFD feature file for proteoform identification.")
         ("proteo-graph-gap,j", po::value<std::string> (&proteo_graph_gap), "<a positive number>. Gap in constructing proteoform graph. Default value: 40.")
@@ -255,7 +253,6 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
         ("filtering-result-number", po::value<std::string>(&filtering_result_num), "Filtering result number. Default value: 20.")
         ("full-binary-path,b", "Full binary path.")
         ("mod-file-name,i", po::value<std::string>(&var_mod_file_name), "")
-            ("obj-FDR,F", po::value<std::string>(&obj_fdr), "")
         ("thread-number,u", po::value<std::string> (&thread_number), "")
         ("no-topfd-feature,x", "")
         ("combined-file-name,c", po::value<std::string>(&combined_output_name) , "")
@@ -316,9 +313,7 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
       spec_file_list_ = vm["spectrum-file-name"].as<std::vector<std::string> >();
     }
 
-
 //    spec_file_list_.push_back(arguments_["spectrumFileName"]);
-
 
     if (vm.count("combined-file-name")) {
       arguments_["combinedOutputName"] = combined_output_name;
@@ -330,10 +325,6 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
 
     if (vm.count("decoy")) {
       arguments_["searchType"] = "TARGET+DECOY";
-    }
-
-    if (vm.count("obj-FDR")) {
-        arguments_["objFDR"] = obj_fdr;
     }
 
     if (arguments_["searchType"] == "TARGET+DECOY") {
@@ -598,7 +589,7 @@ bool TopmgArgument::validateArguments() {
   std::string mass_error_tole_value = arguments_["massErrorTolerance"];
   try {
     double tole = std::stoi(mass_error_tole_value);
-    if (tole < 0) {
+    if (tole <= 0) {
       LOG_ERROR("Mass error tolerance: " << mass_error_tole_value << " error! The value should be positive.");
       return false;
     }

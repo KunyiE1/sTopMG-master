@@ -1920,24 +1920,10 @@ CMakeFiles/toppic.dir/src/ms/spec/theo_peak.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/toppic.dir/src/ms/spec/theo_peak.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunyili/Desktop/sTopMG-master/src/ms/spec/theo_peak.cpp -o CMakeFiles/toppic.dir/src/ms/spec/theo_peak.cpp.s
 
-CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o: CMakeFiles/toppic.dir/flags.make
-CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp
-CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp
-
-CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp > CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.i
-
-CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp -o CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.s
-
 CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/expected_value.cpp
 CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/expected_value.cpp
 
 CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.i: cmake_force
@@ -1951,7 +1937,7 @@ CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/peak_ion_pair.cpp
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/peak_ion_pair.cpp
 
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.i: cmake_force
@@ -1965,7 +1951,7 @@ CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/peak_ion_pair_util.cpp
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/peak_ion_pair_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.i: cmake_force
@@ -1979,7 +1965,7 @@ CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm.cpp.i: cmake_force
@@ -1993,7 +1979,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_algo.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_algo.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.i: cmake_force
@@ -2007,7 +1993,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_algo.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_cluster.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_cluster.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.i: cmake_force
@@ -2021,7 +2007,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_cluster.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_coverage.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_coverage.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.i: cmake_force
@@ -2035,7 +2021,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_coverage.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_cutoff_selector.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_cutoff_selector.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.i: cmake_force
@@ -2049,7 +2035,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_cutoff_selector.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_dia_selector.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_dia_selector.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.i: cmake_force
@@ -2063,7 +2049,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_dia_selector.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_fdr.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_fdr.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.i: cmake_force
@@ -2077,7 +2063,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_fdr.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_feature_cluster.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_feature_cluster.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.i: cmake_force
@@ -2091,7 +2077,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_feature_cluster.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_form_filter.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_form_filter.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.i: cmake_force
@@ -2105,7 +2091,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_form_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_match_table_writer.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_match_table_writer.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.i: cmake_force
@@ -2119,7 +2105,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_match_table_writer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_prob.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_prob.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.i: cmake_force
@@ -2133,7 +2119,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_prob.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_reader.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_reader.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.i: cmake_force
@@ -2147,7 +2133,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_reader.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_reader_util.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_reader_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.i: cmake_force
@@ -2161,7 +2147,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_reader_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_sample_merge.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_sample_merge.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.i: cmake_force
@@ -2175,7 +2161,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_sample_merge.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_simple_cluster.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_simple_cluster.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.i: cmake_force
@@ -2189,7 +2175,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_simple_cluster.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_stat.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_stat.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.i: cmake_force
@@ -2203,7 +2189,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_stat.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.i: cmake_force
@@ -2217,7 +2203,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_str.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str_merge.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str_merge.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.i: cmake_force
@@ -2231,7 +2217,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_str_merge.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_table_writer.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_table_writer.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.i: cmake_force
@@ -2245,7 +2231,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_table_writer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_top_selector.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_top_selector.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.i: cmake_force
@@ -2259,7 +2245,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_top_selector.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_util.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.i: cmake_force
@@ -2273,7 +2259,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.i: cmake_force
@@ -2287,7 +2273,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer_set.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer_set.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.i: cmake_force
@@ -2301,7 +2287,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_set.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer_util.cpp
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.i: cmake_force
@@ -2315,7 +2301,7 @@ CMakeFiles/toppic.dir/src/prsm/prsm_xml_writer_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/search_fasta_match.cpp
 CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/search_fasta_match.cpp
 
 CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.i: cmake_force
@@ -2329,7 +2315,7 @@ CMakeFiles/toppic.dir/src/prsm/search_fasta_match.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.i: cmake_force
@@ -2343,7 +2329,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_reader.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_reader.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.i: cmake_force
@@ -2357,7 +2343,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_reader.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.i: cmake_force
@@ -2371,7 +2357,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_str.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str_merge.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str_merge.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.i: cmake_force
@@ -2385,7 +2371,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_str_merge.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_table_writer.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_table_writer.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.i: cmake_force
@@ -2399,7 +2385,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_table_writer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_util.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.i: cmake_force
@@ -2413,7 +2399,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.i: cmake_force
@@ -2427,7 +2413,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer_set.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer_set.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.i: cmake_force
@@ -2441,7 +2427,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_set.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer_util.cpp
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.i: cmake_force
@@ -2455,7 +2441,7 @@ CMakeFiles/toppic.dir/src/prsm/simple_prsm_xml_writer_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/prsm/theo_peak_util.cpp
 CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o -MF CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o.d -o CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/prsm/theo_peak_util.cpp
 
 CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.i: cmake_force
@@ -2469,7 +2455,7 @@ CMakeFiles/toppic.dir/src/prsm/theo_peak_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter.cpp
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o -MF CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter.cpp
 
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.i: cmake_force
@@ -2483,7 +2469,7 @@ CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter_processor.cpp
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o -MF CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter_processor.cpp
 
 CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.i: cmake_force
@@ -2497,7 +2483,7 @@ CMakeFiles/toppic.dir/src/filter/LCS/lcs_filter_processor.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/diag/diag_filter.cpp
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o -MF CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/diag/diag_filter.cpp
 
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.i: cmake_force
@@ -2511,7 +2497,7 @@ CMakeFiles/toppic.dir/src/filter/diag/diag_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/diag/diag_filter_processor.cpp
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o -MF CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/diag/diag_filter_processor.cpp
 
 CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.i: cmake_force
@@ -2525,7 +2511,7 @@ CMakeFiles/toppic.dir/src/filter/diag/diag_filter_processor.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/index/diag_index.cpp
 CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o -MF CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/index/diag_index.cpp
 
 CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.i: cmake_force
@@ -2539,7 +2525,7 @@ CMakeFiles/toppic.dir/src/filter/index/diag_index.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/index/one_ptm_index.cpp
 CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o -MF CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/index/one_ptm_index.cpp
 
 CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.i: cmake_force
@@ -2553,7 +2539,7 @@ CMakeFiles/toppic.dir/src/filter/index/one_ptm_index.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/index/zero_ptm_index.cpp
 CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o -MF CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/index/zero_ptm_index.cpp
 
 CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.i: cmake_force
@@ -2567,7 +2553,7 @@ CMakeFiles/toppic.dir/src/filter/index/zero_ptm_index.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match.cpp
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o -MF CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match.cpp
 
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.i: cmake_force
@@ -2581,7 +2567,7 @@ CMakeFiles/toppic.dir/src/filter/massmatch/mass_match.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match_factory.cpp
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o -MF CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match_factory.cpp
 
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.i: cmake_force
@@ -2595,7 +2581,7 @@ CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_factory.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match_util.cpp
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o -MF CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match_util.cpp
 
 CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.i: cmake_force
@@ -2609,7 +2595,7 @@ CMakeFiles/toppic.dir/src/filter/massmatch/mass_match_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/LCS_filter_mng.cpp
 CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/LCS_filter_mng.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.i: cmake_force
@@ -2623,7 +2609,7 @@ CMakeFiles/toppic.dir/src/filter/mng/LCS_filter_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/diag_filter_mng.cpp
 CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/diag_filter_mng.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.i: cmake_force
@@ -2637,7 +2623,7 @@ CMakeFiles/toppic.dir/src/filter/mng/diag_filter_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/index_file_name.cpp
 CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/index_file_name.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.i: cmake_force
@@ -2651,7 +2637,7 @@ CMakeFiles/toppic.dir/src/filter/mng/index_file_name.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/one_ptm_filter_mng.cpp
 CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/one_ptm_filter_mng.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.i: cmake_force
@@ -2665,7 +2651,7 @@ CMakeFiles/toppic.dir/src/filter/mng/one_ptm_filter_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/var_ptm_filter_mng.cpp
 CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/var_ptm_filter_mng.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.i: cmake_force
@@ -2679,7 +2665,7 @@ CMakeFiles/toppic.dir/src/filter/mng/var_ptm_filter_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/mng/zero_ptm_filter_mng.cpp
 CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o -MF CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/mng/zero_ptm_filter_mng.cpp
 
 CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.i: cmake_force
@@ -2693,7 +2679,7 @@ CMakeFiles/toppic.dir/src/filter/mng/zero_ptm_filter_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/oneptm/one_ptm_filter.cpp
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o -MF CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/oneptm/one_ptm_filter.cpp
 
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.i: cmake_force
@@ -2707,7 +2693,7 @@ CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/oneptm/one_ptm_filter_processor.cpp
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o -MF CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/oneptm/one_ptm_filter_processor.cpp
 
 CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.i: cmake_force
@@ -2721,7 +2707,7 @@ CMakeFiles/toppic.dir/src/filter/oneptm/one_ptm_filter_processor.cpp.s: cmake_fo
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/varptm/var_ptm_filter.cpp
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o -MF CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/varptm/var_ptm_filter.cpp
 
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.i: cmake_force
@@ -2735,7 +2721,7 @@ CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/varptm/var_ptm_filter_processor.cpp
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o -MF CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/varptm/var_ptm_filter_processor.cpp
 
 CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.i: cmake_force
@@ -2749,7 +2735,7 @@ CMakeFiles/toppic.dir/src/filter/varptm/var_ptm_filter_processor.cpp.s: cmake_fo
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/zeroptm/zero_ptm_filter.cpp
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o -MF CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/zeroptm/zero_ptm_filter.cpp
 
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.i: cmake_force
@@ -2763,7 +2749,7 @@ CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/filter/zeroptm/zero_ptm_filter_processor.cpp
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o -MF CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/filter/zeroptm/zero_ptm_filter_processor.cpp
 
 CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.i: cmake_force
@@ -2777,7 +2763,7 @@ CMakeFiles/toppic.dir/src/filter/zeroptm/zero_ptm_filter_processor.cpp.s: cmake_
 CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_header.cpp
 CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o -MF CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o.d -o CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_header.cpp
 
 CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.i: cmake_force
@@ -2791,7 +2777,7 @@ CMakeFiles/toppic.dir/src/search/diag/diag_header.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_header_util.cpp
 CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o -MF CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o.d -o CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_header_util.cpp
 
 CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.i: cmake_force
@@ -2805,7 +2791,7 @@ CMakeFiles/toppic.dir/src/search/diag/diag_header_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_pair_util.cpp
 CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o -MF CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o.d -o CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/diag/diag_pair_util.cpp
 
 CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.i: cmake_force
@@ -2819,7 +2805,7 @@ CMakeFiles/toppic.dir/src/search/diag/diag_pair_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/diag/diagonal_util.cpp
 CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o -MF CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o.d -o CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/diag/diagonal_util.cpp
 
 CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.i: cmake_force
@@ -2833,7 +2819,7 @@ CMakeFiles/toppic.dir/src/search/diag/diagonal_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/dp_pair.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/dp_pair.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.i: cmake_force
@@ -2847,7 +2833,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/dp_pair.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/one_ptm_search_processor.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/one_ptm_search_processor.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.i: cmake_force
@@ -2861,7 +2847,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_search_processor.cpp.s: cm
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/one_ptm_slow_match.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/one_ptm_slow_match.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.i: cmake_force
@@ -2875,7 +2861,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/one_ptm_slow_match.cpp.s: cmake_fo
 CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/path_type.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/path_type.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.i: cmake_force
@@ -2889,7 +2875,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/path_type.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/ps_align.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/ps_align.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.i: cmake_force
@@ -2903,7 +2889,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/ps_align.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/ptm_search_mng.cpp
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o -MF CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/oneptmsearch/ptm_search_mng.cpp
 
 CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.i: cmake_force
@@ -2917,7 +2903,7 @@ CMakeFiles/toppic.dir/src/search/oneptmsearch/ptm_search_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/comp_shift_low_mem.cpp
 CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o -MF CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o.d -o CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/comp_shift_low_mem.cpp
 
 CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.i: cmake_force
@@ -2931,7 +2917,7 @@ CMakeFiles/toppic.dir/src/search/ptmsearch/comp_shift_low_mem.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_search_processor.cpp
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o -MF CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_search_processor.cpp
 
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.i: cmake_force
@@ -2945,7 +2931,7 @@ CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_processor.cpp.s: cmake_for
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_search_slow_filter.cpp
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o -MF CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o.d -o CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_search_slow_filter.cpp
 
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.i: cmake_force
@@ -2959,7 +2945,7 @@ CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_search_slow_filter.cpp.s: cmake_f
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_slow_match.cpp
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o -MF CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o.d -o CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/ptmsearch/ptm_slow_match.cpp
 
 CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.i: cmake_force
@@ -2973,7 +2959,7 @@ CMakeFiles/toppic.dir/src/search/ptmsearch/ptm_slow_match.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_align.cpp
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o -MF CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o.d -o CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_align.cpp
 
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.i: cmake_force
@@ -2987,7 +2973,7 @@ CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_align.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_search_mng.cpp
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o -MF CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_search_mng.cpp
 
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.i: cmake_force
@@ -3001,7 +2987,7 @@ CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_mng.cpp.s: cmake_fo
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_search_processor.cpp
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o -MF CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_search_processor.cpp
 
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.i: cmake_force
@@ -3015,7 +3001,7 @@ CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_search_processor.cpp.s: cm
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_slow_match.cpp
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o -MF CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o.d -o CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/varptmsearch/var_ptm_slow_match.cpp
 
 CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.i: cmake_force
@@ -3029,7 +3015,7 @@ CMakeFiles/toppic.dir/src/search/varptmsearch/var_ptm_slow_match.cpp.s: cmake_fo
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_fast_match.cpp
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o -MF CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o.d -o CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_fast_match.cpp
 
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.i: cmake_force
@@ -3043,7 +3029,7 @@ CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_match.cpp.s: cmake_
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_fast_search.cpp
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o -MF CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o.d -o CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_fast_search.cpp
 
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.i: cmake_force
@@ -3057,7 +3043,7 @@ CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_fast_search.cpp.s: cmake
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_search_processor.cpp
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o -MF CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_search_processor.cpp
 
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.i: cmake_force
@@ -3071,7 +3057,7 @@ CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_search_processor.cpp.s: 
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_util.cpp
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o -MF CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o.d -o CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/search/zeroptmsearch/zero_ptm_util.cpp
 
 CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.i: cmake_force
@@ -3085,7 +3071,7 @@ CMakeFiles/toppic.dir/src/search/zeroptmsearch/zero_ptm_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_test_num.cpp
 CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o -MF CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_test_num.cpp
 
 CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.i: cmake_force
@@ -3099,7 +3085,7 @@ CMakeFiles/toppic.dir/src/stat/count/count_test_num.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_util.cpp
 CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o -MF CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_util.cpp
 
 CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.i: cmake_force
@@ -3113,7 +3099,7 @@ CMakeFiles/toppic.dir/src/stat/count/count_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.i: cmake_force
@@ -3127,7 +3113,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value_array.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value_array.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.i: cmake_force
@@ -3141,7 +3127,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/comp_prob_value_array.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.i: cmake_force
@@ -3155,7 +3141,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_array.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.i: cmake_force
@@ -3169,7 +3155,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/comp_pvalue_lookup_table.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.i: cmake_force
@@ -3183,7 +3169,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/evalue_processor.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.i: cmake_force
@@ -3197,7 +3183,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/prob_peak.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.cpp
 CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o -MF CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.cpp
 
 CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.i: cmake_force
@@ -3211,7 +3197,7 @@ CMakeFiles/toppic.dir/src/stat/tdgf/tdgf_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_mng.cpp
 CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o -MF CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_mng.cpp
 
 CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.i: cmake_force
@@ -3225,7 +3211,7 @@ CMakeFiles/toppic.dir/src/stat/local/local_mng.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_processor.cpp
 CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o -MF CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_processor.cpp
 
 CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.i: cmake_force
@@ -3239,7 +3225,7 @@ CMakeFiles/toppic.dir/src/stat/local/local_processor.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_proteoform.cpp
 CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o -MF CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_proteoform.cpp
 
 CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.i: cmake_force
@@ -3253,7 +3239,7 @@ CMakeFiles/toppic.dir/src/stat/local/local_proteoform.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_util.cpp
 CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o -MF CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o.d -o CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/stat/local/local_util.cpp
 
 CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.i: cmake_force
@@ -3267,7 +3253,7 @@ CMakeFiles/toppic.dir/src/stat/local/local_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_cleavage.cpp
 CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_cleavage.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.i: cmake_force
@@ -3281,7 +3267,7 @@ CMakeFiles/toppic.dir/src/visual/anno_cleavage.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_file_list.cpp
 CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_file_list.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.i: cmake_force
@@ -3295,7 +3281,7 @@ CMakeFiles/toppic.dir/src/visual/anno_file_list.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_mass_shift.cpp
 CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_mass_shift.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.i: cmake_force
@@ -3309,7 +3295,7 @@ CMakeFiles/toppic.dir/src/visual/anno_mass_shift.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_proteoform.cpp
 CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_proteoform.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.i: cmake_force
@@ -3323,7 +3309,7 @@ CMakeFiles/toppic.dir/src/visual/anno_proteoform.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_prsm.cpp
 CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_prsm.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.i: cmake_force
@@ -3337,7 +3323,7 @@ CMakeFiles/toppic.dir/src/visual/anno_prsm.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_ptm.cpp
 CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_ptm.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.i: cmake_force
@@ -3351,7 +3337,7 @@ CMakeFiles/toppic.dir/src/visual/anno_ptm.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_ptm_position.cpp
 CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_ptm_position.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.i: cmake_force
@@ -3365,7 +3351,7 @@ CMakeFiles/toppic.dir/src/visual/anno_ptm_position.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_residue.cpp
 CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_residue.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.i: cmake_force
@@ -3379,7 +3365,7 @@ CMakeFiles/toppic.dir/src/visual/anno_residue.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/anno_xml_util.cpp
 CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o -MF CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/anno_xml_util.cpp
 
 CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.i: cmake_force
@@ -3393,7 +3379,7 @@ CMakeFiles/toppic.dir/src/visual/anno_xml_util.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/json_transformer.cpp
 CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o -MF CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/json_transformer.cpp
 
 CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.i: cmake_force
@@ -3407,7 +3393,7 @@ CMakeFiles/toppic.dir/src/visual/json_transformer.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/visual/xml_generator.cpp
 CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o -MF CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o.d -o CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/visual/xml_generator.cpp
 
 CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.i: cmake_force
@@ -3421,7 +3407,7 @@ CMakeFiles/toppic.dir/src/visual/xml_generator.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold.cpp
 CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o -MF CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o.d -o CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold.cpp
 
 CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.i: cmake_force
@@ -3435,7 +3421,7 @@ CMakeFiles/toppic.dir/src/scaffold/scaffold.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold_processor.cpp
 CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o -MF CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o.d -o CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold_processor.cpp
 
 CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.i: cmake_force
@@ -3449,7 +3435,7 @@ CMakeFiles/toppic.dir/src/scaffold/scaffold_processor.cpp.s: cmake_force
 CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o: CMakeFiles/toppic.dir/flags.make
 CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o: /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold_mng.cpp
 CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o: CMakeFiles/toppic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o -MF CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o.d -o CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o -c /home/kunyili/Desktop/sTopMG-master/src/scaffold/scaffold_mng.cpp
 
 CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.i: cmake_force
@@ -3594,7 +3580,6 @@ toppic_OBJECTS = \
 "CMakeFiles/toppic.dir/src/ms/spec/spectrum_set.cpp.o" \
 "CMakeFiles/toppic.dir/src/ms/spec/support_peak.cpp.o" \
 "CMakeFiles/toppic.dir/src/ms/spec/theo_peak.cpp.o" \
-"CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o" \
 "CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o" \
 "CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o" \
 "CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o" \
@@ -3840,7 +3825,6 @@ toppic_EXTERNAL_OBJECTS =
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/ms/spec/spectrum_set.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/ms/spec/support_peak.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/ms/spec/theo_peak.cpp.o
-/home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/prsm/peak_ion_pair_util.cpp.o
@@ -3952,7 +3936,7 @@ toppic_EXTERNAL_OBJECTS =
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/src/scaffold/scaffold_mng.cpp.o
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/build.make
 /home/kunyili/Desktop/sTopMG-master/bin/toppic: CMakeFiles/toppic.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_243) "Linking CXX executable /home/kunyili/Desktop/sTopMG-master/bin/toppic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Linking CXX executable /home/kunyili/Desktop/sTopMG-master/bin/toppic"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/toppic.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

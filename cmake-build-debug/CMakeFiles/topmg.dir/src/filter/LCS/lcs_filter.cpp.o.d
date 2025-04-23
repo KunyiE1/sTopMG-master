@@ -2313,7 +2313,6 @@ CMakeFiles/topmg.dir/src/filter/LCS/lcs_filter.cpp.o: \
  /usr/include/boost/graph/detail/read_graphviz_new.hpp \
  /usr/include/boost/graph/detail/empty_header.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/common/base/ptm_base.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/ms/spec/deconv_ms.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/common/base/amino_acid_base.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/common/base/residue_base.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/common/base/residue_util.hpp

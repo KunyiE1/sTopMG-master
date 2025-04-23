@@ -12,7 +12,6 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-#include <iostream>
 #include "stat/tdgf/comp_prob_value_array.hpp"
 
 namespace toppic {
@@ -28,18 +27,6 @@ int getMaxScore(const PrsmPtrVec &prsm_ptrs) {
   }
   return score;
 }
-
-
-    int getMaxScore(const std::vector<Evalue_PrsmPtr> &e_prsm_ptrs) {
-        int score = 0;
-        for (size_t i = 0; i < e_prsm_ptrs.size(); i++) {
-            if (e_prsm_ptrs[i]->alignment_score_ > score) {
-                score = e_prsm_ptrs[i]->alignment_score_;
-            }
-        }
-        return score;
-    }
-
 
 int getMaxShift(PrsmPtrVec prsm_ptrs) {
   int shift = 0;
@@ -70,30 +57,6 @@ void compProbArray(CompProbValuePtr comp_prob_ptr,
     results.push_back(comp_prob_ptr->getCondProb(shift_num, score));
   }
 }
-
-
-    void compProbArray_1(CompProbValuePtr comp_prob_ptr,
-                       const ResFreqPtrVec &n_term_residue_ptrs,
-                       const PrmPeakPtrVec2D &peak_ptr_2d,
-                       const std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
-                       bool strict,
-                       double prob_prec_mass,
-                       PeakTolerancePtr tole_ptr,
-                       std::vector<double> &results) {
-        int max_score = getMaxScore(e_prsm_ptrs);
-//        std::cout<<"max score"<<max_score<<std::endl;
-        int max_shift = 0;
-        comp_prob_ptr->compute(n_term_residue_ptrs, peak_ptr_2d, max_score, max_shift,
-                               strict, prob_prec_mass, tole_ptr);
-        results.clear();
-        for (size_t i = 0; i < e_prsm_ptrs.size(); i++) {
-            int shift_num = 0;
-            int score = e_prsm_ptrs[i]->alignment_score_;
-//            std::cout<<"score"<<score<<std::endl;
-            results.push_back(comp_prob_ptr->getCondProb(shift_num, score));
-        }
-    }
-
 
 }
 

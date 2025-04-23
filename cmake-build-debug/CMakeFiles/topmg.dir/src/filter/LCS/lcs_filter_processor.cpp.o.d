@@ -931,9 +931,6 @@ CMakeFiles/topmg.dir/src/filter/LCS/lcs_filter_processor.cpp.o: \
  /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_xml_writer_util.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/prsm/simple_prsm_str_merge.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/expected_value.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/ms/factory/prm_ms_util.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/filter/massmatch/mass_match.hpp \
  /usr/include/boost/serialization/vector.hpp \
@@ -2332,19 +2329,4 @@ CMakeFiles/topmg.dir/src/filter/LCS/lcs_filter_processor.cpp.o: \
  /usr/include/boost/graph/detail/empty_header.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/common/base/ptm_base.hpp \
  /home/kunyili/Desktop/sTopMG-master/src/filter/LCS/lcs_filter_processor.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_xml_writer.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/prsm/prsm_str.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/count/count_test_num.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/mcmc/mcmc_mng.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.hpp \
- /home/kunyili/Desktop/sTopMG-master/src/stat/mcmc/mcmc_dpr_processor.hpp \
- /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
- /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
- /usr/include/c++/11/bits/stl_numeric.h
+ /home/kunyili/Desktop/sTopMG-master/src/ms/factory/prm_ms_util.hpp

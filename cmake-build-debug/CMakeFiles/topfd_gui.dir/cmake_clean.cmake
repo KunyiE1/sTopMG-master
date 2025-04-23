@@ -90,8 +90,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/topfd_gui.dir/src/gui/util/command.cpp.o.d"
   "CMakeFiles/topfd_gui.dir/src/gui/util/gui_message.cpp.o"
   "CMakeFiles/topfd_gui.dir/src/gui/util/gui_message.cpp.o.d"
-  "CMakeFiles/topfd_gui.dir/src/prsm/evalue_prsm.cpp.o"
-  "CMakeFiles/topfd_gui.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/topfd_gui.dir/src/topfd/common/topfd_para.cpp.o"
   "CMakeFiles/topfd_gui.dir/src/topfd/common/topfd_para.cpp.o.d"
   "CMakeFiles/topfd_gui.dir/topfd_gui_autogen/HZKSH7CGSX/qrc_icon.cpp.o"

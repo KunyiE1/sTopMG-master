@@ -1,5 +1,5 @@
-/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/topindex_gui_autogen/PJRF6ORA5X/moc_topindexdialog.cpp: /home/kunyili/Desktop/sTopMG-master/src/gui/topindex/topindexdialog.hpp \
-  /home/kunyili/Desktop/sTopMG-master/cmake-build-debug/topindex_gui_autogen/moc_predefs.h \
+/home/kunyili/toppic-suite-main/cmake-build-debug/topindex_gui_autogen/PJRF6ORA5X/moc_topindexdialog.cpp: /home/kunyili/toppic-suite-main/src/gui/topindex/topindexdialog.hpp \
+  /home/kunyili/toppic-suite-main/cmake-build-debug/topindex_gui_autogen/moc_predefs.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
