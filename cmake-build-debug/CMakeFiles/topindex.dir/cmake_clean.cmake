@@ -126,6 +126,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/topindex.dir/src/para/prsm_para.cpp.o.d"
   "CMakeFiles/topindex.dir/src/para/sp_para.cpp.o"
   "CMakeFiles/topindex.dir/src/para/sp_para.cpp.o.d"
+  "CMakeFiles/topindex.dir/src/prsm/evalue_prsm.cpp.o"
+  "CMakeFiles/topindex.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/topindex.dir/src/seq/alter.cpp.o"
   "CMakeFiles/topindex.dir/src/seq/alter.cpp.o.d"
   "CMakeFiles/topindex.dir/src/seq/alter_type.cpp.o"

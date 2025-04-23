@@ -266,6 +266,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/toppic.dir/src/para/prsm_para.cpp.o.d"
   "CMakeFiles/toppic.dir/src/para/sp_para.cpp.o"
   "CMakeFiles/toppic.dir/src/para/sp_para.cpp.o.d"
+  "CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o"
+  "CMakeFiles/toppic.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o"
   "CMakeFiles/toppic.dir/src/prsm/expected_value.cpp.o.d"
   "CMakeFiles/toppic.dir/src/prsm/peak_ion_pair.cpp.o"

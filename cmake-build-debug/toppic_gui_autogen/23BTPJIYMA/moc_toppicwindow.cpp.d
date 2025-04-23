@@ -1,5 +1,5 @@
-/home/kunyili/toppic-suite-main/cmake-build-debug/toppic_gui_autogen/23BTPJIYMA/moc_toppicwindow.cpp: /home/kunyili/toppic-suite-main/src/gui/toppic/toppicwindow.hpp \
-  /home/kunyili/toppic-suite-main/cmake-build-debug/toppic_gui_autogen/moc_predefs.h \
+/home/kunyili/Desktop/sTopMG-master/cmake-build-debug/toppic_gui_autogen/23BTPJIYMA/moc_toppicwindow.cpp: /home/kunyili/Desktop/sTopMG-master/src/gui/toppic/toppicwindow.hpp \
+  /home/kunyili/Desktop/sTopMG-master/cmake-build-debug/toppic_gui_autogen/moc_predefs.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

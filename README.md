@@ -1,6 +1,6 @@
-# sTopMG
-sTopMG is implemented by changing original topmg which is included in TopPIC. 
-For further information and detailed manual, please visit https://www.toppic.org/software/toppic/
+# TopPIC: TOP-Down Mass Spectrometry Based Proteoform Identification and Characterization
+
+For manual and reference, please visit https://www.toppic.org/software/toppic/
 
 ## System requirements
 
@@ -70,38 +70,17 @@ make -j$(nproc)
 make install
 ```
 
-## Simple Manual for Getting Started with sTopMG
-### Run sTopMG
-After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
-You can simply run sTopMG with command line:
+### Language setting
+
+On some Linux distributions, you might meet the problem "Could not loading a transcoding service".
+To fix this, please add following lines into your `.bashrc`.
+
 ```sh
-topmg -i MODFICATION_FILE SEQUENCE_DATABASE_FILE SPECTRUM_FILE >RESULTS_FILE
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 ```
-take searching 100 simulated spectra data as an example, run the command line:
-```sh
-topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
-```
-according to the building, the command line could also be:
-```sh
-bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
-```
-### Change Settings for sTopMG
-The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.
-There are various searching schemes which can be decided by users.
 
-In **src/filter/mng/LCS_filter_mng.hpp**, line 118 to line 122:\
-**bool use_fixed_tol = true**: means use the fixed error tolerance = 0.1 Dalton for each peak, change it to false if peak-dependent error tolerance(ppm) is what you need.\
-**bool mass_filter_use_fixed_tole = true**: means the mass-filter use the fixed error tolerance = 0.1 Dalton for the precursor mass, change it to false if precursor mass multipliess Xppm is the tolerance you need.\
-**bool use_adjusted_precmass = false**: means we don't generated adjusted spectra by adding 1 Dalton and -1 Dalton to the precursor mass when searching.\
-**bool whole_protein_only = false**: means we consider the truncation of the protein sequence when searching the query spectrum.
+### Windows:
 
-
-In **src/console/topmg_process.cpp**, line 470:\
-**bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.
-
-
-
-
-
-
-
+[MSYS2](http://www.msys2.org/) is used for Windows building. Please follow the instructions from [here](doc/windows_build.md).

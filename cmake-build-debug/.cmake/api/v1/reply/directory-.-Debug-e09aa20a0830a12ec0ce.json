@@ -1,0 +1,172 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 404,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 406,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topfd"
+			],
+			"targetId" : "topfd::@6890427a1f51a3e7e1df",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topindex"
+			],
+			"targetId" : "topindex::@6890427a1f51a3e7e1df",
+			"targetIndex" : 8,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/toppic"
+			],
+			"targetId" : "toppic::@6890427a1f51a3e7e1df",
+			"targetIndex" : 16,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topmg"
+			],
+			"targetId" : "topmg::@6890427a1f51a3e7e1df",
+			"targetIndex" : 12,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topdiff"
+			],
+			"targetId" : "topdiff::@6890427a1f51a3e7e1df",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topfd_gui"
+			],
+			"targetId" : "topfd_gui::@6890427a1f51a3e7e1df",
+			"targetIndex" : 6,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topindex_gui"
+			],
+			"targetId" : "topindex_gui::@6890427a1f51a3e7e1df",
+			"targetIndex" : 10,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/toppic_gui"
+			],
+			"targetId" : "toppic_gui::@6890427a1f51a3e7e1df",
+			"targetIndex" : 18,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topmg_gui"
+			],
+			"targetId" : "topmg_gui::@6890427a1f51a3e7e1df",
+			"targetIndex" : 14,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/kunyili/Desktop/sTopMG-master/bin/topdiff_gui"
+			],
+			"targetId" : "topdiff_gui::@6890427a1f51a3e7e1df",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "etc/toppic",
+			"paths" : 
+			[
+				{
+					"from" : "resources",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

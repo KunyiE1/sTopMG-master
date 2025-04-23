@@ -22,6 +22,7 @@
 #include "prsm/prsm.hpp"
 #include "stat/count/count_test_num.hpp"
 #include "stat/tdgf/tdgf_mng.hpp"
+#include "stat/mcmc/mcmc_mng.hpp"
 
 namespace toppic {
 

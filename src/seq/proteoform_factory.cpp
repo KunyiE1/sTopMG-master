@@ -138,9 +138,9 @@ ProteoformPtr geneSubProteoform(ProteoformPtr proteoform_ptr,
   for (size_t i = 0; i < ori_shift_list.size(); i++) {
     if (ori_shift_list[i]->getLeftBpPos() >= residue_start
         && ori_shift_list[i]->getRightBpPos() <= residue_end + 1) {
-      MassShiftPtr shift_ptr = std::make_shared<MassShift>(ori_shift_list[i], residue_start); 
+      MassShiftPtr shift_ptr = std::make_shared<MassShift>(ori_shift_list[i], residue_start);
       shift_list.push_back(shift_ptr);
-    } 
+    }
   }
 
   ProtModPtr prot_mod_ptr = proteoform_ptr->getProtModPtr();

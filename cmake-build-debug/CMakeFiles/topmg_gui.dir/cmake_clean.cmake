@@ -92,6 +92,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/topmg_gui.dir/src/gui/util/command.cpp.o.d"
   "CMakeFiles/topmg_gui.dir/src/gui/util/gui_message.cpp.o"
   "CMakeFiles/topmg_gui.dir/src/gui/util/gui_message.cpp.o.d"
+  "CMakeFiles/topmg_gui.dir/src/prsm/evalue_prsm.cpp.o"
+  "CMakeFiles/topmg_gui.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/topmg_gui.dir/topmg_gui_autogen/OBJ2MOUSMQ/qrc_icon.cpp.o"
   "CMakeFiles/topmg_gui.dir/topmg_gui_autogen/OBJ2MOUSMQ/qrc_icon.cpp.o.d"
   "CMakeFiles/topmg_gui.dir/topmg_gui_autogen/mocs_compilation.cpp.o"

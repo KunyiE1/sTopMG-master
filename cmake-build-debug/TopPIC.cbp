@@ -3243,6 +3243,30 @@
 			<Option target="topmg"/>
 			<Option target="topdiff"/>
 		</Unit>
+		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.cpp">
+			<Option target="topfd"/>
+			<Option target="topindex"/>
+			<Option target="toppic"/>
+			<Option target="topmg"/>
+			<Option target="topdiff"/>
+			<Option target="topfd_gui"/>
+			<Option target="topindex_gui"/>
+			<Option target="toppic_gui"/>
+			<Option target="topmg_gui"/>
+			<Option target="topdiff_gui"/>
+		</Unit>
+		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/prsm/evalue_prsm.hpp">
+			<Option target="topfd"/>
+			<Option target="topindex"/>
+			<Option target="toppic"/>
+			<Option target="topmg"/>
+			<Option target="topdiff"/>
+			<Option target="topfd_gui"/>
+			<Option target="topindex_gui"/>
+			<Option target="toppic_gui"/>
+			<Option target="topmg_gui"/>
+			<Option target="topdiff_gui"/>
+		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/prsm/expected_value.cpp">
 			<Option target="toppic"/>
 			<Option target="topmg"/>
@@ -4177,45 +4201,52 @@
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value_array.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_prob_value_array.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_array.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/comp_pvalue_lookup_table.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/evalue_processor.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/prob_peak.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.cpp">
 			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/stat/tdgf/tdgf_mng.hpp">
-			<Option target="toppic"/>
+			<Option target="topmg"/>
 		</Unit>
 		<Unit filename="/home/kunyili/Desktop/sTopMG-master/src/topfd/common/topfd_para.cpp">
 			<Option target="topfd"/>

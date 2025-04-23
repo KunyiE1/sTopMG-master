@@ -30,6 +30,7 @@ CountTestNum::CountTestNum(double convert_ratio, double max_ptm_mass,
   convert_ratio_ = convert_ratio;
   max_ptm_mass_ = max_ptm_mass;
   max_sp_len_ = static_cast<int>(std::round(max_prec_mass * convert_ratio_));
+//  std::cout<<"max ptm mass "<<max_ptm_mass << "max sp len "<< max_sp_len_<<std::endl;
   init(prsm_para_ptr);
 }
 
@@ -164,6 +165,7 @@ double CountTestNum::compNonPtmCandNum(ProteoformTypePtr type_ptr,
                                        double ori_mass, double ori_tolerance) {
   int low = std::floor((ori_mass - ori_tolerance) * convert_ratio_);
   int high = std::ceil((ori_mass + ori_tolerance) * convert_ratio_);
+//  std::cout<<"low: "<<low<<" high "<<high<<std::endl;
   double cand_num = compSeqNum(type_ptr, low, high);
 
   return cand_num;
@@ -206,6 +208,7 @@ double CountTestNum::compSeqNum(ProteoformTypePtr type_ptr, int low, int high) {
     candNum = compMassNum(pref_mass_cnts_, low, high);
   } else if (type_ptr == ProteoformType::SUFFIX) {
     candNum = compMassNum(suff_mass_cnts_, low, high);
+//    std::cout<<"suff_mass_cnts:"<<suff_mass_cnts_<<std::endl;
   } else if (type_ptr == ProteoformType::INTERNAL) {
     candNum = compMassNum(internal_mass_cnts_, low, high);
   }

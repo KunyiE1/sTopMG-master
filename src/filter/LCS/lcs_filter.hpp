@@ -29,6 +29,7 @@
 #include <set>
 #include "common/util/logger.hpp"
 #include "search/graph/dist.hpp"
+#include "ms/spec/deconv_ms.hpp"
 
 namespace toppic {
 
@@ -129,6 +130,7 @@ class LCSFilter {
         std::unordered_map<int, std::vector<std::pair<int, int>>> mass_pos_table_;
         std::vector<std::pair<int,int>> mods_pos_list_;
         std::vector<int> prot_peak_mass_list_;
+        std::vector<std::pair<int, std::vector<int>>> modlist_for_pos_;
         int max_mass_;
     };
     typedef std::shared_ptr<ProtData> ProtDataPtr;
@@ -209,6 +211,7 @@ class LCSFilter {
       }
 
 
+        DeconvMsPtrVec deconv_ms_ptr_vec_;
       void setBgn_ys(std::vector<int> bgn_ys){bgn_ys_ = bgn_ys;}
       std::vector<int> getBgn_ys(){return bgn_ys_;}
       std::vector<ProteoformPtr> cand_proteo_vec_ = {};
@@ -217,6 +220,8 @@ class LCSFilter {
       std::string spec_name_;
       int spec_id_;
       int offset_;
+      int score_;
+      std::string best_prot_name_ = "";
   private:
       int spectrum_num_;
       MsHeaderPtr header_;
@@ -416,6 +421,11 @@ class LCSFilter {
       bool end_bin = false;
   };
 
+
+
+
+
+
   class Comb;
   typedef std::shared_ptr<Comb> CombPtr;
   class Comb{
@@ -431,6 +441,10 @@ class LCSFilter {
   };
 
 
+
+
+
+
     class ModsFound;
     class ModsFound{
     public:
@@ -439,7 +453,7 @@ class LCSFilter {
             right_ = -1;
             local_score_ = 0;
             pre_mods_ = -1;
-            mods_dist_ = 0;
+            mods_mass = 0;
         };
         ModsFound(int left, int right, int local_score, int pre_mods): left_(left), right_(right), local_score_(local_score), pre_mods_(pre_mods){};
         std::vector<int> mods_vec_;
@@ -447,7 +461,7 @@ class LCSFilter {
         int right_;
         int local_score_;
         int pre_mods_;
-        int mods_dist_;
+//        int mods_dist_ = 0;
         int mods_mass;
     };
 
@@ -539,6 +553,7 @@ class LCSFilter {
         std::string  seq_string_;
         std::vector<std::pair<int,int>>  mods_pos_list_;
         std::unordered_map<int,std::vector<int>>  mod_mass_table_;
+        std::vector<std::pair<int,std::vector<int>>> modlist_for_pos_;
         std::vector<int> mods_mass_list_;
         PrmPeakPtrVec & merge_list_;
         //int prot_peak_num_ = -1;
@@ -567,6 +582,9 @@ class LCSFilter {
     int getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector<std::tuple<int, std::vector<int>, int>> & T_mass_comb,
                    ResSeqPtr & seq, std::vector<std::pair<int,int>> & mods_pos_list);
 
+    int getScore_2(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector<std::tuple<int, std::vector<int>, int>> & T_mass_comb,
+                   ResSeqPtr & seq, std::vector<std::pair<int,int>> & mods_pos_list, std::vector<std::pair<int,std::vector<int>>> & modlist_for_pos);
+
 
     void backtrack_1(std::vector<BucketPtr> & path, std::vector<std::vector<ModsFound>> &dp_array, ResSeqPtr & seq);
 
@@ -576,7 +594,7 @@ class LCSFilter {
 
 
 
-    void SearchPaths_1(BucketPtr u, int mod_dist, int mod_num, std::vector<int> mods_vec, int &total_mods_num, std::vector<BucketPtr> &path,
+    void SearchPaths_1(BucketPtr u, int mod_dist, int mod_num, int isotope_value, int isotope_shift_num, std::vector<int> mods_vec,int &total_mods_num, int & iso_sum, int &total_iso_num, std::vector<BucketPtr> &path,
                        std::vector<std::vector<ModsFound>> &dp_array, SearchSet &ss, std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map);
 
     void SearchPaths_Antibody(BucketPtr u, int mod_dist, int mod_num, std::vector<int> mods_vec, int &total_mods_num, std::vector<BucketPtr> &path,
@@ -597,11 +615,25 @@ class LCSFilter {
                     std::vector<std::pair<int, int>> &mods_pos_list,
                     std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map);
 
+
+    void HandleOverlap_2(int mod_dist, BucketPtr &pre_bin, BucketPtr &cur_bin, int head, int j,
+                    std::vector<std::vector<ModsFound>> &dp_array,
+                    std::vector<int> &mods_vec, std::string &seq_string,
+                    std::vector<std::pair<int, std::vector<int>>> & modlist_for_pos,
+                    std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map);
+
     void
     HandleNonOverlap_1(int mod_dist, BucketPtr &pre_bin, BucketPtr &cur_bin, int head, int j,
                     std::vector<std::vector<ModsFound>> &dp_array,
                     std::vector<int> &mods_vec, std::string &seq_string,
                     std::vector<std::pair<int, int>> &mods_pos_list,
+                       std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map);
+
+    void
+    HandleNonOverlap_2(int mod_dist, BucketPtr &pre_bin, BucketPtr &cur_bin, int head, int j,
+                       std::vector<std::vector<ModsFound>> &dp_array,
+                       std::vector<int> &mods_vec, std::string &seq_string,
+                       std::vector<std::pair<int, std::vector<int>>> &modlist_for_pos,
                        std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map);
 
     void HandleAntibody(int mod_dist, BucketPtr & pre_bin, BucketPtr & cur_bin, int head,

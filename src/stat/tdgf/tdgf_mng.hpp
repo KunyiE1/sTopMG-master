@@ -23,7 +23,7 @@ namespace toppic {
 
 class TdgfMng {
  public:
-  TdgfMng(PrsmParaPtr prsm_para_ptr, int shift_num, double max_ptm_mass, bool use_gf, 
+  TdgfMng(PrsmParaPtr prsm_para_ptr, int shift_num, double max_ptm_mass, bool use_gf,
           int var_ptm_type_num, int thread_num, const std::string &input_file_ext, 
           const std::string & output_file_ext);
 
@@ -49,11 +49,15 @@ class TdgfMng {
 
   int computation_frag_num_cutoff = 25;
 
+  std::string result_path;
+
   // dp table 
   // number of mass shift
   int unexpected_shift_num_ = 2;
 
   int thread_num_ = 1;
+
+  double obj_fdr = 0.01;
 
   double convert_ratio_ = 27.4335215;
 

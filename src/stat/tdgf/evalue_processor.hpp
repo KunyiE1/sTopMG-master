@@ -20,6 +20,7 @@
 #include "stat/tdgf/tdgf_mng.hpp"
 #include "stat/tdgf/comp_pvalue_array.hpp"
 #include "stat/tdgf/comp_pvalue_lookup_table.hpp"
+#include "prsm/evalue_prsm.hpp"
 
 namespace toppic {
 
@@ -30,6 +31,8 @@ class EValueProcessor {
   void init();
 
   void process(bool is_separate);
+
+  void process_1(bool is_separate, std::vector<Evalue_PrsmPtr> e_prsm_vec);
 
   void processOneSpectrum(SpectrumSetPtr spec_set_ptr,
                           PrsmPtrVec &sele_prsm_ptrs,
@@ -50,6 +53,8 @@ class EValueProcessor {
   CompPValueLookupTablePtr comp_pvalue_table_ptr_;
   
   bool checkPrsms(const PrsmPtrVec &prsm_ptrs);
+
+
 };
 
 typedef std::shared_ptr<EValueProcessor> EValueProcessorPtr;
