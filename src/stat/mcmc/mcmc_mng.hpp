@@ -22,6 +22,62 @@
 
 namespace toppic {
 
+//    class TdgfMng {
+//    public:
+//        TdgfMng(PrsmParaPtr prsm_para_ptr, int shift_num, double max_ptm_mass, bool use_gf,
+//                int var_ptm_type_num, int thread_num, const std::string &input_file_ext,
+//                const std::string & output_file_ext):
+//                input_file_ext_(input_file_ext),
+//                output_file_ext_(output_file_ext),
+//                prsm_para_ptr_(prsm_para_ptr),
+//                use_gf_(use_gf),
+//                var_ptm_type_num_(var_ptm_type_num),
+//                max_ptm_mass_(max_ptm_mass),
+//                unexpected_shift_num_(shift_num),
+//                thread_num_(thread_num) {};
+//
+//        std::string input_file_ext_;
+//
+//        std::string output_file_ext_;
+//
+//        PrsmParaPtr prsm_para_ptr_;
+//
+//        // Prsm filter
+//        double comp_evalue_min_match_frag_num_ = 4.0;
+//
+//        bool use_gf_ = true;
+//
+//        int var_ptm_type_num_ = 0;
+//
+//        // Max ptm mass is used in the function for counting sequence numbers
+//        double max_ptm_mass_ = 1000000;
+//
+//        // Do tdgf computation if poisson report evalue > 10^-8
+//        // or match frag num < 25
+//        double computation_evalue_cutoff = 0.00000001;
+//
+//        int computation_frag_num_cutoff = 25;
+//
+//        std::string result_path;
+//
+//        // dp table
+//        // number of mass shift
+//        int unexpected_shift_num_ = 2;
+//
+//        int thread_num_ = 1;
+//
+//        double convert_ratio_ = 27.4335215;
+//
+//        double max_prec_mass_ = 100000;
+//
+//        int max_table_height_ = 128;
+//
+//        int min_height_ = 10;
+//    };
+//    typedef std::shared_ptr<TdgfMng> TdgfMngPtr;
+
+
+
 class MCMCMng {
  public:
   MCMCMng(PrsmParaPtr prsm_para_ptr, 

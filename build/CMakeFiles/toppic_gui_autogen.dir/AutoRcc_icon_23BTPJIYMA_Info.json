@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/kunyili/Desktop/sTopMG-master/build/toppic_gui_autogen",
+	"CMAKE_BINARY_DIR" : "/home/kunyili/Desktop/sTopMG-master/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/kunyili/Desktop/sTopMG-master/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/kunyili/Desktop/sTopMG-master",
+	"CMAKE_SOURCE_DIR" : "/home/kunyili/Desktop/sTopMG-master",
+	"INCLUDE_DIR" : "/home/kunyili/Desktop/sTopMG-master/build/toppic_gui_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/kunyili/Desktop/sTopMG-master/src/gui/help.png",
+		"/home/kunyili/Desktop/sTopMG-master/src/gui/toppic.ico"
+	],
+	"LOCK_FILE" : "/home/kunyili/Desktop/sTopMG-master/build/CMakeFiles/toppic_gui_autogen.dir/AutoRcc_icon_23BTPJIYMA_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "icon" ],
+	"OUTPUT_CHECKSUM" : "23BTPJIYMA",
+	"OUTPUT_NAME" : "qrc_icon.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/kunyili/Desktop/sTopMG-master/build/CMakeFiles/toppic_gui_autogen.dir/AutoRcc_icon_23BTPJIYMA_Used.txt",
+	"SOURCE" : "/home/kunyili/Desktop/sTopMG-master/src/gui/toppic/icon.qrc",
+	"VERBOSITY" : 0
+}

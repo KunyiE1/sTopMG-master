@@ -19,7 +19,8 @@
 #include "stat/count/count_test_num.hpp"
 #include "stat/tdgf/tdgf_mng.hpp"
 #include "stat/tdgf/comp_prob_value.hpp"
-
+#include "prsm/evalue_prsm.hpp"
+#include "stat/mcmc/mcmc_mng.hpp"
 namespace toppic {
 
 class CompPValueArray {
@@ -32,8 +33,14 @@ class CompPValueArray {
 
   void compSingleExpectedValue(const DeconvMsPtrVec &ms_ptr_vec, PrsmPtr prsm_ptr, double ppo);
 
-  void process(SpectrumSetPtr spec_set_ptr, PrsmPtrVec &prsm_ptrs, double ppo, bool is_separate);
+  void compSTopMGExpectedValues(const PrmMsPtrVec &ms_two_ptr_vec,
+                             std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
+                             double ppo, bool strict);
 
+    void process(SpectrumSetPtr spec_set_ptr, PrsmPtrVec &prsm_ptrs, double ppo, bool is_separate);
+
+    void process_stopmg(SpectrumSetPtr spec_set_ptr, std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
+                                  double ppo, bool is_separate);
  private:
   TdgfMngPtr mng_ptr_;
 

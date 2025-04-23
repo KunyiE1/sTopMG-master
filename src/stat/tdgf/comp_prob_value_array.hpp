@@ -20,6 +20,7 @@
 #include "prsm/prsm.hpp"
 #include "para/peak_tolerance.hpp"
 #include "stat/tdgf/comp_prob_value.hpp"
+#include "prsm/evalue_prsm.hpp"
 
 namespace toppic {
 
@@ -28,6 +29,15 @@ namespace comp_prob_value_array {
 void compProbArray(CompProbValuePtr comp_prob_ptr, const ResFreqPtrVec &n_term_residue_ptrs, 
                    const PrmPeakPtrVec2D &peak_ptr_2d, const PrsmPtrVec &prsm_ptrs, bool strict,
                    double prob_prec_mass, PeakTolerancePtr tole_ptr, std::vector<double> &results);
+
+    void compProbArray_1(CompProbValuePtr comp_prob_ptr,
+                         const ResFreqPtrVec &n_term_residue_ptrs,
+                         const PrmPeakPtrVec2D &peak_ptr_2d,
+                         const std::vector<Evalue_PrsmPtr> &e_prsm_ptrs,
+                         bool strict,
+                         double prob_prec_mass,
+                         PeakTolerancePtr tole_ptr,
+                         std::vector<double> &results);
 
 }
 

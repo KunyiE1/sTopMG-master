@@ -12,8 +12,10 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-#include <climits>
 
+
+#include <climits>
+#include <iomanip>
 #include "common/util/logger.hpp"
 #include "common/util/file_util.hpp"
 #include "common/thread/simple_thread_pool.hpp"
@@ -26,6 +28,7 @@
 #include "prsm/prsm_xml_writer_util.hpp"
 #include "stat/tdgf/evalue_processor.hpp"
 
+#include "prsm/evalue_prsm.hpp"
 
 namespace toppic {
 
@@ -43,6 +46,58 @@ void EValueProcessor::init() {
   comp_pvalue_ptr_ = std::make_shared<CompPValueArray>(test_num_ptr_, mng_ptr_);
 
 }
+
+
+    bool E_value_compare(Evalue_PrsmPtr a, Evalue_PrsmPtr b) {
+        return a->getEValue() > b->getEValue();
+    }
+
+    std::function<void()> geneTask_1(SpectrumSetPtr spec_set_ptr,
+                                   const Evalue_PrsmPtr & e_prsm,
+                                   double ppo, bool is_separate,
+                                   TdgfMngPtr mng_ptr, CountTestNumPtr test_num_ptr,
+                                   SimpleThreadPoolPtr pool_ptr){
+        return [spec_set_ptr, e_prsm, ppo, is_separate, mng_ptr, test_num_ptr, pool_ptr](){
+            std::vector<Evalue_PrsmPtr> e_prsm_vec; // copy sele_prsm_ptrs
+            e_prsm_vec.push_back(e_prsm);
+            CompPValueArrayPtr comp_pvalue_ptr = std::make_shared<CompPValueArray>(test_num_ptr, mng_ptr);
+            comp_pvalue_ptr->process_stopmg(spec_set_ptr, e_prsm_vec, ppo, is_separate);
+
+//            std::cout<<std::endl;
+//            std::cout<<"E-value"<< std::scientific << std::setprecision(3) << e_prsm_vec[0]->getEValue()<<std::endl;
+            for (unsigned i = 0; i < e_prsm_vec.size(); i++) {
+                if (std::round(e_prsm_vec[i]->alignment_score_) <= std::round(mng_ptr->comp_evalue_min_match_frag_num_)) {
+                    e_prsm_vec[i]->setExpectedValuePtr(ExpectedValue::getMaxEvaluePtr());
+                    e_prsm->setExpectedValuePtr(ExpectedValue::getMaxEvaluePtr());
+
+                } else {
+                    if (e_prsm_vec[i]->getEValue() == 0.0) {
+                        LOG_WARN("Invalid e value!");
+                        e_prsm_vec[i]->setExpectedValuePtr(ExpectedValue::getMaxEvaluePtr());
+                        e_prsm->setExpectedValuePtr(ExpectedValue::getMaxEvaluePtr());
+//                        std::cout<<"EEE"<<e_prsm_vec[i]->getEValue()<<std::endl;
+                    }
+                }
+
+                std::ofstream outFile;
+                std::string result_file = mng_ptr->result_path + "LCSA_scoreboard_Evalue.txt";
+                outFile.open(result_file, std::ios::app);
+                outFile << std::to_string(spec_set_ptr->getSpectrumId()) + "\t" + e_prsm_vec[i]->prot_name_ + "\t" +
+
+                           //                                  std::to_string(best_start_pos) + "\t" +
+                           std::to_string(e_prsm_vec[i]->alignment_score_) + "\t" << std::scientific << std::setprecision(3)<<
+                           e_prsm_vec[i]->getEValue() << std::endl;
+//                e_prsm->E_value_ = e_prsm_vec[i]->getEValue();
+                outFile.close();
+            }
+
+
+        };
+
+    }
+
+
+
 
 std::function<void()> geneTask(SpectrumSetPtr spec_set_ptr, 
                                const PrsmPtrVec & sele_prsm_ptrs,
@@ -78,7 +133,79 @@ std::function<void()> geneTask(SpectrumSetPtr spec_set_ptr,
   };
 }
 
-// Compute E-value. Separate: compute E-values for PrSMs separately or not 
+
+void EValueProcessor::process_1(bool is_separate, std::vector<Evalue_PrsmPtr> e_prsm_vec){
+    PrsmParaPtr prsm_para_ptr = mng_ptr_->prsm_para_ptr_;
+    std::vector<double> prec_error_vec = {0};
+    SpParaPtr sp_para_ptr = prsm_para_ptr->getSpParaPtr();
+    double ppo = sp_para_ptr->getPeakTolerancePtr()->getPpo();
+    int group_spec_num = prsm_para_ptr->getGroupSpecNum();
+    SimpleThreadPoolPtr pool_ptr = std::make_shared<SimpleThreadPool>(mng_ptr_->thread_num_);
+    for(int i = 0 ; i < e_prsm_vec.size(); i++){
+        SpectrumSetPtrVec spec_set_vec
+                = spectrum_set_factory::geneSpectrumSetPtrVecWithPrecError(e_prsm_vec[i]->deconv_ms_ptr_vec_,
+                                                                           sp_para_ptr, prec_error_vec);
+        SpectrumSetPtr spec_set_ptr = spec_set_vec[0];
+        while (pool_ptr->getQueueSize() >= mng_ptr_->thread_num_ + 2) {
+            boost::this_thread::sleep(boost::posix_time::milliseconds(100));
+        }
+        pool_ptr->Enqueue(geneTask_1(spec_set_ptr, e_prsm_vec[i], ppo, is_separate,
+                                   mng_ptr_, test_num_ptr_, pool_ptr));
+    }
+
+
+
+    pool_ptr->ShutDown();
+
+
+    std::sort(e_prsm_vec.begin(), e_prsm_vec.end(), E_value_compare);
+    int total_decoy_num = 0;
+    for (unsigned i = 0; i < e_prsm_vec.size(); i++){
+        std::string seq_name = e_prsm_vec[i]->prot_name_;
+        if(seq_name.find("DECOY_")==0){
+            total_decoy_num = total_decoy_num + 1;
+        }
+    }
+    int decoy = total_decoy_num;
+    int preserve = e_prsm_vec.size();
+    double thresh;
+    for (unsigned i = 0; i < e_prsm_vec.size(); i++){
+        double cur_thresh = e_prsm_vec[i]->getEValue();
+        double fdr = float(decoy) / float(preserve);
+        if(fdr <= mng_ptr_->obj_fdr){
+            thresh = cur_thresh;
+            break;
+        }else{
+            preserve = preserve - 1;
+            if(e_prsm_vec[i]->prot_name_.find("DECOY_")==0){
+                decoy = decoy - 1;
+            }
+        }
+    }
+    for (unsigned i = 0; i < e_prsm_vec.size(); i++) {
+        if(e_prsm_vec[i]->getEValue() <= thresh) {
+            SpectrumSetPtrVec spec_set_vec
+                    = spectrum_set_factory::geneSpectrumSetPtrVecWithPrecError(e_prsm_vec[i]->deconv_ms_ptr_vec_,
+                                                                               sp_para_ptr, prec_error_vec);
+            SpectrumSetPtr spec_set_ptr = spec_set_vec[0];
+            std::ofstream outFile;
+            std::string result_file = mng_ptr_->result_path + "LCSA_scoreboard_FDR.txt";
+            outFile.open(result_file, std::ios::app);
+            outFile << std::to_string(spec_set_ptr->getSpectrumId()) + "\t" + e_prsm_vec[i]->prot_name_ + "\t" +
+
+                       //                                  std::to_string(best_start_pos) + "\t" +
+                       std::to_string(e_prsm_vec[i]->alignment_score_) + "\t" << std::scientific
+                    << std::setprecision(3) <<
+                    e_prsm_vec[i]->getEValue() << std::endl;
+
+            outFile.close();
+        }
+    }
+
+}
+
+
+// Compute E-value. Separate: compute E-values for PrSMs separately or not
 void EValueProcessor::process(bool is_separate) {
   PrsmParaPtr prsm_para_ptr = mng_ptr_->prsm_para_ptr_;
   std::string sp_file_name = prsm_para_ptr->getSpectrumFileName();
@@ -221,3 +348,4 @@ void EValueProcessor::processOneSpectrum(SpectrumSetPtr spec_set_ptr,
 }
 
 }
+

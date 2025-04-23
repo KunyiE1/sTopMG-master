@@ -92,6 +92,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/topdiff_gui.dir/src/gui/util/command.cpp.o.d"
   "CMakeFiles/topdiff_gui.dir/src/gui/util/gui_message.cpp.o"
   "CMakeFiles/topdiff_gui.dir/src/gui/util/gui_message.cpp.o.d"
+  "CMakeFiles/topdiff_gui.dir/src/prsm/evalue_prsm.cpp.o"
+  "CMakeFiles/topdiff_gui.dir/src/prsm/evalue_prsm.cpp.o.d"
   "CMakeFiles/topdiff_gui.dir/topdiff_gui_autogen/4YKSSMFELI/qrc_icon.cpp.o"
   "CMakeFiles/topdiff_gui.dir/topdiff_gui_autogen/4YKSSMFELI/qrc_icon.cpp.o.d"
   "CMakeFiles/topdiff_gui.dir/topdiff_gui_autogen/mocs_compilation.cpp.o"

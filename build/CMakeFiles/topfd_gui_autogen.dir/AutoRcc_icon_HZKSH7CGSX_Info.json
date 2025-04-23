@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "/home/kunyili/Desktop/sTopMG-master/build/topfd_gui_autogen",
+	"CMAKE_BINARY_DIR" : "/home/kunyili/Desktop/sTopMG-master/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/kunyili/Desktop/sTopMG-master/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/kunyili/Desktop/sTopMG-master",
+	"CMAKE_SOURCE_DIR" : "/home/kunyili/Desktop/sTopMG-master",
+	"INCLUDE_DIR" : "/home/kunyili/Desktop/sTopMG-master/build/topfd_gui_autogen/include",
+	"INPUTS" : [ "/home/kunyili/Desktop/sTopMG-master/src/gui/toppic.ico" ],
+	"LOCK_FILE" : "/home/kunyili/Desktop/sTopMG-master/build/CMakeFiles/topfd_gui_autogen.dir/AutoRcc_icon_HZKSH7CGSX_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "icon" ],
+	"OUTPUT_CHECKSUM" : "HZKSH7CGSX",
+	"OUTPUT_NAME" : "qrc_icon.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/kunyili/Desktop/sTopMG-master/build/CMakeFiles/topfd_gui_autogen.dir/AutoRcc_icon_HZKSH7CGSX_Used.txt",
+	"SOURCE" : "/home/kunyili/Desktop/sTopMG-master/src/gui/topfd/icon.qrc",
+	"VERBOSITY" : 0
+}

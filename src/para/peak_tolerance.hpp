@@ -60,7 +60,7 @@ class PeakTolerance {
   double ppo_;
   /* whether or not use minimum tolerance */
   bool use_min_tolerance_ = true;
-  double min_tolerance_ = 0.01;
+  double min_tolerance_ = 0.1;
 };
 
 typedef std::shared_ptr<PeakTolerance> PeakTolerancePtr;

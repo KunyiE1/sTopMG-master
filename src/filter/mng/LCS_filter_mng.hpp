@@ -21,7 +21,7 @@
 
 #include "para/prsm_para.hpp"
 #include "ms/spec/prm_peak.hpp"
-
+#include "seq/proteoform.hpp"
 
 namespace toppic {
 
@@ -58,6 +58,11 @@ class LCSFilterMng {
   std::string getIndexFilePara() {return index_file_para_;}
 
 
+  double max_shift_mass = 500;
+  double min_shift_mass = -500;
+  //E-value
+  int var_ptm_type_num = 0;
+
   std::vector<std::unordered_map<int, std::vector<std::string>>> mass_tables_;
    // std::vector<std::string> res_perm_;
   std::vector<std::tuple<int, std::vector<int>, int>> T_mass_comb_;
@@ -93,7 +98,17 @@ class LCSFilterMng {
   double convert_ratio = 274.335215;
   //std::vector<int> MODS_MASS_VEC = {-6882, -8233, -11535};
   std::vector<int> MODS_MASS_VEC = {-4669, -277};
+  std::vector<std::string> MODS_RES_VEC;
+  std::unordered_map<std::string, std::vector<std::string>> RES_MOD_TABLE;
 
+  int POS_ISO_SHIFT_IDX = -1;
+  int NEG_ISO_SHIFT_IDX = -1;
+  int DISULFIDE_BOND_IDX = -1;
+
+  int total_mod_num_in_best_ = 0;
+  double prot_mass_for_e_value_ = 0;
+
+  std::string dbond_name = "disulfide_bond";
 
   std::vector<int> CID_offset_b = {-4667,-4912,-7684,-12351,-12626};
   std::vector<int> CID_offset_y = {4667,4912};
@@ -112,16 +127,27 @@ class LCSFilterMng {
 
   std::string index_file_para_;
 
-  int min_Dbond_dist_ = 49;
+  int min_Dbond_dist_ = 50;
 
-    bool forAntibody_ = false;
+  //FDR
+  double obj_fdr_ = 0.01;
+
+//    bool forAntibody_ = false;
     bool use_fixed_tol = true;
     bool whole_protein_only = false;
+
+
+    int filter_mode_= 1; //0 for random
 
     bool use_adjusted_precmass = false;
     bool mass_filter_use_fixed_tole = true;
 
+    int max_total_iso_num = 2;
+    int filter_max_total_iso_num_ = 2;
+    int search_max_total_iso_num = 2;
+
   int max_proteoform_mass_ = 50000;
+
 
  std::string resultpath = "/home/kunyili/Desktop/toppic-suite-main-copy/LCS-align/real/BSI_AB1/FD/";
 
@@ -133,6 +159,10 @@ class LCSFilterMng {
   int thread_num_ = 1;
   int search_cand_num = 200;
   int start_pos;
+
+  ProteoformPtr best_protptr_;
+
+  int end_pos;
 
   bool use_MS6 = false;
   std::vector<int> prec_error_vec = {0, -1, 1};
@@ -155,19 +185,20 @@ class LCSFilterMng {
   double average_res_mass = 110;
 
   int var_num_;
-  int sp_id;
+  int sp_id = 0;
   std::string proteo_name;
   // for counting spectra
   int n_spec_block_ = 0;
   boost::mutex mutex_;
   std::vector<int> cnts_;
   int delta = 27;
-  int fix_tol_ = 1 * delta;
+  int fix_tol_ =  delta;
   int bin_tol_ = delta;
-  int max_bin_tol_ = round(2 * convert_ratio);
+  int max_bin_tol_ = round(0.1 * convert_ratio);
 
   int max_path_size_ = 5;
   int max_total_mods_num = 5;
+
   int prec_tole_;
   int tree_size = 0;
   std::vector<int> seq_peak_mass_list;

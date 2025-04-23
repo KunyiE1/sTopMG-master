@@ -272,6 +272,37 @@ std::vector<LCSFilter::massNodePtr> LCSFilter::getMergeFollowMasses(int cur_mass
     return merge_list;
 }
 
+void countMods(int bgn, int end, std::vector<int> & mods_in_gap, std::string & seq_string,   std::unordered_map<std::string, std::vector<std::string>> & res_mods_table, std::vector<std::string> MODS){
+    for(int i = bgn; i < end; i++){
+        std::string oneletter = std::to_string(seq_string[i]);
+        std::vector<std::string> mods = res_mods_table[oneletter];
+        for(int m = 0; m < mods.size(); m ++){
+            for(int n =0 ; n < MODS.size(); n++){
+                if(mods[m] == MODS[n]){
+                    mods_in_gap[n] ++;
+                }
+            }
+        }
+    }
+}
+
+
+    void countMods(int bgn, int end, std::vector<int> & mods_in_gap, std::string & seq_string,   std::unordered_map<std::string, std::vector<std::string>> & res_mods_table, std::vector<std::string> MODS, std::vector<int> & c_pos_list, std::string dbond_name){
+        for(int i = bgn; i < end; i++){
+            std::string oneletter = std::to_string(seq_string[i]);
+            std::vector<std::string> mods = res_mods_table[oneletter];
+            for(int m = 0; m < mods.size(); m ++){
+                if(mods[m] == dbond_name){
+                    c_pos_list.push_back(i);
+                }
+                for(int n =0 ; n < MODS.size(); n++){
+                    if(mods[m] == MODS[n]){
+                        mods_in_gap[n] ++;
+                    }
+                }
+            }
+        }
+    }
 
 
 void countMods(int bgn, int end, std::vector<int> & mods_in_gap, std::string & seq_string, std::vector<std::string> MODS){
@@ -295,6 +326,63 @@ void checkMods(bool & found, std::vector<int> & mods_in_gap, std::vector<int> & 
         }
     }
 }
+
+    void checkMods(bool & found, std::vector<int> & mods_in_gap, std::vector<int> & mods_vec, int pos_iso_shift_idx, int neg_iso_shift_idx){
+        for(int i = 0; i < mods_in_gap.size(); i ++){
+            if(i!=pos_iso_shift_idx && i!= neg_iso_shift_idx) {
+                if (mods_in_gap[i] < mods_vec[i]) {
+                    found = false;
+                    break;
+                } else {
+                    found = true;
+                }
+            }
+        }
+    }
+
+    void checkMods(bool & found, std::vector<int> & mods_in_gap, std::vector<int> & mods_vec, int pos_iso_shift_idx, int neg_iso_shift_idx, int dbond_idx, bool dbond, std::vector<int> c_pos_list, int min_Dbond_dist_) {
+        bool valid_num;
+
+        for (int i = 0; i < mods_in_gap.size(); i++) {
+            if (i != pos_iso_shift_idx && i != neg_iso_shift_idx) {
+                if (mods_in_gap[i] < mods_vec[i]) {
+                    valid_num = false;
+                    break;
+                } else {
+                    valid_num = true;
+                }
+            }
+        }
+        if (valid_num) {
+            if (dbond) {
+                int valid_dist_num = 0;
+                for (int i = 0; i + 1< c_pos_list.size(); i++){
+                    int dist = c_pos_list[i + 1] - c_pos_list[i] - 1;
+                    if (dist >= min_Dbond_dist_){
+                        valid_dist_num = valid_dist_num + 1;
+//                        found = true;
+//                        break;
+                    }
+//                    else{
+//                        found = false;
+//                    }
+                }
+
+                if(valid_dist_num >= mods_vec[dbond_idx] / 2){
+                    found = true;
+                }else{
+                    found = false;
+                }
+            }else{
+                found = true;
+            }
+        }else{
+            found = false;
+        }
+    }
+
+
+
 int Lowerbound(std::vector<std::pair<int, int>> & mods_pos_list, int key){
     int left = 0;
     int right = mods_pos_list.size() - 1;
@@ -307,6 +395,22 @@ int Lowerbound(std::vector<std::pair<int, int>> & mods_pos_list, int key){
         }
     return left;
 }
+
+
+
+    int Lowerbound(std::vector<std::pair<int, std::vector<int>>> & modlist_for_pos, int key){
+            int left = 0;
+            int right = modlist_for_pos.size() - 1;
+            while (left <= right) {
+                int mid = (left + right) >> 1;
+                if (modlist_for_pos[mid].first >= key) {
+                    right = mid - 1;
+                } else { left = mid + 1; }
+            }
+            return left;
+
+    }
+
 
 
 int Lowerbound(std::vector<int> & a, int key){
@@ -451,9 +555,370 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
     }
 
 
+    void LCSFilter::HandleNonOverlap_2(int mod_dist, BucketPtr & pre_bin, BucketPtr & cur_bin, int head,
+                                       int j,
+                                       std::vector<std::vector<ModsFound>> & dp_array,
+                                       std::vector<int> & mods_vec,
+                                       std::string & seq_string,
+                                       std::vector<std::pair<int,std::vector<int>>> & modlist_for_pos,
+                                       std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map){
+        if(!modlist_for_pos.empty()) {
+            std::vector<std::string> MODS = mng_ptr_->MODS_VEC;
+            std::vector<int> mods_in_gap(MODS.size(), 0);
+            std::vector<int> best_mods_pos(2);
 
+            bool Nmod = false;
+            int Nmod_idx;
+            for (int nx = 0; nx < mng_ptr_->N_mod_num_; nx++) {
+                if (mods_vec[nx] > 0) {
+                    Nmod = true;
+                    Nmod_idx = nx;
+                    break;
+                }
+            }
 
+            //d_bond
+            bool d_bond = false;
+            if (mng_ptr_->DISULFIDE_BOND_IDX != -1 && mods_vec[mng_ptr_->DISULFIDE_BOND_IDX] > 0) {
+                d_bond = true;
+            }
 
+            if (Nmod) {
+                bool valid_N = false;
+                int first_node = pre_bin->left_end;
+
+                int bgn = Lowerbound(modlist_for_pos, first_node);
+                int x;
+                if (bgn < modlist_for_pos.size()) {
+                    if (modlist_for_pos[bgn].first == first_node) {
+                        x = bgn;
+                        valid_N = true;
+                    } else {
+                        valid_N = false;
+                    }
+                } else { valid_N = false; }
+//            for(int bi = bgn; bi < modlist_for_pos.size(); bi++){
+//                if(modlist_for_pos[bi].first == first_node){
+//                    x = bi;
+//                    break;
+//                }
+//                if(modlist_for_pos[bi].first > first_node){
+//                    valid_N = false;
+//                    break;
+//                }
+//            }
+                if (valid_N) {
+                    for (int q = 0; q < modlist_for_pos[x].second.size(); q++) {
+                        if (modlist_for_pos[x].second[q] == Nmod_idx) {
+                            std::vector<int> mods_counted(MODS.size(), 0);
+                            mods_counted[Nmod_idx]++;
+                            int mod_left = modlist_for_pos[x].first;
+                            int end = Lowerbound(modlist_for_pos, cur_bin->right_end) - 1;
+                            int y = x + 1;
+                            std::vector<int> c_pos_list;
+                            bool found = true;
+                            while (x <= end && y <= end) {
+                                for (int mi = 0; mi < modlist_for_pos[y].second.size(); mi++) {
+                                    mods_counted[modlist_for_pos[y].second[mi]]++;
+
+                                    if (modlist_for_pos[y].second[mi] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                        c_pos_list.push_back(modlist_for_pos[y].first);
+                                    }
+
+                                }
+                                checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                          mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list, mng_ptr_->min_Dbond_dist_);
+                                if (!found) {
+                                    y++;
+                                } else {
+                                    int mod_right = modlist_for_pos[y].first + 1;
+                                    int local_score = -1;
+                                    ModsFound mods = ModsFound(mod_left, mod_right, local_score, -1);
+                                    mods.mods_vec_ = mods_vec;
+                                    mods.mods_mass = mod_dist;
+                                    dp_array[j].push_back(mods);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            } else {
+                int bestloss;
+                std::vector<int> dbond_pos_list;
+//            countMods(pre_bin->right_end, cur_bin->left_end, mods_in_gap, seq_string, mng_ptr_->RES_MOD_TABLE, MODS);
+                countMods(pre_bin->right_end, cur_bin->left_end, mods_in_gap, seq_string, mng_ptr_->RES_MOD_TABLE, MODS,
+                          dbond_pos_list, mng_ptr_->dbond_name);
+                bool found = true;
+//            checkMods(found, mods_in_gap, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX, mng_ptr_->NEG_ISO_SHIFT_IDX);
+                checkMods(found, mods_in_gap, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                          mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, dbond_pos_list, mng_ptr_->min_Dbond_dist_);
+
+                if (found) {
+                    int mod_left = pre_bin->right_end;
+                    int mod_right = cur_bin->left_end;
+                    int local_score = -1;
+                    //if(mod_right - mod_left <= mng_ptr_->K) {
+                    //int local_score = dp_array[j - 1][k].local_score_ + cur_bin->self_score;
+                    ModsFound cur_mods = ModsFound(mod_left, mod_right, local_score, -1);
+                    cur_mods.mods_vec_ = mods_vec;
+                    cur_mods.mods_mass = mod_dist;
+                    dp_array[j].push_back(cur_mods);
+                    //}
+                } else {
+                    int bgn = Lowerbound(modlist_for_pos, head);
+                    if (bgn < modlist_for_pos.size()) {
+                        std::vector<int> mods_counted(MODS.size(), 0);
+                        int end = Lowerbound(modlist_for_pos, cur_bin->right_end) - 1;
+                        int x = bgn;
+                        int y = bgn;
+                        std::vector<int> c_pos_list;
+                        while (x <= end && y <= end) {
+                            for (int mi = 0; mi < modlist_for_pos[y].second.size(); mi++) {
+                                mods_counted[modlist_for_pos[y].second[mi]]++;
+
+                                if (modlist_for_pos[y].second[mi] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                    c_pos_list.push_back(modlist_for_pos[y].first);
+                                }
+
+                            }
+//                        checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+//                                  mng_ptr_->NEG_ISO_SHIFT_IDX);
+                            checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                      mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list, mng_ptr_->min_Dbond_dist_);
+                            if (!found) {
+                                y++;
+                            } else {
+                                while (found) {
+                                    x++;
+                                    for (int mj = 0; mj < modlist_for_pos[x - 1].second.size(); mj++) {
+                                        mods_counted[modlist_for_pos[x - 1].second[mj]]--;
+
+                                        if (modlist_for_pos[x - 1].second[mj] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                            c_pos_list.erase(c_pos_list.begin());
+                                        }
+
+                                    }
+
+//                                checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+//                                          mng_ptr_->NEG_ISO_SHIFT_IDX);
+                                    checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                              mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list,
+                                              mng_ptr_->min_Dbond_dist_);
+                                }
+                                int mod_left = modlist_for_pos[x - 1].first;
+                                int mod_right = modlist_for_pos[y].first + 1;
+                                int local_score = -1;
+                                //if(mod_right - mod_left <= mng_ptr_->K) {
+                                //int local_score = dp_array[j - 1][k].local_score_ + cur_bin->self_score
+                                //                  - computeLoss(pre_bin->seq_peak_vec_, cur_bin->seq_peak_vec_, mod_left,
+                                //                                mod_right);
+                                //if(local_score != 0) {
+                                ModsFound mods = ModsFound(mod_left, mod_right, local_score, -1);
+                                mods.mods_vec_ = mods_vec;
+                                mods.mods_mass = mod_dist;
+                                dp_array[j].push_back(mods);
+
+                                //}
+                                //}
+                                y++;
+                            }
+                        }
+                    }
+                }
+            }
+
+            puv_map.insert({std::make_pair(pre_bin->bucket_position, cur_bin->bucket_position), dp_array[j]});
+        }
+    }
+
+    void LCSFilter::HandleOverlap_2(int mod_dist, BucketPtr & pre_bin, BucketPtr & cur_bin, int head,
+                                    int j,
+                                    std::vector<std::vector<ModsFound>> & dp_array,
+                                    std::vector<int> & mods_vec,
+                                    std::string & seq_string,
+                                    std::vector<std::pair<int,std::vector<int>>> & modlist_for_pos,
+                                    std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map){
+        if(!modlist_for_pos.empty()) {
+            bool found = true;
+            std::vector<std::string> MODS = mng_ptr_->MODS_VEC;
+
+            bool only_iso_shift = true;
+            for (int i = 0; i < mods_vec.size(); i++) {
+                if (i != mng_ptr_->POS_ISO_SHIFT_IDX && i != mng_ptr_->NEG_ISO_SHIFT_IDX) {
+                    if (mods_vec[i] > 0) {
+                        only_iso_shift = false;
+                        break;
+                    }
+                }
+            }
+
+            bool Nmod = false;
+            int Nmod_idx;
+            for (int nx = 0; nx < mng_ptr_->N_mod_num_; nx++) {
+                if (mods_vec[nx] > 0) {
+                    Nmod = true;
+                    Nmod_idx = nx;
+                    break;
+                }
+            }
+
+            bool d_bond = false;
+            if (mng_ptr_->DISULFIDE_BOND_IDX != -1 && mods_vec[mng_ptr_->DISULFIDE_BOND_IDX] > 0) {
+                d_bond = true;
+            }
+
+            if (!only_iso_shift) {
+                if (Nmod) {
+                    bool valid_N = true;
+                    int first_node = pre_bin->left_end;
+                    int bgn = Lowerbound(modlist_for_pos, first_node);
+                    int x;
+                    if (bgn < modlist_for_pos.size()) {
+                        if (modlist_for_pos[bgn].first == first_node) {
+                            x = bgn;
+                            valid_N = true;
+                        } else {
+                            valid_N = false;
+                        }
+                    } else { valid_N = false; }
+//                for(int bi = bgn; bi < modlist_for_pos.size(); bi++){
+//                    if(modlist_for_pos[bi].first == first_node){
+//                        x = bi;
+//                        break;
+//                    }
+//                    if(modlist_for_pos[bi].first > first_node){
+//                        valid_N = false;
+//                        break;
+//                    }
+//                }
+                    if (valid_N) {
+                        for (int q = 0; q < modlist_for_pos[x].second.size(); q++) {
+                            if (modlist_for_pos[x].second[q] == Nmod_idx) {
+                                std::vector<int> mods_counted(MODS.size(), 0);
+                                mods_counted[Nmod_idx]++;
+                                int mod_left = modlist_for_pos[x].first;
+                                int end = Lowerbound(modlist_for_pos, cur_bin->right_end) - 1;
+                                int y = x + 1;
+                                std::vector<int> c_pos_list;
+                                while (x <= end && y <= end) {
+                                    for (int mi = 0; mi < modlist_for_pos[y].second.size(); mi++) {
+                                        mods_counted[modlist_for_pos[y].second[mi]]++;
+
+                                        if (modlist_for_pos[y].second[mi] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                            c_pos_list.push_back(modlist_for_pos[y].first);
+                                        }
+
+                                    }
+//                                checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+//                                          mng_ptr_->NEG_ISO_SHIFT_IDX);
+                                    checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                              mng_ptr_->NEG_ISO_SHIFT_IDX,mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list,
+                                              mng_ptr_->min_Dbond_dist_);
+                                    if (!found) {
+                                        y++;
+                                    } else {
+                                        int mod_right = modlist_for_pos[y].first + 1;
+                                        int local_score = -1;
+                                        ModsFound mods = ModsFound(mod_left, mod_right, local_score, -1);
+                                        mods.mods_vec_ = mods_vec;
+                                        mods.mods_mass = mod_dist;
+                                        dp_array[j].push_back(mods);
+                                        break;
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    int bgn = Lowerbound(modlist_for_pos, head);
+                    if (bgn < modlist_for_pos.size()) {
+                        std::vector<int> mods_counted(MODS.size(), 0);
+                        int end = Lowerbound(modlist_for_pos, cur_bin->right_end) - 1;
+                        int x = bgn;
+                        int y = bgn;
+                        std::vector<int> c_pos_list;
+                        while (x <= end && y <= end) {
+                            for (int mi = 0; mi < modlist_for_pos[y].second.size(); mi++) {
+                                mods_counted[modlist_for_pos[y].second[mi]]++;
+
+                                if (modlist_for_pos[y].second[mi] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                    c_pos_list.push_back(modlist_for_pos[y].first);
+                                }
+
+                            }
+//                        checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+//                                  mng_ptr_->NEG_ISO_SHIFT_IDX);
+                            checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                      mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list, mng_ptr_->min_Dbond_dist_);
+                            if (!found) {
+                                y++;
+                            } else {
+                                while (found) {
+                                    x++;
+                                    for (int mj = 0; mj < modlist_for_pos[x - 1].second.size(); mj++) {
+                                        mods_counted[modlist_for_pos[x - 1].second[mj]]--;
+
+                                        if (modlist_for_pos[x - 1].second[mj] == mng_ptr_->DISULFIDE_BOND_IDX) {
+                                            c_pos_list.erase(c_pos_list.begin());
+                                        }
+
+                                    }
+//                                checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+//                                          mng_ptr_->NEG_ISO_SHIFT_IDX);
+                                    checkMods(found, mods_counted, mods_vec, mng_ptr_->POS_ISO_SHIFT_IDX,
+                                              mng_ptr_->NEG_ISO_SHIFT_IDX, mng_ptr_->DISULFIDE_BOND_IDX, d_bond, c_pos_list,
+                                              mng_ptr_->min_Dbond_dist_);
+                                }
+
+                                int mod_left = modlist_for_pos[x - 1].first;
+                                int mod_right = modlist_for_pos[y].first + 1;
+                                //if(mod_right - mod_left <= mng_ptr_->K) {
+                                //int local_score = dp_array[j - 1][k].local_score_ + cur_bin->self_score
+                                //                  - computeLoss(pre_bin->seq_peak_vec_, cur_bin->seq_peak_vec_, mod_left,
+                                //                                mod_right);
+                                int local_score = -1;
+                                //if(local_score != 0) {
+                                ModsFound mods = ModsFound(mod_left, mod_right, local_score, -1);
+                                mods.mods_vec_ = mods_vec;
+                                mods.mods_mass = mod_dist;
+                                dp_array[j].push_back(mods);
+                                //}
+                                //}
+                                y++;
+                            }
+                        }
+                    }
+                }
+            } else {
+                std::vector<int> overlap_node;
+                int tail = cur_bin->right_end;
+                for (int p = 0; p < pre_bin->seq_peak_vec_.size(); p++) {
+                    if (pre_bin->seq_peak_vec_[p] >= head && pre_bin->seq_peak_vec_[p] <= tail) {
+                        overlap_node.push_back(pre_bin->seq_peak_vec_[p]);
+                    }
+                }
+                for (int p = 0; p < cur_bin->seq_peak_vec_.size(); p++) {
+                    if (cur_bin->seq_peak_vec_[p] >= head && cur_bin->seq_peak_vec_[p] <= tail) {
+                        overlap_node.push_back(cur_bin->seq_peak_vec_[p]);
+                    }
+                }
+                sort(overlap_node.begin(), overlap_node.end());
+//            std::cout<<overlap_node.size()<<std::endl;
+                overlap_node.erase(unique(overlap_node.begin(), overlap_node.end()), overlap_node.end());
+
+                for (int p = 1; p < overlap_node.size(); p++) {
+                    ModsFound mods = ModsFound(overlap_node[p - 1], overlap_node[p], -1, -1);
+                    mods.mods_vec_ = mods_vec;
+                    mods.mods_mass = mod_dist;
+                    dp_array[j].push_back(mods);
+                }
+            }
+            puv_map.insert({std::make_pair(pre_bin->bucket_position, cur_bin->bucket_position), dp_array[j]});
+        }
+    }
 
 
     void LCSFilter::HandleNonOverlap_1(int mod_dist, BucketPtr & pre_bin, BucketPtr & cur_bin, int head,
@@ -522,6 +987,8 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
         }
         puv_map.insert({std::make_pair(pre_bin->bucket_position, cur_bin->bucket_position), dp_array[j]});
     }
+
+
 
 
     void LCSFilter::HandleOverlap_1(int mod_dist, BucketPtr & pre_bin, BucketPtr & cur_bin, int head,
@@ -782,7 +1249,9 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
             puv_map.insert({std::make_pair(pre_bin->bucket_position, cur_bin->bucket_position), dp_array[j]});
         }
     }
-    void LCSFilter::SearchPaths_1(BucketPtr u, int mod_dist, int mod_num, std::vector<int> mods_vec, int & total_mods_num, std::vector<BucketPtr> & path, std::vector<std::vector<ModsFound>> &dp_array, SearchSet & ss, std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map){
+
+
+    void LCSFilter::SearchPaths_1(BucketPtr u, int mod_dist, int mod_num, int isotope_value, int isotope_shift_num, std::vector<int> mods_vec, int & total_mods_num, int & iso_sum, int & total_iso_num, std::vector<BucketPtr> & path, std::vector<std::vector<ModsFound>> &dp_array, SearchSet & ss, std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> & puv_map){
 
      if(path.size() >= 1) {
             int j = path.size();
@@ -797,11 +1266,23 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
             std::vector<ModsFound> temp;
             dp_array.push_back(temp);
             total_mods_num = total_mods_num + mod_num;
-            if(total_mods_num > mng_ptr_->max_total_mods_num){
-                return;
-            }else if(!u->end_bin && total_mods_num == mng_ptr_->max_total_mods_num){
-                return;
-            }
+            total_iso_num = total_iso_num + isotope_shift_num;
+            iso_sum = iso_sum + isotope_value;
+
+//            if(iso_sum >= 2 || iso_sum <=-2){
+//                return;
+//            }
+//
+//            if(total_mods_num > mng_ptr_->max_total_mods_num || total_iso_num > mng_ptr_->max_total_iso_num){
+//                return;
+//            }else if(!u->end_bin && total_mods_num == mng_ptr_->max_total_mods_num){
+//                return;
+//            }
+
+         if(!u->end_bin && total_mods_num == mng_ptr_->max_total_mods_num){
+             return;
+         }
+
 //            if(path.size() >= mng_ptr_->max_path_size_ && !u->end_bin){
 //                return;
 //            }
@@ -809,19 +1290,33 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
 
             int bgn_peak1 = Lowerbound(pre_bin->seq_peak_vec_, dp_array[j - 1][0].right_);
             int head1 = pre_bin->seq_peak_vec_[bgn_peak1];
+
+
             int tail1 = cur_bin->right_end;
-            if (tail1 - head1 >= mod_num) {
+
+
+
+            if ((tail1 - head1) >= 1 && (tail1 - head1) >= mod_num) {
                 int pre_bin_pos = pre_bin->bucket_position;
                 int cur_bin_pos = cur_bin->bucket_position;
                 if(puv_map.count(std::make_pair(pre_bin_pos, cur_bin_pos)) == 0) {
                     if (pre_bin->right_end <= cur_bin->left_end) {
-                        HandleNonOverlap_1(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
+//                        HandleNonOverlap_1(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
+//                                           ss.seq_string_,
+//                                           ss.mods_pos_list_, puv_map);
+
+                        HandleNonOverlap_2(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
                                            ss.seq_string_,
-                                           ss.mods_pos_list_, puv_map);
+                                           ss.modlist_for_pos_, puv_map);
+
                     } else {
-                        HandleOverlap_1(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
+//                        HandleOverlap_1(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
+//                                        ss.seq_string_,
+//                                        ss.mods_pos_list_, puv_map);
+
+                        HandleOverlap_2(mod_dist, pre_bin, cur_bin, head1, j, dp_array, mods_vec,
                                         ss.seq_string_,
-                                        ss.mods_pos_list_, puv_map);
+                                        ss.modlist_for_pos_, puv_map);
                     }
                 }else{
                     dp_array[j] = puv_map[std::make_pair(pre_bin_pos, cur_bin_pos)];
@@ -846,6 +1341,7 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                             if(dp_array[j][mm].left_ >= head && dp_array[j][mm].right_ <= tail){
                                 int now_score = dp_array[j - 1][k].local_score_ + cur_bin->self_score
                                                  - computeLoss(pre_bin->seq_peak_vec_, cur_bin->seq_peak_vec_, dp_array[j][mm].left_,dp_array[j][mm].right_);
+
                                 if(now_score > dp_array[j][mm].local_score_){
                                     dp_array[j][mm].local_score_ = now_score;
                                     dp_array[j][mm].pre_mods_ = k;
@@ -881,22 +1377,66 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
 //            return;
 //        }
         for(int i = 0; i < ss.T_mass_comb_.size(); i++){
+
             //std::cout<<"i:"<<i<<std::endl;
             int nxt_moddist = get<0>(ss.T_mass_comb_[i]);
             int nxt_mod_num = get<2>(ss.T_mass_comb_[i]);
             int nxt_bin_pos = u->bucket_position + nxt_moddist;
             std::vector<int> nxt_mod_vec = get<1>(ss.T_mass_comb_[i]);
+            int nxt_iso_num = 0;
+            int nxt_iso_value = 0;
+
+
+
+            if(nxt_mod_vec[mng_ptr_->POS_ISO_SHIFT_IDX] > 0 || nxt_mod_vec[mng_ptr_->NEG_ISO_SHIFT_IDX] > 0 ){
+                nxt_mod_num = nxt_mod_num - 1;
+                nxt_iso_num = nxt_iso_num + 1;
+                if(nxt_mod_vec[mng_ptr_->POS_ISO_SHIFT_IDX] > 0){
+                    nxt_iso_value = 1;
+                }else{
+                    nxt_iso_value = -1;
+                }
+            }
+
+            bool Nmod = false;
+            for(int nx = 0; nx < mng_ptr_->N_mod_num_; nx ++){
+                if(nxt_mod_vec[nx] > 0){
+                    Nmod = true;
+                    break;
+                }
+            }
+            if((!u->bgn_bin) && Nmod){
+                continue;
+            }
+
+            if(total_iso_num + nxt_iso_num > mng_ptr_->max_total_iso_num || total_mods_num + nxt_mod_num > mng_ptr_->max_total_mods_num){
+                continue;
+            }
+
+            if(iso_sum + nxt_iso_value >= 2 || iso_sum + nxt_iso_value <= -2){
+                continue;
+            }
+
+//            if(mng_ptr_->DISULFIDE_BOND_IDX != - 1 && nxt_mod_vec[mng_ptr_->DISULFIDE_BOND_IDX] > 2){
+//                continue;
+//            }
+
+
             BucketPtr v = getBinAtPos(ss.merge_list_, nxt_bin_pos, mng_ptr_->use_fixed_tol);
 
             if(v != NULL &&
                (v->right_end - u->left_end) > nxt_mod_num)
+
                 //(v->left_end - u->right_end) > 0)
             {
+
                 //std::cout<<"found i: "<<i<<std::endl;
-                SearchPaths_1(v, nxt_moddist, nxt_mod_num, nxt_mod_vec, total_mods_num, path, dp_array, ss, puv_map);
+                SearchPaths_1(v, nxt_moddist, nxt_mod_num, nxt_iso_value, nxt_iso_num, nxt_mod_vec, total_mods_num, iso_sum, total_iso_num,  path, dp_array, ss, puv_map);
                 path.pop_back();
                 dp_array.pop_back();
                 total_mods_num = total_mods_num - nxt_mod_num;
+                total_iso_num = total_iso_num - nxt_iso_num;
+                iso_sum = iso_sum - nxt_iso_value;
             }
         }
 
@@ -951,6 +1491,7 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                                 int now_score = dp_array[j - 1][k].local_score_ + cur_bin->self_score
                                                 - computeLoss(pre_bin->seq_peak_vec_, cur_bin->seq_peak_vec_, dp_array[j][mm].left_,dp_array[j][mm].right_);
                                 if(now_score > dp_array[j][mm].local_score_){
+
                                     dp_array[j][mm].local_score_ = now_score;
                                     dp_array[j][mm].pre_mods_ = k;
                                 }
@@ -1119,14 +1660,28 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                 last_mods = dp_array.back()[s];
             }
         }
+
+        int total_mods_num = 0;
+
         ModsFound mods = last_mods;
         for(int i = path.size() - 1; i >= 0; i--) {
             mods_list.insert(mods_list.begin(), mods);
             int k = mods.pre_mods_;
+
+            int mods_num = 0;
+            for(int j = 0; j < mods.mods_vec_.size(); j ++){
+                if(j != mng_ptr_->POS_ISO_SHIFT_IDX && j != mng_ptr_->NEG_ISO_SHIFT_IDX){
+                    mods_num = mods_num + mods.mods_vec_[j];
+                }
+            }
+            total_mods_num = total_mods_num + mods_num;
             if (i > 0) {
                 mods = dp_array[i - 1][k];
             }
         }
+        mng_ptr_->total_mod_num_in_best_ = total_mods_num;
+
+
         std::ofstream outFile;
         std::string result_file = mng_ptr_->resultpath+"LCSA_results.txt";
 //                + "(K="
@@ -1140,7 +1695,7 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
         int bin_shift = first_bin->bucket_position - first_bin->peak_ptr_vec_[0]->getIntPosAfterMove();
         outFile<<std::endl;
         outFile<<"========alignment sp: " + std::to_string(mng_ptr_->sp_id) + " seq: " + mng_ptr_->proteo_name + "======="<<std::endl;
-        outFile<<std::setw(15)<<"prot_idx"<<std::setw(15)<<"spec_idx"<<std::setw(15)<<"Intensity"<<std::setw(15)<<"Shift"<<std::endl;
+        outFile<<std::setw(15)<<"prot_idx"<<std::setw(15)<<"spec_idx"<<std::setw(15)<<"Mono Mass"<<std::setw(15)<<"Type"<<std::setw(15)<<"Shift"<<std::endl;
         for(int j = 0; j < path.size(); j++){
             BucketPtr b = path[j];
             if(j != path.size() - 1) {
@@ -1151,14 +1706,17 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                             bin_shift = b->bucket_position - (0 - bgn_seq_peak_mass);
                         }
                         int seq_peak_mass = mng_ptr_->seq_peak_mass_list[b->seq_peak_vec_[p]] + mod_mass;
-
+                        std::string type = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getBaseTypePtr()->getName();
                         int spec_peak_mass = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getIntPosition();
+                        double spec_peak_double_mass = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getMonoMass();
 
                         double spec_peak_inten = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getIntensity();
-                        outFile<<std::setw(15)<< b->seq_peak_vec_[p] + mng_ptr_->start_pos << std::setw(15) << b->spec_peak_vec_[p] << std::setw(15) << std::fixed << std::setprecision(0)
-                                <<std::setw(15)<< spec_peak_inten
+                        outFile<<std::setw(15)<< b->seq_peak_vec_[p] + mng_ptr_->start_pos << std::setw(15) << b->spec_peak_vec_[p] << std::setw(15) << std::fixed << std::setprecision(3)
+                                <<std::setw(15)<< spec_peak_double_mass
+                                <<std::setw(15)<< type
+//                                <<std::setw(15)<< spec_peak_inten
                                //<<"\t"<< spec_peak_mass -bin_shift
-                               <<std::setw(15)<< spec_peak_mass - (seq_peak_mass - bgn_seq_peak_mass)
+                        <<std::setprecision(3)<<std::setw(15)<< (spec_peak_mass - (seq_peak_mass - bgn_seq_peak_mass)) / mng_ptr_->convert_ratio
                                //                    <<"\t"<<seq_peak_mass - bgn_seq_peak_mass - (seq_peak_mass - mod_mass)
                                //                    <<"\t"<<b->bucket_position
                                <<std::endl;
@@ -1168,24 +1726,36 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                 }
                 outFile<<"mods: ";
                 for(int m = 0 ; m < mng_ptr_->MODS_VEC.size(); m++){
-                    outFile<<mods_list[j + 1].mods_vec_[m]<<mng_ptr_->MODS_VEC[m];
-                    mod_mass = mod_mass + mods_list[j+1].mods_vec_[m] * mng_ptr_->MODS_MASS_VEC[m];
+                    if(mods_list[j + 1].mods_vec_[m]!=0) {
+                        outFile << "<" << mods_list[j + 1].mods_vec_[m] << ", " << mng_ptr_->MODS_VEC[m] << ">";
+                    }
+//                    mod_mass = mod_mass + mods_list[j+1].mods_vec_[m] * mng_ptr_->MODS_MASS_VEC[m];
                 }
-
+                mod_mass = mod_mass + mods_list[j+1].mods_mass;
                 //mod_mass = mod_mass + bucket_list[idx_path[j + 1]]->bucket_position - b->bucket_position;
                 outFile<<"\t("<<mods_list[j+1].left_ + mng_ptr_->start_pos<<","<<mods_list[j+1].right_ + mng_ptr_->start_pos <<")"<<std::endl;
 
 
             }else{
+
                 for (int p = 0; p < b->seq_peak_vec_.size(); p++) {
+
+                    mng_ptr_->end_pos = b->seq_peak_vec_.back() + mng_ptr_->start_pos - 1;
+//                    double prot_mass_for_e_value = mng_ptr_->seq_peak_mass_list[b->seq_peak_vec_.back()] - bgn_seq_peak_mass;
+//                    mng_ptr_->prot_mass_for_e_value_ = prot_mass_for_e_value;
+
                     if (b->seq_peak_vec_[p] >= mods_list[j].right_) {
                         int seq_peak_mass = mng_ptr_->seq_peak_mass_list[b->seq_peak_vec_[p]] + mod_mass;
                         int spec_peak_mass = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getIntPosition();
                         double spec_peak_inten = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getIntensity();
+                        double spec_peak_double_mass = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getMonoMass();
+                        std::string type = mng_ptr_->peak_vec_[b->spec_peak_vec_[p]]->getBaseTypePtr()->getName();
                         outFile << std::setw(15)<<b->seq_peak_vec_[p] + mng_ptr_->start_pos<< std::setw(15) << b->spec_peak_vec_[p] << std::setw(15)
-                                <<std::setw(15)<< spec_peak_inten
+//                                <<std::setw(15)<< spec_peak_inten
+                                <<std::setw(15)<< spec_peak_double_mass
+                                <<std::setw(15)<< type
                                 //<<"\t"<< spec_peak_mass - bin_shift
-                                << std::setw(15)<< spec_peak_mass - (seq_peak_mass - bgn_seq_peak_mass)
+                                <<std::setprecision(3)<<std::setw(15)<< (spec_peak_mass - (seq_peak_mass - bgn_seq_peak_mass)) / mng_ptr_->convert_ratio
                                 //                            <<"\t"<<seq_peak_mass - bgn_seq_peak_mass - (seq_peak_mass - mod_mass)
                                 //                            <<"\t"<<b->bucket_position
                                 <<std::endl;
@@ -1193,6 +1763,7 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
                 }
             }
         }
+
         outFile.close();
     }
 
@@ -1262,7 +1833,85 @@ int Lowerbound(PrmPeakPtrVec & merge_list, int key){
     }
 
 
+    int LCSFilter::getScore_2(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector<std::tuple<int, std::vector<int>, int>> & T_mass_comb,
+                              ResSeqPtr & seq, std::vector<std::pair<int,int>> & mods_pos_list, std::vector<std::pair<int,std::vector<int>>> & modlist_for_pos){
+        clock_t start,end1,end2;
+        start = clock();
+        std::string seq_string = seq->toAcidString();
+        //std::vector<int> mods_mass_list = mng_ptr_->mods_mass_list_;
 
+        clock_t merge_s = clock();
+        PrmPeakPtrVec merge_list;
+        for(int i = 0; i < lists_for_res.size(); i++){
+            for(int j = 0; j < lists_for_res[i].size(); j++){
+                merge_list.push_back(lists_for_res[i][j]);
+            }
+        }
+
+        sort(merge_list.begin(), merge_list.end(), peak_posAfterMove_cmp);
+
+        //PrmPeakPtrVec merge_list = getSortedMergeList_pos(lists_for_res);
+        clock_t merge_e = clock();
+        //std::cout<< "merge list size:"<<merge_list.size()<<std::endl;
+        //std::cout<<"Step4_merge and sort "<< std::fixed<<std::setprecision(4)<<(double)(merge_e - merge_s)/CLOCKS_PER_SEC<<"s"<<std::endl;
+        //std::cout<<merge_list.size()<<std::endl;
+        std::vector<BucketPtr> bgn_bin_list;
+        //std::vector<BucketPtr> bgn_bin_list = getBgnBins(merge_list, seq->getLen() + 1, spec_peak_num);
+        for(int i = 0; i < mng_ptr_->bgn_bin_pos_list_.size(); i ++){
+            BucketPtr bgn_bin = getBinAtPos(merge_list, mng_ptr_->bgn_bin_pos_list_[i], mng_ptr_->use_fixed_tol);
+            if(bgn_bin != NULL){
+                bgn_bin_list.push_back(bgn_bin);
+            }
+        }
+        end1 = clock();
+        clock_t compute_s = clock();
+        SearchSet ss = SearchSet(seq_string, merge_list, mods_pos_list, T_mass_comb);
+        ss.modlist_for_pos_ = modlist_for_pos;
+        ss.max_score = 0;
+        std::unordered_map<std::pair<int,int>, std::vector<ModsFound>, pair_hash> puv_map;
+        int max_tree_size = 0;
+        ss.max_score_for_each_bgn_nodes.clear();
+        for(int i = 0; i < bgn_bin_list.size(); i ++){
+            ss.tree_size_ = 0;
+            ss.max_score_for_cur_bgn = 0;
+            std::vector<std::vector<ModsFound>> dp_array;
+            ModsFound mods;
+            std::vector<int> bgn_mods_vec(mng_ptr_->MODS_VEC.size());
+            BucketPtr bgn_bin = bgn_bin_list[i];
+            mods.local_score_ = bgn_bin->self_score;
+            dp_array.push_back({mods});
+            std::vector<BucketPtr> path;
+            int total_mods_num = 0;
+            int total_iso_num = 0;
+            int iso_sum = 0;
+//            if(mng_ptr_->forAntibody_){
+//                SearchPaths_Antibody(bgn_bin, 0, 0, bgn_mods_vec, total_mods_num, path, dp_array, ss, puv_map);
+//
+//            }else {
+                SearchPaths_1(bgn_bin, 0, 0, 0, 0, bgn_mods_vec, total_mods_num, iso_sum, total_iso_num, path, dp_array, ss, puv_map);
+//            }
+            ss.max_score_for_each_bgn_nodes.push_back(ss.max_score_for_cur_bgn);
+//        std::cout<<ss.max_score_for_cur_bgn<<std::endl;
+//        if(ss.tree_size_ > max_tree_size){
+//            max_tree_size = ss.tree_size_;
+//        }
+            // std::cout<<i<<"/"<<bgn_bin_list.size() - 1<<"finished, max: "<< ss.max_score <<std::endl;
+        }
+        //std::cout<<"max tree size: "<<max_tree_size<<std::endl;
+        if(!ss.path_list.empty()) {
+            best_ss_path = ss.best_path;
+            best_ss_dp = ss.best_dp;
+            //backtrack_1(ss.best_path, ss.best_dp, seq);
+            //backtrack_2(ss.best_path, ss.best_dp, seq);
+        }
+        max_score_diff_bgn = ss.max_score_for_each_bgn_nodes;
+        end2 = clock();
+        clock_t compute_e = clock();
+        //std::cout<<"compute time: "<<double(compute_e - compute_s)/CLOCKS_PER_SEC<<std::endl;
+        //std::cout<<"number of puv: "<<puv_map.size()<<std::endl;
+
+        return ss.max_score;
+    }
 
 
 int LCSFilter::getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector<std::tuple<int, std::vector<int>, int>> & T_mass_comb,
@@ -1313,12 +1962,14 @@ int LCSFilter::getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector
         dp_array.push_back({mods});
         std::vector<BucketPtr> path;
         int total_mods_num = 0;
-        if(mng_ptr_->forAntibody_){
-            SearchPaths_Antibody(bgn_bin, 0, 0, bgn_mods_vec, total_mods_num, path, dp_array, ss, puv_map);
+        int total_iso_num = 0;
+        int iso_sum = 0;
+//        if(mng_ptr_->forAntibody_){
+//            SearchPaths_Antibody(bgn_bin, 0, 0, bgn_mods_vec, total_mods_num, path, dp_array, ss, puv_map);
 
-        }else {
-            SearchPaths_1(bgn_bin, 0, 0, bgn_mods_vec, total_mods_num, path, dp_array, ss, puv_map);
-        }
+//        }else {
+            SearchPaths_1(bgn_bin, 0, 0, 0, 0, bgn_mods_vec, total_mods_num, iso_sum, total_iso_num, path, dp_array, ss, puv_map);
+//        }
         ss.max_score_for_each_bgn_nodes.push_back(ss.max_score_for_cur_bgn);
 //        std::cout<<ss.max_score_for_cur_bgn<<std::endl;
 //        if(ss.tree_size_ > max_tree_size){
@@ -1800,7 +2451,8 @@ int LCSFilter::getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector
         //std::cout<<"before handle bucket: "<<double(end - start)/CLOCKS_PER_SEC<<"s"<<std::endl;
         //std::cout<<"bucket num: "<<bucket_list_more_res.size()<<std::endl;
         //clock_t compute_s = clock();
-        int max_comb_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+//        int max_comb_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+        int max_comb_score = getScore_2(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_, prot_data_ptr->modlist_for_pos_);
 
         //int max_comb_score = getScore(bucket_list_more_res, mng_ptr_->mod_mass_table_, seq, mods_pos_list);
         //prm_spec_vec[j]->InsertCandProt(prot_idx, max_comb_score);
@@ -1879,7 +2531,8 @@ int LCSFilter::getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector
         //std::cout<<"before handle bucket: "<<double(end - start)/CLOCKS_PER_SEC<<"s"<<std::endl;
 //        std::cout<<"bucket num: "<<bucket_list_more_res.size()<<std::endl;
         clock_t compute_s = clock();
-        int max_comb_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+//        int max_comb_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+        int max_comb_score = getScore_2(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_, prot_data_ptr->modlist_for_pos_);
 
         //int max_comb_score = getScore(bucket_list_more_res, mng_ptr_->mod_mass_table_, seq, mods_pos_list);
         //prm_spec_vec[j]->InsertCandProt(prot_idx, max_comb_score);
@@ -2006,7 +2659,9 @@ int LCSFilter::getScore_1(std::vector<PrmPeakPtrVec>& lists_for_res, std::vector
         Shifting(lists_diff_pos, proteo_ptr);
         //std::vector<std::pair<std::vector<BucketPtr>,int>> pathlist = getPath_Score_List(lists_diff_pos, mng_ptr_->mod_mass_table_, seq, mods_pos_list);
         //paths_of_subpeakvec.push_back(pathlist);
-        int max_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+
+//        int max_score = getScore_1(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_);
+        int max_score = getScore_2(lists_diff_pos, mng_ptr_->T_mass_comb_, seq, prot_data_ptr->mods_pos_list_, prot_data_ptr->modlist_for_pos_);
 
         end = clock();
         //}

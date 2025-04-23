@@ -25,12 +25,20 @@
 #include "prsm/simple_prsm_xml_writer.hpp"
 #include "prsm/simple_prsm_xml_writer_util.hpp"
 #include "prsm/simple_prsm_str_merge.hpp"
+#include "prsm/evalue_prsm.hpp"
 #include "seq/proteoform.hpp"
 
 #include "filter/LCS/lcs_filter.hpp"
 #include "filter/LCS/lcs_filter_processor.hpp"
 #include <fstream>
 #include "ms/factory/prm_ms_util.hpp"
+
+#include "stat/tdgf/tdgf_mng.hpp"
+#include "stat/tdgf/evalue_processor.hpp"
+//#include "stat/tdgf/evalue_processor.cpp"
+
+#include "stat/mcmc/mcmc_mng.hpp"
+#include "stat/mcmc/mcmc_dpr_processor.hpp"
 
 #include <time.h>
 
@@ -104,66 +112,65 @@ namespace toppic {
         return pair_list;
     }
 
-    static LCSFilter::ProtDataPtr getProtData(ProteoformPtr & proteo_ptr, LCSFilterMngPtr mng_ptr){
-        int k = mng_ptr->K;
-        std::unordered_map<int, std::vector<int>> mass_table;
-        std::unordered_map<int, std::vector<std::pair<int, int>>> mass_pos_table;
-        std::vector<std::vector<int>> follow_mass_table(proteo_ptr->getLen() + 1);
-        int max_mass = 0;
-        int min_mass = 100000;
-        ResSeqPtr seq = proteo_ptr->getResSeqPtr();
-        std::vector<std::pair<int,int>> mods_pos_list;
-        std::vector<int> prot_peak_mass_list;
-        int res_int_total_mass = 0;
-        double res_double_total_mass = 0;
-        prot_peak_mass_list.push_back(0);
-        for(int i = 0; i < proteo_ptr->getLen(); i++){
-            //res_total_mass = res_total_mass + round(seq->getResiduePtr(i)->getMass() * mng_ptr->convert_ratio);
-            res_double_total_mass = res_double_total_mass + seq->getResiduePtr(i)->getMass();
-            res_int_total_mass = res_double_total_mass * mng_ptr->convert_ratio;
-            prot_peak_mass_list.push_back(res_int_total_mass);
-            for(int m = 0; m < mng_ptr->MODS_VEC.size(); m++){
-                if(seq->getResiduePtr(i)->getAminoAcidPtr()->getOneLetter() == mng_ptr->MODS_VEC[m]){
-                    mods_pos_list.push_back(std::make_pair(i,m));
-                }
-            }
-        }
-        //mng_ptr->seq_peak_mass_list = prot_peak_mass_list;
-        //std::cout<<mods_pos_list.size()<<std::endl;
-        mass_table.reserve(proteo_ptr->getLen() * k * 0.5);
-        mass_pos_table.reserve(proteo_ptr->getLen() * k);
-        for(int i = 0; i < proteo_ptr->getLen(); i++){
-            int tmp_mass = 0;
-            int res_num = 1;
-            while(i + res_num - 1 < proteo_ptr->getLen() && res_num <= k) {
-                tmp_mass = tmp_mass + round(seq->getResiduePtr(i + res_num - 1)->getMass() * mng_ptr->convert_ratio);
-                int int_mass = tmp_mass;
-                int tol_mass = round(int_mass / mng_ptr->fix_tol_);
-                mass_table[tol_mass].push_back(int_mass);
-                mass_pos_table[int_mass].emplace_back(i, i + res_num);
-                follow_mass_table[i].push_back(int_mass);
-                if(int_mass > max_mass){
-                    max_mass = int_mass;
-                }
-                if(int_mass < min_mass){
-                    min_mass = int_mass;
-                }
-                res_num++;
-            }
-        }
-        for(auto it = mass_table.begin(); it != mass_table.end(); ++it) {
-            std::vector<int> int_mass_vec = it->second;
-            if(int_mass_vec.size() >= 2){
-                sort(int_mass_vec.begin(), int_mass_vec.end());
-                int_mass_vec.erase(unique(int_mass_vec.begin(), int_mass_vec.end()), int_mass_vec.end());
-                mass_table[it->first] = int_mass_vec;
-            }
-        }
-
-        LCSFilter::ProtDataPtr protdataptr = std::make_shared<LCSFilter::ProtData>(mass_table, mass_pos_table, mods_pos_list, prot_peak_mass_list, max_mass + 27);
-        return protdataptr;
-    }
-
+//    static LCSFilter::ProtDataPtr getProtData(ProteoformPtr & proteo_ptr, LCSFilterMngPtr mng_ptr){
+//        int k = mng_ptr->K;
+//        std::unordered_map<int, std::vector<int>> mass_table;
+//        std::unordered_map<int, std::vector<std::pair<int, int>>> mass_pos_table;
+//        std::vector<std::vector<int>> follow_mass_table(proteo_ptr->getLen() + 1);
+//        int max_mass = 0;
+//        int min_mass = 100000;
+//        ResSeqPtr seq = proteo_ptr->getResSeqPtr();
+//        std::vector<std::pair<int,int>> mods_pos_list;
+//        std::vector<int> prot_peak_mass_list;
+//        int res_int_total_mass = 0;
+//        double res_double_total_mass = 0;
+//        prot_peak_mass_list.push_back(0);
+//        for(int i = 0; i < proteo_ptr->getLen(); i++){
+//            //res_total_mass = res_total_mass + round(seq->getResiduePtr(i)->getMass() * mng_ptr->convert_ratio);
+//            res_double_total_mass = res_double_total_mass + seq->getResiduePtr(i)->getMass();
+//            res_int_total_mass = res_double_total_mass * mng_ptr->convert_ratio;
+//            prot_peak_mass_list.push_back(res_int_total_mass);
+//            for(int m = 0; m < mng_ptr->MODS_VEC.size(); m++){
+//                if(seq->getResiduePtr(i)->getAminoAcidPtr()->getOneLetter() == mng_ptr->MODS_VEC[m]){
+//                    mods_pos_list.push_back(std::make_pair(i,m));
+//                }
+//            }
+//        }
+//        //mng_ptr->seq_peak_mass_list = prot_peak_mass_list;
+//        //std::cout<<mods_pos_list.size()<<std::endl;
+//        mass_table.reserve(proteo_ptr->getLen() * k * 0.5);
+//        mass_pos_table.reserve(proteo_ptr->getLen() * k);
+//        for(int i = 0; i < proteo_ptr->getLen(); i++){
+//            int tmp_mass = 0;
+//            int res_num = 1;
+//            while(i + res_num - 1 < proteo_ptr->getLen() && res_num <= k) {
+//                tmp_mass = tmp_mass + round(seq->getResiduePtr(i + res_num - 1)->getMass() * mng_ptr->convert_ratio);
+//                int int_mass = tmp_mass;
+//                int tol_mass = round(int_mass / mng_ptr->fix_tol_);
+//                mass_table[tol_mass].push_back(int_mass);
+//                mass_pos_table[int_mass].emplace_back(i, i + res_num);
+//                follow_mass_table[i].push_back(int_mass);
+//                if(int_mass > max_mass){
+//                    max_mass = int_mass;
+//                }
+//                if(int_mass < min_mass){
+//                    min_mass = int_mass;
+//                }
+//                res_num++;
+//            }
+//        }
+//        for(auto it = mass_table.begin(); it != mass_table.end(); ++it) {
+//            std::vector<int> int_mass_vec = it->second;
+//            if(int_mass_vec.size() >= 2){
+//                sort(int_mass_vec.begin(), int_mass_vec.end());
+//                int_mass_vec.erase(unique(int_mass_vec.begin(), int_mass_vec.end()), int_mass_vec.end());
+//                mass_table[it->first] = int_mass_vec;
+//            }
+//        }
+//
+//        LCSFilter::ProtDataPtr protdataptr = std::make_shared<LCSFilter::ProtData>(mass_table, mass_pos_table, mods_pos_list, prot_peak_mass_list, max_mass + 27);
+//        return protdataptr;
+//    }
 
     LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilterMngPtr & mng_ptr){
         int k = mng_ptr->K;
@@ -172,18 +179,27 @@ namespace toppic {
         std::vector<int> prot_peak_mass_list;
         ResSeqPtr seq = proteo_ptr->getResSeqPtr();
         std::vector<std::pair<int,int>> mods_pos_list;
+        std::vector<std::pair<int,std::vector<int>>> modlist_pos;
         int res_int_total_mass = 0;
         double res_double_total_mass = 0;
         std::set<Dist> dist_set;
         prot_peak_mass_list.push_back(0);
-        for(int i = 0; i < proteo_ptr->getLen(); i++){
+        for(int i = 0; i < proteo_ptr->getLen(); i++) {
             res_double_total_mass = res_double_total_mass + seq->getResiduePtr(i)->getMass();
             res_int_total_mass = round(res_double_total_mass * mng_ptr->convert_ratio);
             prot_peak_mass_list.push_back(res_int_total_mass);
-            for(int m = 0; m < mng_ptr->MODS_VEC.size(); m++){
-                if(seq->getResiduePtr(i)->getAminoAcidPtr()->getOneLetter() == mng_ptr->MODS_VEC[m]){
-                    mods_pos_list.push_back(std::make_pair(i,m));
+            std::string resletter = seq->getResiduePtr(i)->getAminoAcidPtr()->getOneLetter();
+            std::vector<int> mods_idx_list;
+            for (int j = 0; j < mng_ptr->RES_MOD_TABLE[resletter].size(); j++) {
+                std::string mod_name = mng_ptr->RES_MOD_TABLE[resletter][j];
+                for (int q = 0; q < mng_ptr->MODS_VEC.size(); q++){
+                    if(mod_name == mng_ptr->MODS_VEC[q]){
+                        mods_idx_list.push_back(q);
+                    }
                 }
+            }
+            if(!mods_idx_list.empty()){
+                modlist_pos.push_back(std::make_pair(i, mods_idx_list));
             }
         }
         for(int i = 0; i < proteo_ptr->getLen(); i++){
@@ -212,8 +228,61 @@ namespace toppic {
         std::copy(dist_set.begin(), dist_set.end(), std::back_inserter(dist_vec));
         std::sort(dist_vec.begin(), dist_vec.end(), distVecUp);
         LCSFilter::ProtDataPtr protdataptr = std::make_shared<LCSFilter::ProtData>(dist_vec, mods_pos_list, prot_peak_mass_list, max_mass + 54);
+        protdataptr->modlist_for_pos_ = modlist_pos;
         return protdataptr;
     }
+
+//    LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilterMngPtr & mng_ptr){
+//        int k = mng_ptr->K;
+//        int max_mass = 0;
+//        int min_mass = 100000;
+//        std::vector<int> prot_peak_mass_list;
+//        ResSeqPtr seq = proteo_ptr->getResSeqPtr();
+//        std::vector<std::pair<int,int>> mods_pos_list;
+//        std::vector<std::pair<int,std::vector<int>>> modlist_pos;
+//        int res_int_total_mass = 0;
+//        double res_double_total_mass = 0;
+//        std::set<Dist> dist_set;
+//        prot_peak_mass_list.push_back(0);
+//        for(int i = 0; i < proteo_ptr->getLen(); i++){
+//            res_double_total_mass = res_double_total_mass + seq->getResiduePtr(i)->getMass();
+//            res_int_total_mass = round(res_double_total_mass * mng_ptr->convert_ratio);
+//            prot_peak_mass_list.push_back(res_int_total_mass);
+//            std::string resletter = seq->getResiduePtr(i)->getAminoAcidPtr()->getOneLetter();
+//            for(int m = 0; m < mng_ptr->MODS_VEC.size(); m++){
+//                if(resletter == mng_ptr->MODS_VEC[m]){
+//                    mods_pos_list.push_back(std::make_pair(i,m));
+//                }
+//            }
+//        }
+//        for(int i = 0; i < proteo_ptr->getLen(); i++){
+//            double tmp_mass = 0;
+//            int res_num = 1;
+//            while(i + res_num - 1 < proteo_ptr->getLen() && res_num <= k) {
+//                tmp_mass = tmp_mass + seq->getResiduePtr(i + res_num - 1)->getMass();
+//                int int_mass = round(tmp_mass * mng_ptr->convert_ratio);
+//                Dist tmp = Dist(int_mass, i, i + res_num);
+//                auto search = dist_set.find(tmp);
+//                if (search != dist_set.end()) {
+//                    search->pair_ij_.push_back(std::pair<int, int>(i, i + res_num));
+//                } else {
+//                    dist_set.insert(tmp);
+//                }
+//                if(int_mass > max_mass){
+//                    max_mass = int_mass;
+//                }
+//                if(int_mass < min_mass){
+//                    min_mass = int_mass;
+//                }
+//                res_num++;
+//            }
+//        }
+//        DistVec dist_vec;
+//        std::copy(dist_set.begin(), dist_set.end(), std::back_inserter(dist_vec));
+//        std::sort(dist_vec.begin(), dist_vec.end(), distVecUp);
+//        LCSFilter::ProtDataPtr protdataptr = std::make_shared<LCSFilter::ProtData>(dist_vec, mods_pos_list, prot_peak_mass_list, max_mass + 54);
+//        return protdataptr;
+//    }
 
     LCSFilter::ProtDataPtr getProtData_noK(ProteoformPtr & proteo_ptr, LCSFilterMngPtr & mng_ptr){
         int k = mng_ptr->K;
@@ -502,6 +571,16 @@ static float getLossProb(float x, float max, float min){
         return lossprob;
     }
 
+    bool inten_cmp( const PrmPeakPtr &p1, const PrmPeakPtr &p2 )
+    {
+        return(p1->getIntensity() < p2->getIntensity() );
+    }
+
+    bool monomass_cmp( const PrmPeakPtr &p1, const PrmPeakPtr &p2 )
+    {
+        return(p1->getMonoMass() < p2->getMonoMass() );
+    }
+
    static inline void filterBlock(ProteoformPtrVec & raw_forms,
                             int block_idx,
                             LCSFilterMngPtr mng_ptr,
@@ -509,8 +588,8 @@ static float getLossProb(float x, float max, float min){
        std::string block_str = str_util::toString(block_idx);
        LCSFilterPtr filter_ptr = std::make_shared<LCSFilter>(raw_forms, mng_ptr, block_str);
 
-       //srand(time(0));
-       srand(17);
+       srand(time(0));
+//       srand(17);
 
        struct cand_cmp {
            bool operator()(const std::pair<int, int> &p1, const std::pair<int, int> &p2) {
@@ -556,6 +635,8 @@ static float getLossProb(float x, float max, float min){
        mng_ptr->mods_mass_list_ = mods_mass_list;
        mng_ptr->mods_num_list_ = mods_num_list;
 
+       mng_ptr->max_total_iso_num = mng_ptr->filter_max_total_iso_num_;
+
        int proteo_num = raw_forms.size();
        clock_t total_start, total_end;
        clock_t total;
@@ -595,10 +676,19 @@ static float getLossProb(float x, float max, float min){
                        PrmPeakPtrVec peak_vec = prm_ms_util::getPrmPeakPtrs(ms_ptr_vec,
                                                                             sp_para_ptr->getPeakTolerancePtr());
 
-                       PrmPeakPtrVec ori_peak_vec = peak_vec;
+                       PrmPeakPtrVec alignment_peak_vec;
+                       if(mng_ptr->use_MS6){
+                           PrmMsPtrVec ms6_ptr_vec = spec_set_ptr->getMsSixPtrVec();
+                           alignment_peak_vec = prm_ms_util::getPrmPeakPtrs(ms6_ptr_vec,
+                                                                                sp_para_ptr->getPeakTolerancePtr());
+                       }else{
+                           alignment_peak_vec = peak_vec;
+                       }
+
+                       PrmPeakPtrVec ori_peak_vec = alignment_peak_vec;
                        int spec_id = ms_ptr_vec[0]->getMsHeaderPtr()->getId();
 
-                       if (peak_vec.size() > 0) {
+                       if (peak_vec.size() > 100) {
                            PrmPeakPtrVec peak_vec_1;
                            int neibor_num = 0;
                            peak_vec_1.push_back(peak_vec[0]);
@@ -620,10 +710,11 @@ static float getLossProb(float x, float max, float min){
                            PrmPeakPtrVec peak_vec_2;
                            peak_vec_2.push_back(peak_vec_1[0]);
                            PrmPeakPtrVec window_peak_vec;
+                           PrmPeakPtrVec not_window_peak_vec;
                            //window_peak_vec.push_back(peak_vec_1[0]);
                            std::vector<float> ionlist = {-18.015, -17.013, -28.01, -45.023, -46.025, 18.015, 17.013,
                                                          28.01, 45.023, 46.025};
-                           PrmPeakPtrVec new_peak_vec;
+
                            int total_keep = 0;
                            double window_time = 0;
                            for (int i = 1; i < peak_vec_1.size() - 1; i++) {
@@ -673,19 +764,42 @@ static float getLossProb(float x, float max, float min){
                                }
                                clock_t window_e;
                                window_time = window_time + double(window_e - window_s) / CLOCKS_PER_SEC;
-                               if (keep) {
-                                   peak_vec_2.push_back(peak_vec_1[i]);
-                                   window_peak_vec.push_back(peak_vec_1[i]);
-                                   total_keep = total_keep + 1;
-                               } else {
-                                   float prob = rand() % 100 / double(100);
-                                   if (prob >= float(mng_ptr->filter_drop_prob)) {
+
+                               if(mng_ptr->filter_mode_ == 0) {
+                                   if (keep) {
                                        peak_vec_2.push_back(peak_vec_1[i]);
-                                       //peak_vec_1.back()->setPeakId(peak_vec_1.size() - 1);
+                                       window_peak_vec.push_back(peak_vec_1[i]);
+                                       total_keep = total_keep + 1;
+                                   } else {
+                                       float prob = rand() % 100 / double(100);
+                                       if (prob >= float(mng_ptr->filter_drop_prob)) {
+                                           peak_vec_2.push_back(peak_vec_1[i]);
+                                           //peak_vec_1.back()->setPeakId(peak_vec_1.size() - 1);
+                                       }
+                                   }
+                               }else{
+                                   if (keep) {
+                                       window_peak_vec.push_back(peak_vec_1[i]);
+                                       peak_vec_2.push_back(peak_vec_1[i]);
+                                       total_keep = total_keep + 1;
+                                   } else {
+                                       not_window_peak_vec.push_back(peak_vec_1[i]);
                                    }
                                }
                            }
 
+
+                        if(mng_ptr->filter_mode_ != 0){
+                            std::sort(not_window_peak_vec.begin(), not_window_peak_vec.end(), inten_cmp);
+                            for(int pi = 0; pi < not_window_peak_vec.size(); pi ++){
+                                if(pi >= double(not_window_peak_vec.size()) / 3) {
+                                    peak_vec_2.push_back(not_window_peak_vec[pi]);
+                                }
+                            }
+                        }
+                        std::sort(peak_vec_2.begin(), peak_vec_2.end(), monomass_cmp);
+                        peak_vec_2.push_back(peak_vec_1.back());
+                        peak_vec = peak_vec_2;
 
                        }
 
@@ -724,6 +838,7 @@ static float getLossProb(float x, float max, float min){
                                mng_ptr->filter_result_num_,
                                ms_ptr_vec.size());
                        prm_spec->ori_peak_vec_ = ori_peak_vec;
+                       prm_spec->deconv_ms_ptr_vec_ = deconv_ms_ptr_vec;
                        prm_spec->ori_bgn_ys_ = ori_bgn_ys;
                        prm_spec->spec_id_ = spec_id;
                        prm_spec->offset_ = mng_ptr->prec_error_vec[k];
@@ -789,7 +904,7 @@ static float getLossProb(float x, float max, float min){
        int mm_min = mm_list[0];
        int mm_max = mm_list.back();
 
-
+       bool setting_fix_tole = mng_ptr->use_fixed_tol;
        clock_t mass_filter_s, mass_filter_e;
        mass_filter_s = clock();
        for (int i = 0; i < prm_spec_vec.size(); i++) {
@@ -810,101 +925,164 @@ static float getLossProb(float x, float max, float min){
            }
 
            for (int j = 0; j < proteo_num; j++) {
-               std::vector<std::pair<int, int>> seg_list;
-               std::vector<int> node_mass_list;
-               node_mass_list = node_mass_list_vec[j];
-               ResSeqPtr seq = raw_forms[j]->getResSeqPtr();
-               int y;
-               int range_left = 1;
-               for (int x = 0; x < node_mass_list.size(); x++) {
-                   int end_pos = -1;
-                   y = range_left;
-                   while (y < node_mass_list.size() &&
-                          node_mass_list[y] - node_mass_list[x] - prec_mass_minus_water <
-                          -mm_max - prec_tole) {
-                       y++;
-                   }
-                   if (y < node_mass_list.size()) {
-                       range_left = y;
+               if (!mng_ptr->whole_protein_only) {
+                   std::vector<std::pair<int, int>> seg_list;
+                   std::vector<int> node_mass_list;
+                   node_mass_list = node_mass_list_vec[j];
+                   ResSeqPtr seq = raw_forms[j]->getResSeqPtr();
+                   int y;
+                   int range_left = 1;
+                   for (int x = 0; x < node_mass_list.size(); x++) {
+                       int end_pos = -1;
+                       y = range_left;
                        while (y < node_mass_list.size() &&
-                              node_mass_list[y] - node_mass_list[x] - prec_mass_minus_water <=
-                              -mm_min + prec_tole) {
-                           int mass_diff = prec_mass_minus_water - (node_mass_list[y] - node_mass_list[x]);
-                           auto it = std::lower_bound(mm_list.begin(), mm_list.end(), mass_diff);
-                           if (it != mm_list.end()) {
-                               int z = std::distance(mm_list.begin(), it);
-                               if (abs(mm_list[z] - mass_diff) <= prec_tole) {
-                                   end_pos = y;
-                               } else {
-                                   if (z - 1 >= 0 && mass_diff - mm_list[z - 1] <= prec_tole) {
-                                       end_pos = y;
-                                   }
-                               }
-                           }
+                              node_mass_list[y] - node_mass_list[x] - prec_mass_minus_water <
+                              -mm_max - prec_tole) {
                            y++;
                        }
-                   } else {
-                       break;
-                   }
-                   if (end_pos != -1) {
-                       seg_list.push_back(std::make_pair(x, end_pos));
-                   }
-               }
-               std::vector<std::pair<int, int>> merge_seg_list;
-               std::vector<std::vector<int>> bgn_node_list;
-               std::vector<std::vector<int>> end_node_list;
-               if (!seg_list.empty()) {
-                   merge_seg_list.push_back(seg_list[0]);
-                   bgn_node_list.push_back({seg_list[0].first});
-                   end_node_list.push_back({seg_list[0].second});
-                   for (int k = 1; k < seg_list.size(); k++) {
-                       if (seg_list[k].first <= merge_seg_list.back().second) {
-                           if(merge_seg_list.back().second < seg_list[k].second) {
-                               merge_seg_list.back().second = seg_list[k].second;
+                       if (y < node_mass_list.size()) {
+                           range_left = y;
+                           while (y < node_mass_list.size() &&
+                                  node_mass_list[y] - node_mass_list[x] - prec_mass_minus_water <=
+                                  -mm_min + prec_tole) {
+                               int mass_diff = prec_mass_minus_water - (node_mass_list[y] - node_mass_list[x]);
+                               auto it = std::lower_bound(mm_list.begin(), mm_list.end(), mass_diff);
+                               if (it != mm_list.end()) {
+                                   int z = std::distance(mm_list.begin(), it);
+                                   if (abs(mm_list[z] - mass_diff) <= prec_tole) {
+                                       end_pos = y;
+                                   } else {
+                                       if (z - 1 >= 0 && mass_diff - mm_list[z - 1] <= prec_tole) {
+                                           end_pos = y;
+                                       }
+                                   }
+                               }
+                               if (end_pos != -1) {
+                                   seg_list.push_back(std::make_pair(x, end_pos));
+                                   end_pos = -1;
+                               }
+                               y++;
                            }
-                           bgn_node_list.back().push_back(seg_list[k].first);
-                           end_node_list.back().push_back(seg_list[k].second);
                        } else {
-                           merge_seg_list.push_back(seg_list[k]);
-                           bgn_node_list.push_back({seg_list[k].first});
-                           end_node_list.push_back({seg_list[k].second});
+                           break;
+                       }
+//                       if (end_pos != -1) {
+//                           seg_list.push_back(std::make_pair(x, end_pos));
+//                       }
+                   }
+                   std::vector<std::pair<int, int>> merge_seg_list;
+                   std::vector<std::vector<int>> bgn_node_list;
+                   std::vector<std::vector<int>> end_node_list;
+                   if (!seg_list.empty()) {
+                       merge_seg_list.push_back(seg_list[0]);
+                       bgn_node_list.push_back({seg_list[0].first});
+                       end_node_list.push_back({seg_list[0].second});
+                       for (int k = 1; k < seg_list.size(); k++) {
+                           if (seg_list[k].first <= merge_seg_list.back().second) {
+                               if (merge_seg_list.back().second < seg_list[k].second) {
+                                   merge_seg_list.back().second = seg_list[k].second;
+                               }
+                               bgn_node_list.back().push_back(seg_list[k].first);
+                               end_node_list.back().push_back(seg_list[k].second);
+                           } else {
+                               merge_seg_list.push_back(seg_list[k]);
+                               bgn_node_list.push_back({seg_list[k].first});
+                               end_node_list.push_back({seg_list[k].second});
+                           }
                        }
                    }
+                   //std::cout<<"seeee"<<std::endl;
+                   filtered_seg.push_back(merge_seg_list);
+                   bgn_node_lists.push_back(bgn_node_list);
+                   end_node_lists.push_back(end_node_list);
+               }else{
+                   std::vector<std::pair<int, int>> seg_list;
+                   std::vector<int> node_mass_list;
+                   node_mass_list = node_mass_list_vec[j];
+                   int mass_diff = prec_mass_minus_water - node_mass_list.back();
+//                          std::cout<<mass_diff<<std::endl;
+
+                   auto it = std::lower_bound(mm_list.begin(), mm_list.end(), mass_diff);
+                   if (it != mm_list.end()) {
+                       int z = std::distance(mm_list.begin(), it);
+                       //std::cout<<"mm"<<mm_list[z]<<std::endl;
+                       if (abs(mm_list[z] - mass_diff) <= prec_tole ||
+                           (z - 1 >= 0 && abs(mm_list[z - 1] - mass_diff) <= prec_tole)) {
+                           int end_pos = node_mass_list.size() - 1;
+                           seg_list.push_back(std::make_pair(0, end_pos));
+                       }
+                   }
+                   std::vector<std::pair<int, int>> merge_seg_list;
+                   std::vector<std::vector<int>> bgn_node_list;
+                   std::vector<std::vector<int>> end_node_list;
+                   if (!seg_list.empty()) {
+                       merge_seg_list.push_back(seg_list[0]);
+                       bgn_node_list.push_back({seg_list[0].first});
+                       end_node_list.push_back({seg_list[0].second});
+                       for (int k = 1; k < seg_list.size(); k++) {
+                           if (seg_list[k].first <= merge_seg_list.back().second) {
+                               if (merge_seg_list.back().second < seg_list[k].second) {
+                                   merge_seg_list.back().second = seg_list[k].second;
+                               }
+                               bgn_node_list.back().push_back(seg_list[k].first);
+                               end_node_list.back().push_back(seg_list[k].second);
+                           } else {
+                               merge_seg_list.push_back(seg_list[k]);
+                               bgn_node_list.push_back({seg_list[k].first});
+                               end_node_list.push_back({seg_list[k].second});
+                           }
+                       }
+                   }
+                   //std::cout<<"seeee"<<std::endl;
+                   filtered_seg.push_back(merge_seg_list);
+                   bgn_node_lists.push_back(bgn_node_list);
+                   end_node_lists.push_back(end_node_list);
                }
-               //std::cout<<"seeee"<<std::endl;
-               filtered_seg.push_back(merge_seg_list);
-               bgn_node_lists.push_back(bgn_node_list);
-               end_node_lists.push_back(end_node_list);
            }
 
 
+
            PrmPeakPtrVec peak_vec = prm_spec_vec[i]->getPeakVec();
+
+               int max_tole = 0;
+               for (int i = 0; i < peak_vec.size(); i++) {
+                   if (peak_vec[i]->getIntTolerance() > max_tole);
+                   max_tole = peak_vec[i]->getIntTolerance();
+//                      max_tole = peak_vec[i]->getIntNRelaxCStrictTolerance();
+               }
+
+
+               mng_ptr->max_bin_tol_ = max_tole;
+
            std::vector<int> bgn_ys = prm_spec_vec[i]->getBgn_ys();
            DistVec sp_dist_vec = getSpPairs_1(peak_vec, bgn_ys, mng_ptr->K);
+               mng_ptr->use_fixed_tol = true;
            for (int j = 0; j < proteo_num; j++) {
 
                if (!filtered_seg[j].empty()){
-               //&& (raw_forms[j]->getSeqName() == "sp|P0A6W9|GSH1_ECOLI")) {
-                   for (int seg_i = 0; seg_i < filtered_seg[j].size(); seg_i++) {
-                       int start_pos = filtered_seg[j][seg_i].first;
-                       int end_pos = filtered_seg[j][seg_i].second - 1;
-                       std::vector<int> bgn_nodes = bgn_node_lists[j][seg_i];
-                       std::vector<int> end_nodes = end_node_lists[j][seg_i];
-                       for (int b = 0; b < bgn_nodes.size(); b++) {
-                           bgn_nodes[b] = bgn_nodes[b] - start_pos;
-                           end_nodes[b] = end_nodes[b] - start_pos - 1;
-                       }
-                       ProteoformPtr sub_proteo_ptr = proteoform_factory::geneSubProteoform(raw_forms[j],
-                                                                                            raw_forms[j]->getFastaSeqPtr(),
-                                                                                            start_pos,
-                                                                                            end_pos);
-                       LCSFilter::ProtDataPtr prot_data = getProtData_1(sub_proteo_ptr, mng_ptr);
-                       //if (raw_forms[j]->getSeqName() == seqs_name[spec_set_ptr->getSpectrumId()]) {
-                       filter_ptr->Filtering(prm_spec_vec[i], sub_proteo_ptr, sp_dist_vec, prot_data, bgn_nodes, end_nodes,j);
+//               && (raw_forms[j]->getSeqName() == "tr|M9UII2|M9UII2_SULIS")) {
+                       for (int seg_i = 0; seg_i < filtered_seg[j].size(); seg_i++) {
+                           int start_pos = filtered_seg[j][seg_i].first;
+                           int end_pos = filtered_seg[j][seg_i].second - 1;
+                           std::vector<int> bgn_nodes = bgn_node_lists[j][seg_i];
+                           std::vector<int> end_nodes = end_node_lists[j][seg_i];
+                           for (int b = 0; b < bgn_nodes.size(); b++) {
+                               bgn_nodes[b] = bgn_nodes[b] - start_pos;
+                               end_nodes[b] = end_nodes[b] - start_pos - 1;
+                           }
+                           ProteoformPtr sub_proteo_ptr = proteoform_factory::geneSubProteoform(raw_forms[j],
+                                                                                                raw_forms[j]->getFastaSeqPtr(),
+                                                                                                start_pos,
+                                                                                                end_pos);
+                           LCSFilter::ProtDataPtr prot_data = getProtData_1(sub_proteo_ptr, mng_ptr);
+                           //if (raw_forms[j]->getSeqName() == seqs_name[spec_set_ptr->getSpectrumId()]) {
+                           filter_ptr->Filtering(prm_spec_vec[i], sub_proteo_ptr, sp_dist_vec, prot_data, bgn_nodes,
+                                                 end_nodes, j);
 
                        outputProgressBar(float(j) / float(raw_forms.size()));
 
-                   }
+                       }
+
                }
            }
 
@@ -957,8 +1135,11 @@ static float getLossProb(float x, float max, float min){
        writer_ptr->close();
 
        //sTopMG
+       mng_ptr->max_total_iso_num = mng_ptr->search_max_total_iso_num;
        clock_t sp_s, sp_e, stopmg_s, stopmg_e;
        stopmg_s = clock();
+       mng_ptr->use_fixed_tol = setting_fix_tole;
+       std::vector<Evalue_PrsmPtr> Eprsm_vec;
 
        for (int i = 0; i < prm_spec_vec.size(); i++) {
            if(prm_spec_vec[i]->spec_id_ != -1) {
@@ -967,6 +1148,15 @@ static float getLossProb(float x, float max, float min){
                PrmPeakPtrVec peak_vec = prm_spec_vec[i]->ori_peak_vec_;
                std::cout<<"number of peak: "<< peak_vec.size()<<std::endl;
 
+               int max_tole = 0;
+               for (int i = 0; i < peak_vec.size(); i++) {
+                   if (peak_vec[i]->getIntTolerance() > max_tole);
+                   max_tole = peak_vec[i]->getIntTolerance();
+//                      max_tole = peak_vec[i]->getIntNRelaxCStrictTolerance();
+               }
+
+
+               mng_ptr->max_bin_tol_ = max_tole;
 
 
                int max_score = 0;
@@ -1022,7 +1212,7 @@ static float getLossProb(float x, float max, float min){
 //                       }
                            //std::cout<<"total seg time: "<<std::fixed<<std::setprecision(4)<<double(cand_seg_e - cand_seg_s)/CLOCKS_PER_SEC<<std::endl;
                            //std::cout<<"===="<<std::endl;
-                           if (max_score < score) {
+                           if (max_score <= score) {
                                max_score = score;
                                max_score_shifting = shifting;
                                best_proteo = sub_proteo_ptr;
@@ -1056,7 +1246,7 @@ static float getLossProb(float x, float max, float min){
                                cand_seg_e = clock();
                                //std::cout<<"total seg time: "<<std::fixed<<std::setprecision(4)<<double(cand_seg_e - cand_seg_s)/CLOCKS_PER_SEC<<std::endl;
                                //std::cout<<"===="<<std::endl;
-                               if (max_score < score) {
+                               if (max_score <= score) {
                                    max_score = score;
                                    max_score_shifting = shifting;
                                    best_proteo = sub_proteo_ptr;
@@ -1080,6 +1270,7 @@ static float getLossProb(float x, float max, float min){
                        mng_ptr->sp_id = prm_spec_vec[i]->spec_id_;
                        filter_ptr->backtrack_2(best_path, best_dp, best_seq);
                    }
+
                    sp_e = clock();
 //                   std::cout << std::endl;
                    std::cout << "sp: " << prm_spec_vec[i]->spec_id_ << "proceeded using: "
@@ -1088,27 +1279,124 @@ static float getLossProb(float x, float max, float min){
                    std::ofstream outFile;
                    std::string result_file = mng_ptr->resultpath + "LCSA_scoreboard.txt";
 
-
+                   prm_spec_vec[i]->score_ = max_score;
                    outFile.open(result_file, std::ios::app);
                    if(max_score <= 0){
+
                        outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + "-"+ "\t" +
                                   "-"+ "\t" +
                                   std::to_string(0) << std::endl;
                    }else{
+                       prm_spec_vec[i]->best_prot_name_ = best_proteo->getSeqName();
                        outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + best_proteo->getSeqName() + "\t" +
+
 //                                  std::to_string(best_start_pos) + "\t" +
                                   std::to_string(prm_spec_vec[i]->offset_) + "\t" +
                                   std::to_string(max_score) << std::endl;
+
+
+                       int ori_len = best_proteo->getFastaSeqPtr()->getRawSeq().size();
+//                       std::cout<<"ori len"<<ori_len<<std::endl;
+                       ProteoformPtr ori_proteo = proteoform_factory::geneDbProteoformPtr(best_proteo->getFastaSeqPtr(), prsm_para_ptr->getFixModPtrVec(), false);
+                       ProteoformPtr match_proteo = proteoform_factory::geneSubProteoform(ori_proteo, best_proteo->getFastaSeqPtr(), mng_ptr->start_pos, mng_ptr->end_pos);
+//                       std::cout<<match_proteo->getResSeqPtr()->toAcidString()<<std::endl;
+                       double res_mass_sum = match_proteo->getResSeqPtr()->getResMassSum();
+
+//                       std::cout<<"start end:"<<mng_ptr->start_pos<<","<<mng_ptr->end_pos<<std::endl;
+                       Evalue_PrsmPtr e_prsm = std::make_shared<Evalue_Prsm>(prm_spec_vec[i]->deconv_ms_ptr_vec_, max_score, mng_ptr->total_mod_num_in_best_, best_proteo->getSeqName(), res_mass_sum);
+                       if(mng_ptr->start_pos == 0){
+                           if(mng_ptr->end_pos != ori_len - 1) {
+                               e_prsm->type_ptr = ProteoformType::PREFIX;
+                           }else{
+                               e_prsm->type_ptr = ProteoformType::COMPLETE;
+                           }
+                       }else{
+                           if(mng_ptr->end_pos != ori_len - 1) {
+                               e_prsm->type_ptr = ProteoformType::INTERNAL;
+                           }else{
+                               e_prsm->type_ptr = ProteoformType::SUFFIX;
+                           }
+                       }
+                       Eprsm_vec.push_back(e_prsm);
+
                    }
                    outFile.close();
                }
            }
        }
 
+//       std::vector<LCSFilter::PrmPeakSpecPtr> best_score_offset;
+//       for (int aa = 0; aa < prm_spec_vec.size(); aa++){
+//            if(best_score_offset.empty()){
+//                best_score_offset.push_back(prm_spec_vec[aa]);
+//            }else{
+//                if(prm_spec_vec[aa]->spec_id_ == best_score_offset.back()->spec_id_){
+//                    if(prm_spec_vec[aa]->score_ > best_score_offset.back()->score_){
+//                        best_score_offset[best_score_offset.size() - 1] = prm_spec_vec[aa];
+//                    }
+//                }
+//            }
+//       }
+
+//       std::string best_offset_file = mng_ptr->resultpath + "LCSA_bestoffset_scoreboard.txt";
+//       std::ofstream outF;
+//       outF.open(best_offset_file, std::ios::app);
+//       for(int rr = 0; rr < best_score_offset.size(); rr ++){
+//           LCSFilter::PrmPeakSpecPtr psm = best_score_offset[rr];
+//           outF << std::to_string(psm->spec_id_) + "\t" + psm->best_prot_name_ + "\t" +
+//                      std::to_string(psm->offset_) + "\t" +
+//                      std::to_string(psm->score_) << std::endl;
+//       }
+//       outF.close();
+
        stopmg_e = clock();
        std::cout << " exact algorithm time: " << double(stopmg_e - stopmg_s) / CLOCKS_PER_SEC << "s" << std::endl;
        std::cout << "total sTopMG time: " << double(stopmg_e - stopmg_s + total_end - total_start) / CLOCKS_PER_SEC
                  << "s" << std::endl;
+
+       std::ofstream outFile;
+       std::string result_file = mng_ptr->resultpath + "LCSA_scoreboard.txt";
+       outFile.open(result_file, std::ios::app);
+       outFile << " exact algorithm time: " << double(stopmg_e - stopmg_s) / CLOCKS_PER_SEC << "s" << std::endl;
+       outFile << "total sTopMG time: " << double(stopmg_e - stopmg_s + total_end - total_start) / CLOCKS_PER_SEC
+                 << "s" << std::endl;
+       outFile.close();
+
+       std::cout<< "compute E-value start"<<std::endl;
+       clock_t e_s,e_e;
+       e_s = clock();
+       std::cout << "E-value computation - started." << std::endl;
+       bool use_gf = true;
+
+
+//           MCMCMngPtr mcmc_mng_ptr
+//        = std::make_shared<MCMCMng>(prsm_para_ptr, "topmg_graph_post", "topmg_evalue",
+//                                    "var_mod_file_name", 5, 1);
+//    DprProcessorPtr processor = std::make_shared<DprProcessor>(mcmc_mng_ptr);
+//    processor->process();
+//    processor = nullptr;
+
+
+
+
+       TdgfMngPtr tdgf_mng_ptr
+               = std::make_shared<TdgfMng>(prsm_para_ptr, 0,
+                                           std::max(std::abs(mng_ptr->max_shift_mass), std::abs(mng_ptr->min_shift_mass)),
+                                           use_gf, mng_ptr->var_ptm_type_num, 1,
+                                           "toppic_combined", "toppic_evalue");
+       tdgf_mng_ptr->result_path = mng_ptr->resultpath;
+       tdgf_mng_ptr->obj_fdr = mng_ptr->obj_fdr_;
+       EValueProcessorPtr processor = std::make_shared<EValueProcessor>(tdgf_mng_ptr);
+       std::cout<<processor<<std::endl;
+       processor->init();
+       processor->process_1(false, Eprsm_vec);
+       e_e = clock();
+       std::ofstream outFile_E;
+       std::string E_result_file = mng_ptr->resultpath + "LCSA_scoreboard_Evalue.txt";
+       outFile_E.open(E_result_file, std::ios::app);
+       outFile_E << "Evalue computation finished: " << double(e_e - e_s)/CLOCKS_PER_SEC<< std::endl;
+       outFile_E.close();
+       processor = nullptr;
 
    }
 
