@@ -106,14 +106,14 @@ bin/topmg -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC
 ### FDR control for sTopMG
 1. In **src/concole/topmg_argument.cpp**, line 51: set **arguments["searchType"] = "TARGET+DECOY"**;
 2. In **src/concole/topmg_argument.cpp**, line 81: set  **arguments["objFDR"]** to be the objective FDR.
-You can also use command line to with **-F objective FDR** for FDR control, but make sure the **searchType** is set to **"TARGET+DECOY"**. The identified PSM will be shown in file "LCSA_scoreboard_FDR"
+You can also use command line to with **-F objective FDR** for FDR control, but make sure the **searchType** is set to **"TARGET+DECOY"**. The identified PSM will be shown in file "LCSA_scoreboard_FDR"\
 Example for setting objective FDR to be 0.01:
 ```sh
 bin/topmg -F 0.01 -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
 ```
 
 ### Change Settings for sTopMG
-The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.
+The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.\
 There are various searching schemes which can be decided by users.
 
 
@@ -124,11 +124,11 @@ In **src/filter/mng/LCS_filter_mng.hpp**, line 145,146,147\
 To set the number of isotope mass shift we consider during the search.
 
 In **src/console/topmg_process.cpp**, line 522, 523:\
-**bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.
+**bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.\
 **bool isotope_shift = true** : means we consider itsotope mass shift during the searching.
 
 In **src/concole/topmg_argument.cpp**, line 54,79:\
-**arguments["massErrorTolerance"] = "0"**: means use the fixed error tolerance = 0.1 Dalton for each peak and the precursor mass, when the parameter is set to be larger than 0, we use peak-dependent tolerance.
+**arguments["massErrorTolerance"] = "0"**: means use the fixed error tolerance = 0.1 Dalton for each peak and the precursor mass, when the parameter is set to be larger than 0, we use peak-dependent tolerance.\
 **arguments["useLCSFiltering"] = "false"**: means we use mass-filter + sTopMG. Change it to "true" if you need to use Filtering 2 described in paper.
 
 
