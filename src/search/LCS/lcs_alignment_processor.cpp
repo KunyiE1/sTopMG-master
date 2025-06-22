@@ -812,7 +812,7 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
 //                      for (int j = 0; j < filtered_seg.size(); j++) {
                       for (int j = 0; j < proteo_num; j++) {
                           score = 0;
-                          if (!filtered_seg[j].empty() && j==spec_id) {
+                          if (!filtered_seg[j].empty()) {
 //                              std::cout<<"+++++"<<j<<std::endl;
                               for (int seg_i = 0; seg_i < filtered_seg[j].size(); seg_i++) {
                                   int start_pos = filtered_seg[j][seg_i].first;
