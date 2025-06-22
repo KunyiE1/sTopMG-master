@@ -557,11 +557,23 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
 
 
                   std::vector<int> mm_list;
-                  for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
-                      mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
+                  if(mng_ptr->NEG_ISO_SHIFT_IDX == -1 && mng_ptr->POS_ISO_SHIFT_IDX == -1){
+                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
+                          mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
+                      }
+                  }else{
+                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
+                          if (get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->NEG_ISO_SHIFT_IDX] == 0 &&
+                              get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->POS_ISO_SHIFT_IDX] == 0) {
+                              mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
+                          }
+                      }
                   }
+
+
                   mm_list.push_back(0);
                   mm_list.push_back(mng_ptr->delta);
+                  std::cout<<"mmlist size: "<<mm_list.size();
                   std::sort(mm_list.begin(), mm_list.end());
                   int mm_min = mm_list[0];
                   int mm_max = mm_list.back();
@@ -587,14 +599,6 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
 
                   //prec_tole = fixed_tole;
                   for (int j = 0; j < proteo_num; j++) {
-
-//                      if(j!=spec_id) {
-//                          std::vector<std::pair<int, int>> merge_seg_list;
-//                          std::vector<std::vector<int>> bgn_node_list;
-//                          filtered_seg.push_back(merge_seg_list);
-//                          bgn_node_lists.push_back(bgn_node_list);
-//                      }else{
-
                       if (!mng_ptr->whole_protein_only) {
                           std::vector<std::pair<int, int>> seg_list;
                           std::vector<int> node_mass_list;
@@ -610,25 +614,20 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
                                      -mm_max - prec_tole) {
                                   y++;
                               }
-                              //std::cout<<x<<","<<y<<std::endl;
-                              //std::cout<<node_mass_list.size()<<std::endl;
                               if (y < node_mass_list.size()) {
                                   range_left = y;
                                   while (y < node_mass_list.size() &&
                                          node_mass_list[y] - node_mass_list[x] - prec_mass_minus_water <=
                                          -mm_min + prec_tole) {
-                                      int mass_diff =
-                                              prec_mass_minus_water - (node_mass_list[y] - node_mass_list[x]);
+                                      int mass_diff = prec_mass_minus_water - (node_mass_list[y] - node_mass_list[x]);
                                       auto it = std::lower_bound(mm_list.begin(), mm_list.end(), mass_diff);
                                       if (it != mm_list.end()) {
                                           int z = std::distance(mm_list.begin(), it);
-                                          if (mm_list[z] - mass_diff <= prec_tole) {
+                                          if (abs(mm_list[z] - mass_diff) <= prec_tole) {
                                               end_pos = y;
-                                              //std::cout<<x<<","<<y<<","<<prec_mass_minus_water<<","<<node_mass_list[y] - node_mass_list[x]<<","<<mass_diff<<","<<mm_list[z]<<std::endl;
                                           } else {
                                               if (z - 1 >= 0 && mass_diff - mm_list[z - 1] <= prec_tole) {
                                                   end_pos = y;
-                                                  //std::cout<<x<<","<<y<<","<<prec_mass_minus_water<<","<<node_mass_list[y] - node_mass_list[x]<<","<<mass_diff<<","<<mm_list[z - 1]<<std::endl;
                                               }
                                           }
                                       }
@@ -641,34 +640,36 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
                               } else {
                                   break;
                               }
-//                              if (end_pos != -1) {
-//                                  match_num = match_num + 1;
-////                                      if (raw_forms[j]->getSeqName() == "sp|P0AFB8|NTRC_ECOLI") {
-////                                          std::cout << x << "," << end_pos << std::endl;
-////                                      }
-//                                  seg_list.push_back(std::make_pair(x, end_pos));
-//                              }
+//                       if (end_pos != -1) {
+//                           seg_list.push_back(std::make_pair(x, end_pos));
+//                       }
                           }
-                          //std::cout<<"breakbreak"<<std::endl;
                           std::vector<std::pair<int, int>> merge_seg_list;
                           std::vector<std::vector<int>> bgn_node_list;
+                          std::vector<std::vector<int>> end_node_list;
                           if (!seg_list.empty()) {
                               merge_seg_list.push_back(seg_list[0]);
                               bgn_node_list.push_back({seg_list[0].first});
+                              end_node_list.push_back({seg_list[0].second});
                               for (int k = 1; k < seg_list.size(); k++) {
                                   if (seg_list[k].first <= merge_seg_list.back().second) {
-                                      merge_seg_list.back().second = seg_list[k].second;
+                                      if (merge_seg_list.back().second < seg_list[k].second) {
+                                          merge_seg_list.back().second = seg_list[k].second;
+                                      }
                                       bgn_node_list.back().push_back(seg_list[k].first);
+                                      end_node_list.back().push_back(seg_list[k].second);
                                   } else {
                                       merge_seg_list.push_back(seg_list[k]);
                                       bgn_node_list.push_back({seg_list[k].first});
+                                      end_node_list.push_back({seg_list[k].second});
                                   }
                               }
                           }
                           //std::cout<<"seeee"<<std::endl;
                           filtered_seg.push_back(merge_seg_list);
                           bgn_node_lists.push_back(bgn_node_list);
-                      } else {
+//                          end_node_lists.push_back(end_node_list);
+                      }else{
                           std::vector<std::pair<int, int>> seg_list;
                           std::vector<int> node_mass_list;
                           node_mass_list = node_mass_list_vec[j];
@@ -681,22 +682,36 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
                               //std::cout<<"mm"<<mm_list[z]<<std::endl;
                               if (abs(mm_list[z] - mass_diff) <= prec_tole ||
                                   (z - 1 >= 0 && abs(mm_list[z - 1] - mass_diff) <= prec_tole)) {
-                                  match_num = match_num + 1;
                                   int end_pos = node_mass_list.size() - 1;
                                   seg_list.push_back(std::make_pair(0, end_pos));
                               }
                           }
                           std::vector<std::pair<int, int>> merge_seg_list;
                           std::vector<std::vector<int>> bgn_node_list;
+                          std::vector<std::vector<int>> end_node_list;
                           if (!seg_list.empty()) {
                               merge_seg_list.push_back(seg_list[0]);
                               bgn_node_list.push_back({seg_list[0].first});
+                              end_node_list.push_back({seg_list[0].second});
+                              for (int k = 1; k < seg_list.size(); k++) {
+                                  if (seg_list[k].first <= merge_seg_list.back().second) {
+                                      if (merge_seg_list.back().second < seg_list[k].second) {
+                                          merge_seg_list.back().second = seg_list[k].second;
+                                      }
+                                      bgn_node_list.back().push_back(seg_list[k].first);
+                                      end_node_list.back().push_back(seg_list[k].second);
+                                  } else {
+                                      merge_seg_list.push_back(seg_list[k]);
+                                      bgn_node_list.push_back({seg_list[k].first});
+                                      end_node_list.push_back({seg_list[k].second});
+                                  }
+                              }
                           }
+                          //std::cout<<"seeee"<<std::endl;
                           filtered_seg.push_back(merge_seg_list);
                           bgn_node_lists.push_back(bgn_node_list);
+//                          end_node_lists.push_back(end_node_list);
                       }
-                      //proteoname if
-//                      }
                   }
                   //}
                   mass_filter_e = clock();
@@ -796,22 +811,26 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
                       int max_score_shifting = 0;
 //                      for (int j = 0; j < filtered_seg.size(); j++) {
                       for (int j = 0; j < proteo_num; j++) {
-                          if (!filtered_seg[j].empty()) {
+                          score = 0;
+                          if (!filtered_seg[j].empty() && j==spec_id) {
 //                              std::cout<<"+++++"<<j<<std::endl;
                               for (int seg_i = 0; seg_i < filtered_seg[j].size(); seg_i++) {
                                   int start_pos = filtered_seg[j][seg_i].first;
                                   int end_pos = filtered_seg[j][seg_i].second - 1;
                                   std::vector<int> bgn_nodes = bgn_node_lists[j][seg_i];
+                                  bgn_nodes.erase(unique(bgn_nodes.begin(),bgn_nodes.end()),bgn_nodes.end());
                                   for (int b = 0; b < bgn_nodes.size(); b++) {
                                       bgn_nodes[b] = bgn_nodes[b] - start_pos;
                                   }
+
+//                                  bgn_nodes = {0};
 //                                  std::cout<<"start"<<start_pos<<std::endl;
                                   ProteoformPtr sub_proteo_ptr = proteoform_factory::geneSubProteoform(raw_forms[j],
                                                                                                        raw_forms[j]->getFastaSeqPtr(),
                                                                                                        start_pos,
                                                                                                        end_pos);
                                   LCSFilter::ProtDataPtr prot_data = getProtData_1(sub_proteo_ptr, mng_ptr);
-                                  //if (raw_forms[j]->getSeqName() == seqs_name[spec_set_ptr->getSpectrumId()]) {
+
                                   score = filter_ptr->Compute_noK(peak_vec, sub_proteo_ptr, prot_data, bgn_nodes);
                                   if (score > 0) {
                                       ResSeqPtr seq = sub_proteo_ptr->getResSeqPtr();
@@ -833,11 +852,8 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
                                   }
                               }
 
-                          }else{
-                              max_score = 0;
-                              mng_ptr->sp_id = spec_set_ptr->getSpectrumId();
                           }
-//                          outputProgressBar(float(j) / float(raw_forms.size()));
+                          outputProgressBar(float(j) / float(raw_forms.size()));
                       }
 
                   } else {
