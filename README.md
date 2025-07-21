@@ -138,7 +138,12 @@ Decide if the disulfide bond is considered during the identification.\
 
 * **-N the number of reported alignments with top scores for one spectrum** (an integer > 0)\
 **-N 5** means for each spectrum, we report top 5 alignments with largest scores.
-  
+
+Example of setting parameters using command line:
+```sh
+bin/topmg -F 0.01 -e 0 -S false -W false - I 1 -N 5 -i database_and_modsfile/variable_mods_EC.txt database_and_modsfile/EC_canonical.fasta MSDataset/100SimulatedDataset/100_sim_ms2.msalign > MSDataset/100SimulatedDataset/results
+```
+
 User can also change the parameter settings by modify the code.\
 In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
 **bool whole_protein_only = false**: means we consider the truncation of the protein sequence when searching the query spectrum.
