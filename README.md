@@ -122,9 +122,15 @@ The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and us
 There are various searching schemes which can be decided by users.
 
 Options are provided to change the settings when using command line to run sTopMG
-* **-e mass-error-tolerance** <a positive integer> 
-Set the error tolerance for precursor and fragment masses in ppm. Default value: 10 ppm.
-* **-S consider disulfide bond or not** <true or false>
+* **-e mass-error-tolerance** (an integer) \
+Set the error tolerance for precursor and fragment masses in ppm. Default value: 10 ppm.\
+**-e 0** means use the fixed error tolerance = 0.1 Dalton for each peak and the precursor mass
+
+* **-S consider disulfide bond or not** (true or false)\
+Decide if the disulfide bond is considered during the identification.
+
+* **-W only consider whole protein sequence or not** (true or false)\
+**-W false** means we consider the truncation of the protein sequence when searching the query spectrum.
 
 
 In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
