@@ -2,17 +2,17 @@
 sTopMG is implemented by changing original topmg which is included in TopPIC. 
 For further information and detailed manual, please visit https://www.toppic.org/software/toppic/
 
-## System requirements
+## System Requirements
 
 * GCC version higher than 5.5.0 for C++14 support
 * CMake (>= 3.1)
 
-## Memory requirements
+## Memory Requirements
 * The expirements in the paper are conducted in Linux Ubuntu 22.04 with an usage of memory less than 4GB.
 * For users who need to consider more occurances of modifications or isotopes, we believe that a memory of 8GB is capable.
 * To modify or degub the programme with IDE like Clion, we recommand a memory of at least 16GB. 
 
-### Linux (Ubuntu 22.04):
+## Installation on Linux (Ubuntu 22.04):
 
 ```sh
 # install compiling tools
@@ -46,7 +46,7 @@ make -j$(nproc)
 make install
 ```
 
-### Linux (CentOS Stream 8):
+### Installation on Linux (CentOS Stream 8):
 
 ```sh
 # install Extra Packages for Enterprise Linux (EPEL)
@@ -77,7 +77,7 @@ make install
 
 The installation time is about 1 minutes. 
 
-## Simple Manual for Getting Started with sTopMG
+## Manual for Getting Started with sTopMG
 ### Run sTopMG on a toy dataset
 After TopPIC is successfully built(or you can only build topmg by run topmg in IDE like Clion)
 You can simply run sTopMG on a toy(demo) dataset with command line:
