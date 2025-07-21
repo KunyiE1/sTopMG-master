@@ -127,12 +127,19 @@ Set the error tolerance for precursor and fragment masses in ppm. Default value:
 **-e 0** means use the fixed error tolerance = 0.1 Dalton for each peak and the precursor mass
 
 * **-S consider disulfide bond or not** (true or false)\
-Decide if the disulfide bond is considered during the identification.
+Decide if the disulfide bond is considered during the identification.\
+**-S false** means we don't consider disulfide bond during the searching. 
 
 * **-W only consider whole protein sequence or not** (true or false)\
 **-W false** means we consider the truncation of the protein sequence when searching the query spectrum.
 
+* **-I the maximum number of isotope considered during the search** (an integer)\
+**-I 1** means the number of isotope mass shift we consider during the search is one.
 
+* **-N the number of reported alignments with top scores for one spectrum** (an integer > 0)\
+**-N 5** means for each spectrum, we report top 5 alignments with largest scores.
+  
+User can also change the parameter settings by modify the code.\
 In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
 **bool whole_protein_only = false**: means we consider the truncation of the protein sequence when searching the query spectrum.
 
