@@ -121,6 +121,11 @@ bin/topmg -F 0.01 -i database_and_modsfile/variable_mods_EC.txt database_and_mod
 The defaul settings of sTopMG is using fixed error tolerance = 0.1 Dalton and used for proteoform segment searching.\
 There are various searching schemes which can be decided by users.
 
+Options are provided to change the settings when using command line to run sTopMG
+* **-e mass-error-tolerance** <a positive integer> 
+Set the error tolerance for precursor and fragment masses in ppm. Default value: 10 ppm.
+* **-S consider disulfide bond or not** <true or false>
+
 
 In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
 **bool whole_protein_only = false**: means we consider the truncation of the protein sequence when searching the query spectrum.
