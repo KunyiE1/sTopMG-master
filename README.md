@@ -7,6 +7,10 @@ For further information and detailed manual, please visit https://www.toppic.org
 * GCC version higher than 5.5.0 for C++14 support
 * CMake (>= 3.1)
 
+## Memory requirements
+* The expirements in the paper are conducted in Linux Ubuntu 22.04 with an usage of memory less than 4GB.
+
+
 ### Linux (Ubuntu 22.04):
 
 ```sh
