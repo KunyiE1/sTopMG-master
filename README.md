@@ -10,7 +10,7 @@ For further information and detailed manual, please visit https://www.toppic.org
 ## Memory requirements
 * The expirements in the paper are conducted in Linux Ubuntu 22.04 with an usage of memory less than 4GB.
 * For users who need to consider more occurances of modifications or isotopes, we believe that a memory of 8GB is capable.
-
+* To modify or degub the programme with IDE like Clion, we recommand a memory of at least 16GB. 
 
 ### Linux (Ubuntu 22.04):
 
