@@ -9,6 +9,7 @@ For further information and detailed manual, please visit https://www.toppic.org
 
 ## Memory requirements
 * The expirements in the paper are conducted in Linux Ubuntu 22.04 with an usage of memory less than 4GB.
+* For users who need to consider more occurances of modifications or isotopes, we believe that a memory of 8GB is capable.
 
 
 ### Linux (Ubuntu 22.04):
