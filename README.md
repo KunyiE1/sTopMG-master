@@ -46,7 +46,7 @@ make -j$(nproc)
 make install
 ```
 
-### Installation on Linux (CentOS Stream 8):
+## Installation on Linux (CentOS Stream 8):
 
 ```sh
 # install Extra Packages for Enterprise Linux (EPEL)
