@@ -145,17 +145,17 @@ bin/topmg -F 0.01 -e 0 -S false -W false - I 1 -N 5 -i database_and_modsfile/var
 ```
 
 Users can also change the parameter settings by modify the code.\
-*In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
+* In **src/filter/mng/LCS_filter_mng.hpp**, line 137\
 **bool whole_protein_only = false**: means we consider the truncation of the protein sequence when searching the query spectrum.
 
-*In **src/filter/mng/LCS_filter_mng.hpp**, line 145,146,147\
+* In **src/filter/mng/LCS_filter_mng.hpp**, line 145,146,147\
 To set the number of isotope mass shift we consider during the search.
 
-*In **src/console/topmg_process.cpp**, line 522, 523:\
+* In **src/console/topmg_process.cpp**, line 522, 523:\
 **bool disulfide_bond = false**: means we don't consider disulfide bond during the searching. Change it to true when searching antibody query spectra.\
 **bool isotope_shift = true** : means we consider itsotope mass shift during the searching.
 
-*In **src/concole/topmg_argument.cpp**, line 54,79:\
+* In **src/concole/topmg_argument.cpp**, line 54,79:\
 **arguments["massErrorTolerance"] = "0"**: means use the fixed error tolerance = 0.1 Dalton for each peak and the precursor mass, when the parameter is set to be larger than 0, we use peak-dependent tolerance.\
 **arguments["useLCSFiltering"] = "false"**: means we use mass-filter + sTopMG. Change it to "true" if you need to use Filtering 2 described in paper.
 
