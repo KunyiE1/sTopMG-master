@@ -136,15 +136,15 @@ class LCSFilterMng {
     bool use_fixed_tol = true;
     bool whole_protein_only = false;
 
-
+    int top_k = 1;
     int filter_mode_= 1; //0 for random
 
     bool use_adjusted_precmass = false;
     bool mass_filter_use_fixed_tole = true;
 
-    int max_total_iso_num = 2;
-    int filter_max_total_iso_num_ = 2;
-    int search_max_total_iso_num = 2;
+    int max_total_iso_num = 1;
+    int filter_max_total_iso_num_ = 1;
+    int search_max_total_iso_num = 1;
 
   int max_proteoform_mass_ = 50000;
 

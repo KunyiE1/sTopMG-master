@@ -90,6 +90,7 @@ class LCSFilter {
 
 
 
+
   class SpPair{
   public:
       SpPair(int x, int y, int mass_dist):
@@ -572,6 +573,32 @@ class LCSFilter {
             auto h1 = std::hash<T1>{}(p.first);
             auto h2 = std::hash<T2>{}(p.second);
             return h1 ^ h2;
+        }
+    };
+
+
+
+    class CandPSM{
+    public:
+        CandPSM(int score, std::vector<LCSFilter::BucketPtr> path, std::vector<std::vector<LCSFilter::ModsFound>> dp, ResSeqPtr seq, ProteoformPtr proteo) :
+        score_(score),
+        path_(path),
+        dp_(dp),
+        seq_(seq),
+        proteo_(proteo){};
+
+        int score_;
+        std::vector<LCSFilter::BucketPtr> path_;
+        std::vector<std::vector<LCSFilter::ModsFound>> dp_;
+        ResSeqPtr seq_;
+        ProteoformPtr proteo_;
+    };
+    typedef std::shared_ptr<CandPSM> CandPSMPtr;
+
+    class ComparePSM{
+    public:
+        bool operator()(CandPSMPtr & psm_1, CandPSMPtr & psm_2) {
+            return psm_1->score_ > psm_2->score_;
         }
     };
 

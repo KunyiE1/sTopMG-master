@@ -41,12 +41,12 @@ TopmgArgument::TopmgArgument() {
 
 std::map<std::string, std::string> TopmgArgument::initArguments() {
   std::map<std::string, std::string> arguments;
-  arguments["oriDatabaseFileName"]="/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/MOUSE_DECOY_HB100.fasta";
+  arguments["oriDatabaseFileName"]="/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/EC_canonical.fasta";
   arguments["databaseFileName"] = "";
   arguments["databaseBlockSize"] = "600000000";
   arguments["maxFragmentLength"] = "500";
   arguments["minBlockNum"] = "1";
-  arguments["spectrumFileName"] = "/home/kunyili/Desktop/sTopMG-master/MSDataset/Antibody/HB100_FDR/27/HB100_FLASH(copy)/HB100_FLASH_ms2.msalign";
+  arguments["spectrumFileName"] = "/home/kunyili/Desktop/sTopMG-master/MSDataset/memoryTEST/100/ms2.msalign";
   arguments["activation"] = "FILE";
   arguments["searchType"] = "TARGET+DECOY";
   arguments["fixedMod"] = "";
@@ -65,7 +65,7 @@ std::map<std::string, std::string> TopmgArgument::initArguments() {
   arguments["keepTempFiles"] = "false";
   arguments["groupSpectrumNumber"] = "1";
   arguments["filteringResultNumber"] = "200";
-  arguments["varModFileName"] = "/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/variable_mods_Antibody.txt";
+  arguments["varModFileName"] = "/home/kunyili/Desktop/sTopMG-master/database_and_modsfile/variable_mods_EC.txt";
   arguments["threadNumber"] = "1";
   arguments["useFeatureFile"] = "true";
   arguments["proteoGraphGap"] = "0";
@@ -79,6 +79,10 @@ std::map<std::string, std::string> TopmgArgument::initArguments() {
   arguments["useLCSFiltering"] = "true";
   arguments["useVarPtm"] = "true";
     arguments["objFDR"] = "0.01";
+    arguments["topNum"] = "5";
+    arguments["disulfideBond"] = "false";
+    arguments["wholeProtein"] = "false";
+    arguments["isotopeNum"] = "1";
   return arguments;
 }
 
@@ -199,6 +203,10 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
   std::string var_ptm_num = "";
   std::string var_ptm_in_gap = "";
   std::string obj_fdr = "";
+  std::string disulfide_bond = "";
+  std::string whole_protein = "";
+  std::string isotope_num = "";
+  std::string top_num = "";
   std::string combined_output_name = "";
 
   // Define and parse the program options
@@ -224,6 +232,10 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
         ("proteoform-cutoff-value,V", po::value<std::string> (&cutoff_proteoform_value), "<a positive number>. Proteoform-level cutoff value for filtering identified proteoform spectrum-matches. Default value: 0.01.")
         ("mod-file-name,i", po::value<std::string>(&var_mod_file_name), "<a modification file>. Specify a text file containing the information of common PTMs for constructing proteoform graphs.")
             ("obj-FDR,F", po::value<std::string>(&obj_fdr), "objective FDR value")
+            ("disulfideBond, S", po::value<std::string>(&disulfide_bond),"Consider Disulfide Bond or not")
+            ("wholeProtein, W", po::value<std::string>(&whole_protein),"Only match spectrum to whole protein or not")
+            ("isotopeNum, I", po::value<std::string>(&isotope_num),"The maximum number of isotope considered during the search")
+            ("topNum, N", po::value<std::string>(&top_num),"The number of top reported alignments for one spectrum")
         ("thread-number,u", po::value<std::string> (&thread_number), "<a positive integer>. Number of threads used in the computation. Default value: 1.")
         ("no-topfd-feature,x", "No TopFD feature file for proteoform identification.")
         ("proteo-graph-gap,j", po::value<std::string> (&proteo_graph_gap), "<a positive number>. Gap in constructing proteoform graph. Default value: 40.")
@@ -256,6 +268,10 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
         ("full-binary-path,b", "Full binary path.")
         ("mod-file-name,i", po::value<std::string>(&var_mod_file_name), "")
             ("obj-FDR,F", po::value<std::string>(&obj_fdr), "")
+            ("disulfideBond, S", po::value<std::string>(&disulfide_bond),"")
+            ("wholeProtein, W", po::value<std::string>(&whole_protein),"")
+            ("isotopeNum, I", po::value<std::string>(&isotope_num),"")
+            ("topNum, N", po::value<std::string>(&top_num),"")
         ("thread-number,u", po::value<std::string> (&thread_number), "")
         ("no-topfd-feature,x", "")
         ("combined-file-name,c", po::value<std::string>(&combined_output_name) , "")
@@ -267,9 +283,10 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
         ("whole-protein-only,w", "")
         ("keep-temp-files,k", "")
         ("keep-decoy-ids,K", "")
-        ("skip-html-folder,g", "")
-        ("database-file-name", po::value<std::string>(&database_file_name)->required(), "Database file name with its path.")
-        ("spectrum-file-name", po::value<std::vector<std::string> >()->multitoken()->required(), "Spectrum file name with its path.");
+        ("skip-html-folder,g", "");
+
+//        ("database-file-name", po::value<std::string>(&database_file_name)->required(), "Database file name with its path.")
+//        ("spectrum-file-name", po::value<std::vector<std::string> >()->multitoken()->required(), "Spectrum file name with its path.");
 
     po::positional_options_description positional_options;
     positional_options.add("database-file-name", 1);
@@ -310,15 +327,17 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
 
     arguments_["resourceDir"] = file_util::getResourceDir(arguments_["executiveDir"]);
 
-    arguments_["oriDatabaseFileName"] = database_file_name;
+////
+//    arguments_["oriDatabaseFileName"] = database_file_name;
+////
 
    if (vm.count("spectrum-file-name")) {
       spec_file_list_ = vm["spectrum-file-name"].as<std::vector<std::string> >();
     }
 
-
-//    spec_file_list_.push_back(arguments_["spectrumFileName"]);
-
+////
+    spec_file_list_.push_back(arguments_["spectrumFileName"]);
+////
 
     if (vm.count("combined-file-name")) {
       arguments_["combinedOutputName"] = combined_output_name;
@@ -334,6 +353,22 @@ bool TopmgArgument::parse(int argc, char* argv[]) {
 
     if (vm.count("obj-FDR")) {
         arguments_["objFDR"] = obj_fdr;
+    }
+
+    if (vm.count("disulfideBond")){
+        arguments_["disulfideBond"] = disulfide_bond;
+    }
+
+    if (vm.count("wholeProtein")){
+        arguments_["wholeProtein"] = whole_protein;
+    }
+
+    if(vm.count("isotopeNum")){
+        arguments_["isotopeNum"] = isotope_num;
+    }
+
+    if(vm.count("topNum")){
+        arguments_["topNum"] = top_num;
     }
 
     if (arguments_["searchType"] == "TARGET+DECOY") {

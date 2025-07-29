@@ -557,18 +557,24 @@ static LCSFilter::ProtDataPtr getProtData_1(ProteoformPtr & proteo_ptr, LCSFilte
 
 
                   std::vector<int> mm_list;
-                  if(mng_ptr->NEG_ISO_SHIFT_IDX == -1 && mng_ptr->POS_ISO_SHIFT_IDX == -1){
-                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
-                          mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
-                      }
-                  }else{
-                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
-                          if (get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->NEG_ISO_SHIFT_IDX] == 0 &&
-                              get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->POS_ISO_SHIFT_IDX] == 0) {
-                              mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
-                          }
-                      }
+                  for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
+                      mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
                   }
+
+
+//                  if(mng_ptr->NEG_ISO_SHIFT_IDX == -1 && mng_ptr->POS_ISO_SHIFT_IDX == -1){
+//                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
+//                          mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
+//                      }
+//                  }
+//                  else{
+//                      for (int i = 0; i < mng_ptr->T_mass_comb_.size(); i++) {
+//                          if (get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->NEG_ISO_SHIFT_IDX] == 0 &&
+//                              get<1>(mng_ptr->T_mass_comb_[i])[mng_ptr->POS_ISO_SHIFT_IDX] == 0) {
+//                              mm_list.push_back(get<0>(mng_ptr->T_mass_comb_[i]));
+//                          }
+//                      }
+//                  }
 
 
                   mm_list.push_back(0);

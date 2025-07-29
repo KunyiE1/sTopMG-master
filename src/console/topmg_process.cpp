@@ -514,13 +514,25 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
 
 
 
-
+       int isotope_num = std::stoi(arguments["isotopeNum"]);
+      bool isotope_shift;
+       if(isotope_num > 0){
+           isotope_shift = true;
+       }else{
+           isotope_shift = false;
+       }
       //get mods info
       int t = std::stoi(arguments["varPtmNumber"]);
 //      int t = 5;
       double convert_ratio = 274.335215;
-      bool disulfide_bond = false;
-      bool isotope_shift = true;
+
+      bool disulfide_bond;
+      if(arguments["disulfideBond"] == "true"){
+          disulfide_bond = true;
+      }
+      if(arguments["disulfideBond"] == "false"){
+          disulfide_bond = false;
+      }
 
       ModPtrVec N_mods_list = mod_util::readModTxt(var_mod_file_name)[3];
 //      int N_mods_num = N_mods_list.size();
@@ -772,10 +784,21 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
       std::vector<double> single_shift_list_ = mod_util::readModTxtToShiftList(var_mod_file_name);
       int var_ptm_type_num = single_shift_list_.size(); // for E-value
 
+      int top_k = std::stoi(arguments["topNum"]);
+
+      bool whole_prot;
+      if(arguments["wholeProtein"] == "false"){
+          whole_prot = false;
+      }
+      if(arguments["wholeProtein"] == "true"){
+          whole_prot = true;
+      }
 
       //LCS-Filter + alignment
       clock_t sTopMGs,sTopMGe;
       sTopMGs = clock();
+
+
 
     if (arguments["useLCSFiltering"] == "true") {
         std::cout << "LCS PTM filtering - started." << std::endl;
@@ -795,8 +818,11 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
             lcs_filter_mng_ptr->use_fixed_tol = false;
             lcs_filter_mng_ptr->mass_filter_use_fixed_tole = false;
         }
+        lcs_filter_mng_ptr->whole_protein_only = whole_prot;
         lcs_filter_mng_ptr->obj_fdr_ = obj_fdr;
+        lcs_filter_mng_ptr->top_k = top_k;
         lcs_filter_mng_ptr->var_ptm_type_num = var_ptm_type_num;
+        lcs_filter_mng_ptr->search_max_total_iso_num = isotope_num;
         lcs_filter_mng_ptr->max_shift_mass = max_shift_mass;
         lcs_filter_mng_ptr->min_shift_mass = min_shift_mass;
 //        lcs_filter_mng_ptr->forAntibody_ = disulfide_bond;
@@ -879,7 +905,9 @@ int TopMG_identify(std::map<std::string, std::string> & arguments) {
           lcs_alignment_mng_ptr->obj_fdr_ = obj_fdr;
           lcs_alignment_mng_ptr->resultpath = sp_directory;
           lcs_alignment_mng_ptr->RES_MOD_TABLE = res_mod_dict;
+          lcs_alignment_mng_ptr->search_max_total_iso_num = isotope_num;
           lcs_alignment_mng_ptr->MODS_VEC = unique_mods_name_list;
+          lcs_alignment_mng_ptr->whole_protein_only = whole_prot;
 //        lcs_filter_mng_ptr->MODS_RES_VEC = mod_ori_res_identical;
           lcs_alignment_mng_ptr->POS_ISO_SHIFT_IDX = pos_iso_shift_idx;
           lcs_alignment_mng_ptr->NEG_ISO_SHIFT_IDX = neg_iso_shift_idx;

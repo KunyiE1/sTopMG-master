@@ -1045,9 +1045,9 @@ static float getLossProb(float x, float max, float min){
            PrmPeakPtrVec peak_vec = prm_spec_vec[i]->getPeakVec();
 
                int max_tole = 0;
-               for (int i = 0; i < peak_vec.size(); i++) {
-                   if (peak_vec[i]->getIntTolerance() > max_tole);
-                   max_tole = peak_vec[i]->getIntTolerance();
+               for (int pt = 0; pt < peak_vec.size(); pt++) {
+                   if (peak_vec[pt]->getIntTolerance() > max_tole);
+                   max_tole = peak_vec[pt]->getIntTolerance();
 //                      max_tole = peak_vec[i]->getIntNRelaxCStrictTolerance();
                }
 
@@ -1060,6 +1060,7 @@ static float getLossProb(float x, float max, float min){
            for (int j = 0; j < proteo_num; j++) {
 
                if (!filtered_seg[j].empty()){
+//               && j == i){
 //               && (raw_forms[j]->getSeqName() == "tr|M9UII2|M9UII2_SULIS")) {
                        for (int seg_i = 0; seg_i < filtered_seg[j].size(); seg_i++) {
                            int start_pos = filtered_seg[j][seg_i].first;
@@ -1169,6 +1170,9 @@ static float getLossProb(float x, float max, float min){
                std::string best_proteo_name;
                ProteoformPtr best_proteo;
                std::cout << "sp: " << prm_spec_vec[i]->spec_id_ << " alignment processing" << std::endl;
+
+               std::priority_queue<LCSFilter::CandPSMPtr, std::vector<LCSFilter::CandPSMPtr>, LCSFilter::ComparePSM> cand_psm_queue;
+
                std::vector<ProteoformPtr> cand_prots = prm_spec_vec[i]->cand_proteo_vec_;
                if(cand_prots.empty()){
                    std::ofstream outFile;
@@ -1206,6 +1210,16 @@ static float getLossProb(float x, float max, float min){
 //                                                                   seq, prot_data, peak_vec);
 
                            cand_seg_e = clock();
+                           LCSFilter::CandPSMPtr cand_psm = std::make_shared<LCSFilter::CandPSM>(score, filter_ptr->best_ss_path, filter_ptr->best_ss_dp, sub_proteo_ptr->getResSeqPtr(), sub_proteo_ptr);
+                           if (cand_psm_queue.size() < mng_ptr->top_k){
+                               cand_psm_queue.push(cand_psm);
+                           }else{
+                               if(score > cand_psm_queue.top()->score_){
+                                   cand_psm_queue.pop();
+                                   cand_psm_queue.push(cand_psm);
+                               }
+                           }
+
                            //std::cout<<"J: "<<j<<", score: "<<score<<", seq: "<< sub_proteo_ptr->getSeqName()<<", start: "<< sub_proteo_ptr->getStartPos()<<std::endl;
 //                       if(cand_prots[j]->getSeqName() == "sp|P31806|NNR_ECOLI"){
 //                           std::cout<<"score: "<<score<<" res: "<<cand_prots[j]->getResSeqPtr()->toString()<<std::endl;
@@ -1244,6 +1258,15 @@ static float getLossProb(float x, float max, float min){
 //                               shifting = filter_ptr->getTotalShifting(filter_ptr->best_ss_path, filter_ptr->best_ss_dp,
 //                                                                       seq, prot_data, peak_vec);
                                cand_seg_e = clock();
+                               LCSFilter::CandPSMPtr cand_psm = std::make_shared<LCSFilter::CandPSM>(score, filter_ptr->best_ss_path, filter_ptr->best_ss_dp, sub_proteo_ptr->getResSeqPtr(), sub_proteo_ptr);
+                               if (cand_psm_queue.size() < mng_ptr->top_k){
+                                   cand_psm_queue.push(cand_psm);
+                               }else{
+                                   if(score > cand_psm_queue.top()->score_){
+                                       cand_psm_queue.pop();
+                                       cand_psm_queue.push(cand_psm);
+                                   }
+                               }
                                //std::cout<<"total seg time: "<<std::fixed<<std::setprecision(4)<<double(cand_seg_e - cand_seg_s)/CLOCKS_PER_SEC<<std::endl;
                                //std::cout<<"===="<<std::endl;
                                if (max_score <= score) {
@@ -1268,7 +1291,7 @@ static float getLossProb(float x, float max, float min){
                        mng_ptr->seq_peak_mass_list = best_seq_peak_mass_list;
                        mng_ptr->start_pos = best_start_pos;
                        mng_ptr->sp_id = prm_spec_vec[i]->spec_id_;
-                       filter_ptr->backtrack_2(best_path, best_dp, best_seq);
+//                       filter_ptr->backtrack_2(best_path, best_dp, best_seq);
                    }
 
                    sp_e = clock();
@@ -1278,22 +1301,24 @@ static float getLossProb(float x, float max, float min){
                              << std::endl;
                    std::ofstream outFile;
                    std::string result_file = mng_ptr->resultpath + "LCSA_scoreboard.txt";
-
                    prm_spec_vec[i]->score_ = max_score;
                    outFile.open(result_file, std::ios::app);
-                   if(max_score <= 0){
-
+                   if(cand_psm_queue.empty()){
                        outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + "-"+ "\t" +
                                   "-"+ "\t" +
                                   std::to_string(0) << std::endl;
                    }else{
-                       prm_spec_vec[i]->best_prot_name_ = best_proteo->getSeqName();
-                       outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + best_proteo->getSeqName() + "\t" +
+                       while(!cand_psm_queue.empty()){
+                           LCSFilter::CandPSMPtr cur_cand = cand_psm_queue.top();
+                           filter_ptr->backtrack_2(cur_cand->path_, cur_cand->dp_, cur_cand->seq_);
 
-//                                  std::to_string(best_start_pos) + "\t" +
-                                  std::to_string(prm_spec_vec[i]->offset_) + "\t" +
-                                  std::to_string(max_score) << std::endl;
+                           outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + cur_cand->proteo_->getSeqName() + "\t" +
 
+                                      //                                  std::to_string(best_start_pos) + "\t" +
+//                                      std::to_string(prm_spec_vec[i]->offset_) + "\t" +
+                                      std::to_string(max_score) << std::endl;
+                           cand_psm_queue.pop();
+                       }
 
                        int ori_len = best_proteo->getFastaSeqPtr()->getRawSeq().size();
 //                       std::cout<<"ori len"<<ori_len<<std::endl;
@@ -1318,9 +1343,53 @@ static float getLossProb(float x, float max, float min){
                            }
                        }
                        Eprsm_vec.push_back(e_prsm);
-
                    }
-                   outFile.close();
+
+                   ////old output
+//                   prm_spec_vec[i]->score_ = max_score;
+//                   outFile.open(result_file, std::ios::app);
+//                   if(max_score <= 0){
+//
+//                       outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + "-"+ "\t" +
+//                                  "-"+ "\t" +
+//                                  std::to_string(0) << std::endl;
+//                   }else{
+//                       prm_spec_vec[i]->best_prot_name_ = best_proteo->getSeqName();
+//                       outFile << std::to_string(prm_spec_vec[i]->spec_id_) + "\t" + best_proteo->getSeqName() + "\t" +
+//
+////                                  std::to_string(best_start_pos) + "\t" +
+//                                  std::to_string(prm_spec_vec[i]->offset_) + "\t" +
+//                                  std::to_string(max_score) << std::endl;
+//
+//
+//                       int ori_len = best_proteo->getFastaSeqPtr()->getRawSeq().size();
+////                       std::cout<<"ori len"<<ori_len<<std::endl;
+//                       ProteoformPtr ori_proteo = proteoform_factory::geneDbProteoformPtr(best_proteo->getFastaSeqPtr(), prsm_para_ptr->getFixModPtrVec(), false);
+//                       ProteoformPtr match_proteo = proteoform_factory::geneSubProteoform(ori_proteo, best_proteo->getFastaSeqPtr(), mng_ptr->start_pos, mng_ptr->end_pos);
+////                       std::cout<<match_proteo->getResSeqPtr()->toAcidString()<<std::endl;
+//                       double res_mass_sum = match_proteo->getResSeqPtr()->getResMassSum();
+//
+////                       std::cout<<"start end:"<<mng_ptr->start_pos<<","<<mng_ptr->end_pos<<std::endl;
+//                       Evalue_PrsmPtr e_prsm = std::make_shared<Evalue_Prsm>(prm_spec_vec[i]->deconv_ms_ptr_vec_, max_score, mng_ptr->total_mod_num_in_best_, best_proteo->getSeqName(), res_mass_sum);
+//                       if(mng_ptr->start_pos == 0){
+//                           if(mng_ptr->end_pos != ori_len - 1) {
+//                               e_prsm->type_ptr = ProteoformType::PREFIX;
+//                           }else{
+//                               e_prsm->type_ptr = ProteoformType::COMPLETE;
+//                           }
+//                       }else{
+//                           if(mng_ptr->end_pos != ori_len - 1) {
+//                               e_prsm->type_ptr = ProteoformType::INTERNAL;
+//                           }else{
+//                               e_prsm->type_ptr = ProteoformType::SUFFIX;
+//                           }
+//                       }
+//                       Eprsm_vec.push_back(e_prsm);
+//
+//                   }
+
+
+               outFile.close();
                }
            }
        }
