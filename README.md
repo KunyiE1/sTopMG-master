@@ -160,7 +160,7 @@ To set the number of isotope mass shift we consider during the search.
 **arguments["useLCSFiltering"] = "false"**: means we use mass-filter + sTopMG. Change it to "true" if you need to use Filtering 2 described in paper.
 
 
-
-
+##Publication
+https://www.nature.com/articles/s43588-025-00880-z
 
 
